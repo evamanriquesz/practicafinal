@@ -1,4 +1,18 @@
 
+/*barra de navegacion sticky*/
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+
+
 /* barra de redes sociales*/
 
 ul.socialIcons {
@@ -18,9 +32,9 @@ ul.socialIcons {
 .socialIcons li a {
   display: block;
   padding: 0.5em;
-  min-width: 2.3em;
-  max-width: 2.3em;
-  height: 2.3em;
+  min-width: 2.1em;
+  max-width: 2.1em;
+  height: 2.1em;
   white-space: nowrap;
   line-height: 1.5em; /*it's working only when you write text with icon*/
   transition: 0.5s;
