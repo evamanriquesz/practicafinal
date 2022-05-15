@@ -34,7 +34,7 @@ fetch("https://marvel-quote-api.p.rapidapi.com/", {
         vector[2]=frase.Title;
         console.log(frase);
         document.getElementById('Frase').innerHTML="&#34"+frase.Quote+"&#34";
-        document.getElementById('Autor').innerHTML="-"+frase.Speaker;
+        document.getElementById('Pelicula').innerHTML="-"+frase.Title;
         showHiddenInput();
 
     })
@@ -49,12 +49,12 @@ fetch("https://marvel-quote-api.p.rapidapi.com/", {
 comprobar.addEventListener("submit", function (event){
 event.preventDefault();
 
-let fraseAMostrar =document.getElementById("Frase");
-
 if(contador==4)
 {
     location.href='Nivel.html';
 }
+
+let fraseAMostrar =document.getElementById("Frase");
 fetch("https://marvel-quote-api.p.rapidapi.com/", {
         "method": "GET",
         "headers": {
@@ -64,15 +64,15 @@ fetch("https://marvel-quote-api.p.rapidapi.com/", {
     })
     .then(response => {
 
-    if(response.ok){
-        console.log(response);
-        return response.json();
+        if(response.ok){
+            console.log(response);
+            return response.json();
         }else{throw response;}
 
     })
 
-
     .then(response =>{
+
         frase=response;
         vector=[];
         vector[0]=frase.Quote;
@@ -80,34 +80,50 @@ fetch("https://marvel-quote-api.p.rapidapi.com/", {
         vector[2]=frase.Title;
         console.log(frase);
         document.getElementById('Frase').innerHTML="&#34"+frase.Quote+"&#34";
-        document.getElementById('Autor').innerHTML="-"+frase.Speaker;
     })
+
 
     .catch(err => {
         console.error(err);
     });
 
+
     console.log("boton comprobar");
     console.log(frase);
 
+    let intento_autor = document.getElementById("Autor").value;
     let intento_pelicula = document.getElementById("Pelicula").value;
-    if (frase.Title.toLowerCase().includes(intento_pelicula.toLowerCase()))
+    if (frase.Speaker.toLowerCase().includes(intento_autor.toLowerCase()) && frase.Title.toLowerCase().includes(intento_pelicula.toLowerCase()))
     {
         contadorCorrectas++;
         alert("respuesta correcta"+ contadorCorrectas+"/5");
+        document.getElementById("Autor").value = "";
+        document.getElementById("Pelicula").value = "";
+    }else if ( frase.Title.toLowerCase().includes(intento_pelicula.toLowerCase())){
+          alert("titulo de la pelicula correcta"+ contadorCorrectas+"/5");
+          document.getElementById("Autor").value = "";
+          document.getElementById("Pelicula").value = "";
+    }else if (frase.Speaker.toLowerCase().includes(intento_autor.toLowerCase())){
+        alert("personaje correcto"+ contadorCorrectas+"/5");
+        document.getElementById("Autor").value = "";
         document.getElementById("Pelicula").value = "";
     }else{
-        alert("respuesta incorrecta"+ contadorCorrectas+"/5")
-        document.getElementById("Pelicula").value = "";
+        alert("respuesta incorrecta")
+        document.getElementById("Autor").value = "";
     }
-        contador++;
+
+contador++;
+
+
+
+
 });
 
 
 function showHiddenInput(){
     document.getElementById('caja').style.display='block';
     document.getElementById('generar').style.display='none';
-    document.getElementById('facil').style.display='none';
+    document.getElementById('dificil').style.display='none';
 
 }
 
@@ -119,3 +135,10 @@ function hasValue(input, message) {
 	return showSuccess(input);
 }
 
+function WriteFile()
+{
+   var fso  = CreateObject("Scripting.FileSystemObject");
+   var fh = fso.CreateTextFile("/Resources/Fichero/Jugadores.txt", true);
+   fh.WriteLine(miCadenaDeTexto);
+   fh.Close();
+}

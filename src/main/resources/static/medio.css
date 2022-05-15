@@ -21,6 +21,7 @@ color: black;
   grid-auto-rows: minmax(100px, auto);
 }
 .PrimerCuadro{
+    text-align:center;
     grid-column: 1;
     grid-row: 1;
 }
@@ -32,9 +33,11 @@ color: black;
 
 #generar{
     background:#ffffff;
+    text-align:center;
     border:none;
     cursor:pointer;
     height:75px;
+
 }
 
 #Frase{
@@ -49,14 +52,6 @@ font-weight:bold;
     text-align:right;
     margin-right:50px;
 }
-
-#Autor{
-font-weight:bold;
-    font-style:italic;
-    font-size: 20px;
-    text-align:right;
-    margin-right:50px;
-}
 #caja{
     background: #000;
     color:white;
@@ -65,6 +60,8 @@ font-weight:bold;
     margin-right:15%;
     text-align:center;
 }
+
+
 #cajaTitulo{
     background: #000;
     border-radius: 15px;
@@ -73,3 +70,6 @@ font-weight:bold;
     text-align:center;
 }
 
+#Autor{
+text-align:center;
+}
