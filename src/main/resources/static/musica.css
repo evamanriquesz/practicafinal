@@ -6,3 +6,20 @@
     padding:400px;
     color:black;
     }
+
+    .label
+    {
+        color: #EBD7D7;
+    }
+
+    fieldset
+    {
+        width: 50em;
+        background-color: #FAEDED;
+    }
+
+    p
+    {
+        font-size: 20px;
+        color: white;
+    }

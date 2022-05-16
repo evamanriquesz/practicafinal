@@ -1,4 +1,19 @@
 
+   .main{
+     background-color:black;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    margin-top:0px;
+    padding:400px;
+    color:black;
+    }
+
+    a.nav-link
+    {
+        font-size: 18px;
+    }
+
+
 /*barra de navegacion sticky*/
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {

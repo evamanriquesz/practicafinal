@@ -1,5 +1,16 @@
 
 ///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA EL ONLOAD
+//////////////////////////////////////////////////////////////////////////////////
+
+function lanzadera()
+{
+    mostrarPlaylists();
+    showArtistas();
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////
 //ESTO ES PARA LA PLAYLIST PARA CONECTAR CON LA API DE SPOTIFY (AQUI HAY SEGURIDAD)
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -174,7 +185,7 @@ async function anadir(artistaId){
                             "nombreArtista" : nombreArtista1,
                             "favoritos" : nuevosFavoritos
                         };
-                          /*
+
                         let res1 = await fetch("/api/v1/artistas/"+artistaId1,{
                             method: 'PUT',
                             headers: {
@@ -184,13 +195,15 @@ async function anadir(artistaId){
                         });
                         console.log("nuevos favoritos "+ nuevosFavoritos);
                         showArtistas();
-                           */
+                        showArtistaCancion();
+
                  }
 
              }
         }
 
 }
+
 
 
 function showArtistas(){
@@ -225,7 +238,7 @@ function showArtistas(){
              let nombreArtista1 = artista1["nombreArtista"];
              let favoritos1 = artista1["favoritos"];
 
-             contenidoHTML = contenidoHTML + '<div class="card" id="ident' + i+1 + ' "><div class="card-body"><h4 class="card-title"> Artista: ' + nombreArtista1 + '</h4><p class="card-text">Favoritos: ' + favoritos1 + '</p><button type="button" class="btn btn-light" onclick ="anadirFavorito('+artistaId1+')">Añadir Favorito</button></div></div>';
+             contenidoHTML = contenidoHTML + '<div class ="col-3"> <div class="card" id="ident' + i+1 + ' style="width:18 rem;" ><div class="card-body"><h4 class="card-title"> ' + nombreArtista1 + '</h4><p class="card-text">Favoritos: ' + favoritos1 + '</p><button type="button" class="btn btn-outline-danger" onclick ="anadirFavorito('+artistaId1+')">Añadir Favorito</button> <button type="button" class="btn btn-outline-danger" onclick ="verCancionesDelArtista('+artistaId1+')">Ver Canciones Del Artista</button> </div></div></div>';
 
 
              console.log("artista " + artistaId1); //ok
@@ -236,3 +249,122 @@ function showArtistas(){
     }
 
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA MOSTRAR ARTISTAS CON SUS CANCIONES Y SUS FAVORITOS
+//////////////////////////////////////////////////////////////////////////////////
+
+function showArtistaCancion()
+{
+    console.log("se esta ejecutando show Artista Cancion");
+    showAC();
+}
+
+async function showAC()
+{
+
+     let res = await fetch("/api/v1/artistaCancionAll",{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+            }});
+
+            //console.log(res);
+
+            if (res.status == 200){
+                const data = await res.json();
+                //console.log(data);
+
+                const cancionArtistaAll_box = document.getElementById("mostrarArtistaCancion");
+                let table = document.createElement('table');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                cancionArtistaAll_box.appendChild(table);
+
+                let row_1 = document.createElement('tr');
+
+                let heading_1 = document.createElement('th');
+                heading_1.innerHTML="Canción";
+                let heading_2 = document.createElement('th');
+                heading_2.insertAdjacentText("beforeend","Artista");
+                let heading_3 = document.createElement('th');
+                heading_3.insertAdjacentText("beforeend","Álbum");
+                let heading_4 = document.createElement('th');
+                heading_4.insertAdjacentText("beforeend","Favoritos del artista");
+
+                 row_1.appendChild(heading_1);
+                 row_1.appendChild(heading_2);
+                 row_1.appendChild(heading_3);
+                 row_1.appendChild(heading_4);
+
+                 thead.appendChild(row_1);
+
+            //let max_tracks = data.tracks.limit;
+               // console.log(data.tracks.limit);
+                //console.log(data.tracks.items[99].track.name);
+
+            for (let i = 0; i<data.length; i++)
+            {
+
+                let rows_data = document.createElement('tr');
+
+                let heading_1 = document.createElement('td');
+                heading_1.innerHTML=data[i].nombreCancion;
+                let heading_2 = document.createElement('td');
+                heading_2.insertAdjacentText("beforeend",data[i].nombreArtista);
+                let heading_3 = document.createElement('td');
+                heading_3.insertAdjacentText("beforeend",data[i].album);
+                let heading_4 = document.createElement('td');
+                heading_4.insertAdjacentText("beforeend", data[i].favoritos)
+
+
+                rows_data.appendChild(heading_1);
+                rows_data.appendChild(heading_2);
+                rows_data.appendChild(heading_3);
+                rows_data.appendChild(heading_4);
+
+                tbody.appendChild(rows_data);
+
+            }
+
+            }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA OCULTAR ARTISTAS CON SUS CANCIONES Y SUS FAVORITOS, para luego mostrar los nuevos
+//////////////////////////////////////////////////////////////////////////////////
+
+function hideArtistaCancion()
+{
+    console.log("se esta ejecutando hide Artista Cancion");
+    hideAC();
+}
+
+async function hideAC()
+{
+    document.getElementById("mostrarArtistaCancion").style.visibility = "hidden";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

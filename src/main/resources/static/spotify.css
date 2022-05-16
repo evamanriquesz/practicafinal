@@ -1,0 +1,31 @@
+main{
+     background-color:black;
+
+     font:Segoe UI, sans-serif;
+     color: white;
+}
+
+th
+{
+   font-size:20px;
+}
+td
+{
+    font-size:17px;
+}
+
+h4
+{
+    color:black;
+}
+
+p.card-text
+{
+    font-size: 17px;
+     color:grey;
+}
+
+footer
+{
+        background-color:black;
+}
