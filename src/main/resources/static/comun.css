@@ -47,9 +47,9 @@ ul.socialIcons {
 .socialIcons li a {
   display: block;
   padding: 0.5em;
-  min-width: 2.1em;
-  max-width: 2.1em;
-  height: 2.1em;
+  min-width: 35px;
+  max-width: 35px;
+  height: 35px;
   white-space: nowrap;
   line-height: 1.5em; /*it's working only when you write text with icon*/
   transition: 0.5s;
