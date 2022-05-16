@@ -44,7 +44,13 @@ public class ArtistaController {
         return ResponseEntity.ok().body(respuesta);
     }
 
+    @DeleteMapping("/artistas/{artistaId}")
+    public ResponseEntity<ArtistaModel> deleteArtistaModel(@PathVariable("artistaId") Long artistaId)
+    {
+        artistaService.deleteArtistaModel(artistaId);
+        return ResponseEntity.noContent().build();
 
+    }
 
 
 

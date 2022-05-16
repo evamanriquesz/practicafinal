@@ -238,7 +238,7 @@ function showArtistas(){
              let nombreArtista1 = artista1["nombreArtista"];
              let favoritos1 = artista1["favoritos"];
 
-             contenidoHTML = contenidoHTML + '<div class ="col-3"> <div class="card" id="ident' + i+1 + ' style="width:18 rem;" ><div class="card-body"><h4 class="card-title"> ' + nombreArtista1 + '</h4><p class="card-text">Favoritos: ' + favoritos1 + '</p><button type="button" class="btn btn-outline-danger" onclick ="anadirFavorito('+artistaId1+')">Añadir Favorito</button> <button type="button" class="btn btn-outline-danger" onclick ="verCancionesDelArtista('+artistaId1+')">Ver Canciones Del Artista</button> </div></div></div>';
+             contenidoHTML = contenidoHTML + '<div class ="col-3"> <div class="card" id="ident' + i+1 + ' style="width:18 rem;" ><div class="card-body"><h4 class="card-title"> ' + nombreArtista1 + '</h4><p class="card-text">Favoritos: ' + favoritos1 + '</p><button type="button" class="btn btn-outline-danger" onclick ="anadirFavorito('+artistaId1+')">Añadir Favorito</button> <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal" onclick ="borrarArtista('+artistaId1+')">Eliminar</button> </div></div></div>';
 
 
              console.log("artista " + artistaId1); //ok
@@ -336,10 +336,10 @@ async function showAC()
             }
 }
 
-///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 //ESTO ES PARA OCULTAR ARTISTAS CON SUS CANCIONES Y SUS FAVORITOS, para luego mostrar los nuevos
-//////////////////////////////////////////////////////////////////////////////////
-
+//////////////////////////////////////////////////////////////////////////////////////////////
+//creo q no se usa
 function hideArtistaCancion()
 {
     console.log("se esta ejecutando hide Artista Cancion");
@@ -351,17 +351,125 @@ async function hideAC()
     document.getElementById("mostrarArtistaCancion").style.visibility = "hidden";
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA VER CANCIONES DE CADA ARTISTA
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+function verCancionesDelArtista(artistaId)
+{
+       console.log("se esta ejecutando show canciones by artista");
+        verCDA(artistaId);
+}
+
+async function verCDA(artistaId)
+{
+     event.preventDefault();
+
+     let res = await fetch("/api/v1/artistaCancionAll/" +artistaId,{
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                }});
+
+                //console.log(res);
+
+                if (res.status == 200){
+                    const data = await res.json();
+                    //console.log(data);
+                    let divModal = document.getElementById("mostrarModal");
+
+                    console.log("data", data);
+
+                    let canciones = [];
+
+                     for (let i=0; i<data.length; i++)
+                     {
+                     let artista1 = data[i];
+                     let cancionId1 = artista1["cancionId"];
+                     let nombreCancion1 = artista1["nombreCancion"];
+                     let artistaId1 = artista1["artistaId"];
+                     let nombreArtista1 = artista1["nombreArtista"];
+                     let album1 = artista1["album"];
+                     let favoritos1 = artista1["favoritos"];
+
+                     canciones.push(nombreCancion1);
+                     }
+
+                        console.log("canciones" + canciones);
+
+
+                    let contenidoHTMLModal = '<div class="modal" tabindex="-1"> <div class="modal-dialog"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title"> Canciones: </h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </div> <div class="modal-body"> <p>'+ canciones +'</p>  </div>  <div class="modal-footer">  <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button> </div> </div> </div> </div>';
 
 
 
+                divModal.innerHTML=contenidoHTMLModal;
+
+                   }
+}
+
+
+*/
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA BORRAR ARTISTAS
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+function borrarArtista(artistaId)
+{
+    console.log('Se esta ejecutando borrar Artista');
+    borrar(artistaId);
+}
+
+async function borrar(artistaId)
+{
+ //   event.preventDefault();
 
 
+    let res = await fetch("/api/v1/artistas",
+    {
+        method: 'GET',
+        headers: {
+            'Content-Type':'application/json',
+        }});
+
+        console.log(res.status);
+
+         if (res.status == 200){
+            const data = await res.json();
+            //console.log(data); //ok
+            //console.log(data[0]); //ok
+
+            console.log('estamos dentro');
 
 
+             for (let i=0; i<data.length; i++)
+             {
+                let artista1 = data[i];
+                let artistaId1 = artista1["artistaId"];
 
+                 console.log("artistaId: " + artistaId);
+                 console.log("artistaId1: " + artistaId1);
+
+                 if (artistaId == artistaId1)
+                 {
+                    console.log("este es el bueno: "+ artistaId1); //ok
+
+
+                        let res2 = await fetch("/api/v1/artistas/"+artistaId1,{
+                            method: 'DELETE',
+                        });
+                    showArtistas();
+
+                 }
+             }
+
+         }
+
+}
 
 
 

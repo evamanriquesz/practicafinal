@@ -7,5 +7,7 @@ import java.util.List;
 public interface ArtistaCancionService {
     public List<ArtistaCancionDTO> retrieveAll();
     public List<ArtistaCancionDTO> retrieveArtistaCancionAll();
+    //public void deleteArtistaCancion(Long artistaId);
+
 
 }

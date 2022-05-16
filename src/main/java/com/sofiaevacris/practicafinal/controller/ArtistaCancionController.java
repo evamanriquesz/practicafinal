@@ -2,12 +2,11 @@ package com.sofiaevacris.practicafinal.controller;
 
 
 import com.sofiaevacris.practicafinal.dto.ArtistaCancionDTO;
+import com.sofiaevacris.practicafinal.dto.CancionDTO;
 import com.sofiaevacris.practicafinal.service.ArtistaCancionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -21,6 +20,8 @@ public class ArtistaCancionController {
     @Autowired
     private ArtistaCancionService artistaCancionService;
 
+
+    //este igual lo borro
     @GetMapping("/artistaCancion")
     public ResponseEntity<HashMap<String, List<String>>> retrieveAll()
     {
@@ -59,6 +60,30 @@ public class ArtistaCancionController {
         return ResponseEntity.ok().body(respuesta);
     }
 
+    @GetMapping("/artistaCancionAll/{artistaId}")
+    public ResponseEntity<List<ArtistaCancionDTO>> retrieveCancionesByArtista(@PathVariable("artistaId") Long artistaId)
+    {
+        List<ArtistaCancionDTO> artistaCancionDTOEncontrado = new ArrayList<ArtistaCancionDTO>();
+        List<ArtistaCancionDTO> artistaCancionDTOS = artistaCancionService.retrieveAll();
+        for (ArtistaCancionDTO artistaCancionDTO : artistaCancionDTOS)
+        {
+            if(artistaCancionDTO.getArtistaId() == artistaId)
+            {
+                artistaCancionDTOEncontrado.add(artistaCancionDTO);
+            }
+        }
+       return ResponseEntity.ok().body(artistaCancionDTOEncontrado);
+    }
+
+    /*
+    @DeleteMapping("/artistaCancionAll/{artistaId}")
+    public ResponseEntity<ArtistaCancionDTO> deleteArtistaCancionDTO(@PathVariable("artistaId") Long artistaId)
+    {
+        artistaCancionService.deleteArtistaCancion(artistaId);
+        return ResponseEntity.noContent().build();
+
+    }
+    */
 }
 
 

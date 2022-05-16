@@ -68,5 +68,11 @@ public class ArtistaServiceImpl implements ArtistaService {
         return respuesta;
     }
 
+    @Override
+    public void deleteArtistaModel(Long artistaId)
+    {
+        artistaRepository.deleteById(artistaId);
+
+    }
 }
 
