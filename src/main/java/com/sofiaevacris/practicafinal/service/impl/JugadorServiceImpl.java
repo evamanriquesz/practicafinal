@@ -9,9 +9,11 @@ import com.sofiaevacris.practicafinal.repository.JugadorRepository;
 import com.sofiaevacris.practicafinal.service.JugadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class JugadorServiceImpl implements JugadorService {
 
     @Autowired

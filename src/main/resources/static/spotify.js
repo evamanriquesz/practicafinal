@@ -195,7 +195,6 @@ async function anadir(artistaId){
                         });
                         console.log("nuevos favoritos "+ nuevosFavoritos);
                         showArtistas();
-                        showArtistaCancion();
 
                  }
 
