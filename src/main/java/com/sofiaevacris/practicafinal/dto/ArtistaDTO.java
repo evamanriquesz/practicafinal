@@ -31,16 +31,17 @@ public class ArtistaDTO {
     @Size (min=1, max=5)
     private Long favoritos;
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ArtistaDTO that = (ArtistaDTO) o;
-        return Objects.equals(artistaId, that.artistaId) && Objects.equals(nombreArtista, that.nombreArtista) && Objects.equals(favoritos, that.favoritos);
+        return Objects.equals(artistaId, that.artistaId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(artistaId, nombreArtista, favoritos);
+        return Objects.hash(artistaId);
     }
 }

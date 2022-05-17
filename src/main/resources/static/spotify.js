@@ -234,6 +234,11 @@ function showArtistas(){
              {
              let artista1 = data[i];
              let artistaId1 = artista1["artistaId"];
+             let nomb let contenidoHTML='';
+             for (let i=0; i<data.length; i++)
+             {
+             let artista1 = data[i];
+             let artistaId1 = artista1["artistaId"];
              let nombreArtista1 = artista1["nombreArtista"];
              let favoritos1 = artista1["favoritos"];
 

@@ -26,11 +26,11 @@ public class ArtistaCancionDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ArtistaCancionDTO that = (ArtistaCancionDTO) o;
-        return Objects.equals(cancionId, that.cancionId) && Objects.equals(artistaId, that.artistaId) && Objects.equals(nombreCancion, that.nombreCancion) && Objects.equals(nombreArtista, that.nombreArtista) && Objects.equals(album, that.album) && Objects.equals(favoritos, that.favoritos);
+        return Objects.equals(artistaId, that.artistaId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cancionId, artistaId, nombreCancion, nombreArtista, album, favoritos);
+        return Objects.hash(artistaId);
     }
 }

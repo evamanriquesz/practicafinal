@@ -64,7 +64,6 @@ public class ArtistaServiceImpl implements ArtistaService {
                 respuesta = artistaModel;
             }
         }
-
         return respuesta;
     }
 
@@ -72,7 +71,14 @@ public class ArtistaServiceImpl implements ArtistaService {
     public void deleteArtistaModel(Long artistaId)
     {
         artistaRepository.deleteById(artistaId);
-
     }
 }
+
+
+
+
+
+
+
+
 
