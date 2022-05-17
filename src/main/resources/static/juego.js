@@ -39,7 +39,7 @@ function validateEmail(input, requiredMsg, invalidMsg) {
 	return true;
 }
 
-const form = document.querySelector("#submit");
+const form = document.querySelector("#signup");
 
 const NAME_REQUIRED = "Por favor introduzca su nombre";
 const APELLIDOS_REQUIRED = "Por favor introduzca su apellido";
@@ -49,22 +49,61 @@ const GENERO_REQUIRED = "Por favor introduzca su genero"
 const NIVEL_REQUIRED = "Por favor introduzca el nivel";
 
 
+
+let nombre;
+let apellidos;
+let edad;
+let email;
+let tipoGenero;
+let selected;
+
 form.addEventListener("submit", function (event) {
 	// stop form submission
 	event.preventDefault();
-
+    GetCheckedVal();
+    ShowSelected();
 	// validate the form
 	let nombreValid = hasValue(form.elements["nombre"], NAME_REQUIRED);
 	let apellidoValid = hasValue(form.elements["apellidos"], APELLIDOS_REQUIRED);
 	let emailValid= hasValue(form.elements["email"], EMAIL_REQUIRED);
 	let edadValid = hasValue(form.elements["edad"], EDAD_REQUIRED);
-	let generoValid = hasValue(form.elements["genero"], GENERO_REQUIRED);
-	let nivelValid = hasValue(form.elements["nivel"], NIVEL_REQUIRED);
 
 
 
 	// if valid, submit the form.
-	if (nameValid && surnameValid && emailValid && telfValid) {
-		alert("Se han recogido correctamente sus datos."+"\nLa información recogida es: " +"\nNombre: "+form.elements["fname"].value + "\nApellidos: " + form.elements["lname"].value+ "\nEmail: "+ form.elements["email"].value + "\nTelefono: "+ form.elements["phone"].value+"\n ¡Suerte!");
+	if (nombreValid && apellidoValid && emailValid && edadValid) {
+	nombre=form.elements["nombre"].value;
+        apellidos=form.elements["apellidos"].value;
+        email=form.elements["email"].value;
+        edad=form.elements["edad"].value;
+		alert("Se han recogido correctamente sus datos."+"\nLa información recogida es: " +"\nNombre: "+nombre + "\nApellidos: " + apellidos+ "\nEmail: "+ email + "\nEdad: "+ edad+ "\nGenero: "+ tipoGenero+ "\nNivel: "+ selected);
 	}
 });
+
+function GetCheckedVal() {
+      let hombre = document.getElementById('hombre').checked;
+      if(hombre){
+        tipoGenero="Hombre"
+      }
+      let mujer = document.getElementById('mujer').checked;
+        if(mujer){
+          tipoGenero="Mujer"
+        }
+     let otro = document.getElementById('otro').checked;
+           if(otro){
+             tipoGenero="Otro"
+           }
+}
+
+function ShowSelected()
+{
+/* Para obtener el valor */
+var cod = document.getElementById("nivel").value;
+
+
+/* Para obtener el texto */
+var combo = document.getElementById("nivel");
+ selected = combo.options[combo.selectedIndex].text;
+
+}
+

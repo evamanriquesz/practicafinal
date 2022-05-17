@@ -52,7 +52,7 @@
                 <div class="card card-4">
                     <div class="card-body">
                         <h2 class="title" style="text-align:center">Introduce tus datos </h2>
-                        <form method="POST" action="submit">
+                        <form method="POST" action="signup" id="signup">
                             <div >
                                 <div class="input-group">
                                     <label class="label">Nombre</label>
@@ -78,7 +78,7 @@
                                     <label class="label">Genero</label> &nbsp&nbsp
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Hombre
-                                            <input type="radio" checked="checked"id="hombre" name="gender">
+                                            <input type="radio" checked="checked" id="hombre" name="gender">
                                             <small></small>
                                             <span class="checkmark"></span>
                                         </label>
@@ -109,8 +109,8 @@
                                 <label class="label">Nivel</label> &nbsp&nbsp
                                 <div class="rs-select2 js-select-simple select--no-search">
                                     <select name="nivel" id="nivel">
-                                        <option disabled="disabled" selected="selected">Choose option</option>
-                                        <option id="facil">Fácil: Adivina en qué película se dijo la frase</option>
+                                        <option disabled="disabled" >Choose option</option>
+                                        <option id="facil" selected="selected">Fácil: Adivina en qué película se dijo la frase</option>
                                         <small></small>
                                         <option id="medio">Medio: Adivina quién dijo la frase</option>
                                         <small></small>
