@@ -57,6 +57,7 @@ let email;
 let tipoGenero;
 let selected;
 
+
 form.addEventListener("submit", function (event) {
 	// stop form submission
 	event.preventDefault();
@@ -78,6 +79,14 @@ form.addEventListener("submit", function (event) {
         edad=form.elements["edad"].value;
 		alert("Se han recogido correctamente sus datos."+"\nLa información recogida es: " +"\nNombre: "+nombre + "\nApellidos: " + apellidos+ "\nEmail: "+ email + "\nEdad: "+ edad+ "\nGenero: "+ tipoGenero+ "\nNivel: "+ selected);
 	}
+
+	if (selected.contains('Facil')){
+        location.replace("./Facil.html");
+	}else if (selected.contains('Medio')){
+        location.replace("medio.html");
+    }else{
+        location.replace("dificil.html");
+    }
 });
 
 function GetCheckedVal() {
@@ -106,4 +115,45 @@ var combo = document.getElementById("nivel");
  selected = combo.options[combo.selectedIndex].text;
 
 }
+const {contadorCorrectas};
+function obtenerAciertos(){
+    if(selected.contais("Facil")){
+        contadorCorrectas = require("./facil.js");
+    }else if (selected.contains("Medio")){
+        contadorCorrectas = require("./medio.js");
+    }else{
+        contadorCorrectas = require("./dificil.js");
+    }
+}
 
+
+//AQUI EL POST
+async function guardarJugador(){
+    event.preventDefault();
+
+    const dataObj={
+        "nombre":nombre,
+        "apellidos" : apellidos,
+        "email": email,
+        "edad" : edad,
+        "genero" : tipoGenero,
+        "nivel" : selected,
+        "aciertos" : contadorCorrectas
+    };
+
+    let res = await fetch("/api/v1/jugador",{
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify(dataObj)
+    });
+
+    if (res.status == 201){
+        alert("Todo ha ido bien :) Ya puedes iniciar sesión");
+        location.replace("resultados.html");
+    }else{
+        alert("¡Vaya! Parece que algo ha ido mal :(");
+    }
+}
+export {guardarJugador};

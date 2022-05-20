@@ -110,6 +110,7 @@ location.assign('');
 }*/
 
 
+
 function showHiddenInput(){
     document.getElementById('caja').style.display='block';
     document.getElementById('generar').style.display='none';

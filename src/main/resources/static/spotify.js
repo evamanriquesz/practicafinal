@@ -56,7 +56,7 @@ fetch('https://accounts.spotify.com/api/token', {
 
             //todo lo de mostrar habria que hacerlo aquí o al menos llamar a una función
 
-                const info_playlists_box = document.getElementById("infoPlaylists");
+                const info_playlists_box = document.getElementById("infoPlaylists"); //zona para la tabla
                 let table = document.createElement('table');
                 let thead = document.createElement('thead');
                 let tbody = document.createElement('tbody');

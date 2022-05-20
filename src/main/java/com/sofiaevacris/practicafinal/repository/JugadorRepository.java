@@ -7,9 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface JugadorRepository extends CrudRepository<ArtistaModel, Long> {
+public interface JugadorRepository extends CrudRepository<JugadorModel, Long> {
 
     @Query("SELECT * FROM JUGADORES WHERE JUGADORES.JUGADOR_ID = :jugadorId")
-    public List<JugadorModel> retrieveJugador(Long jugadorId);
+    public JugadorModel retrieveJugador(Long jugadorId);
 
 }

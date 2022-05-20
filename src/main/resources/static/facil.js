@@ -45,6 +45,7 @@ fetch("https://marvel-quote-api.p.rapidapi.com/", {
 
 });
 
+import{guardarJugador};
 
 comprobar.addEventListener("submit", function (event){
 event.preventDefault();
@@ -53,7 +54,8 @@ let fraseAMostrar =document.getElementById("Frase");
 
 if(contador==4)
 {
-    location.href='Nivel.html';
+    location.href='finJuego.html';
+    guardarJugador();
 }
 fetch("https://marvel-quote-api.p.rapidapi.com/", {
         "method": "GET",

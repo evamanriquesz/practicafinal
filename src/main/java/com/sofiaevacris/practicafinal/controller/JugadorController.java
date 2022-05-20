@@ -4,9 +4,11 @@ import com.sofiaevacris.practicafinal.dto.ArtistaDTO;
 import com.sofiaevacris.practicafinal.dto.JugadorDTO;
 import com.sofiaevacris.practicafinal.model.ArtistaModel;
 import com.sofiaevacris.practicafinal.model.JugadorModel;
+import com.sofiaevacris.practicafinal.model.UsuarioModel;
 import com.sofiaevacris.practicafinal.service.ArtistaService;
 import com.sofiaevacris.practicafinal.service.JugadorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +29,24 @@ public class JugadorController {
         return ResponseEntity.ok().body(respuesta);
     }
 
-    @PostMapping("/jugador")
-    public
 
     @GetMapping("/jugadores/{jugadoresId}")
     public ResponseEntity<JugadorModel> retrieveJugador(@PathVariable Long jugadorId){
         JugadorModel respuesta = jugadorService.retrieveJugador(jugadorId);
         return ResponseEntity.ok().body(respuesta);
+    }
+
+    @PostMapping("/jugador")
+    public ResponseEntity<JugadorModel> insertJugador(@RequestBody JugadorModel jugadorModel)
+    {
+        try{
+            JugadorModel newJugador = jugadorService.insertJugador(jugadorModel);
+            return new ResponseEntity<>(newJugador, HttpStatus.CREATED);
+        } catch(Exception e){
+            System.out.println(e);
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+
+        }
+
     }
 }
