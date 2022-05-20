@@ -69,7 +69,7 @@ fetch('https://accounts.spotify.com/api/token', {
                 let row_1 = document.createElement('tr');
 
                 let heading_1 = document.createElement('th');
-                heading_1.innerHTML="Número";
+                heading_1.innerHTML="Número  ";
                 let heading_2 = document.createElement('th');
                 heading_2.insertAdjacentText("beforeend","Nombre");
                 let heading_3 = document.createElement('th');
@@ -229,12 +229,8 @@ function showArtistas(){
             //console.log(data[0]); //ok
             div = document.getElementById("mostrar");
 
+
              let contenidoHTML='';
-             for (let i=0; i<data.length; i++)
-             {
-             let artista1 = data[i];
-             let artistaId1 = artista1["artistaId"];
-             let nomb let contenidoHTML='';
              for (let i=0; i<data.length; i++)
              {
              let artista1 = data[i];

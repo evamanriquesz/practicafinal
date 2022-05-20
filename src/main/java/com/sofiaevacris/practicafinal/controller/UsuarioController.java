@@ -33,7 +33,6 @@ public class UsuarioController {
         } catch(Exception e){
             System.out.println(e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-
     }
 
     }

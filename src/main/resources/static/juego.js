@@ -149,7 +149,7 @@ async function guardarJugador(){
         body: JSON.stringify(dataObj)
     });
 
-    if (res.status == 201){
+    if (res.status == 200){ //aqui antes pponia 201
         alert("Todo ha ido bien :) Ya puedes iniciar sesión");
         location.replace("resultados.html");
     }else{

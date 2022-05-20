@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/v1")
 public class JugadorController {
@@ -23,14 +24,14 @@ public class JugadorController {
     private JugadorService jugadorService;
 
     @GetMapping("/jugadores")
-    public ResponseEntity<List<JugadorDTO>> retrieveArtistas()
+    public ResponseEntity<List<JugadorDTO>> retrieveJugadores()
     {
         List<JugadorDTO> respuesta = jugadorService.retrieveAll();
         return ResponseEntity.ok().body(respuesta);
     }
 
 
-    @GetMapping("/jugadores/{jugadoresId}")
+    @GetMapping("/jugadores/{jugadorId}")
     public ResponseEntity<JugadorModel> retrieveJugador(@PathVariable Long jugadorId){
         JugadorModel respuesta = jugadorService.retrieveJugador(jugadorId);
         return ResponseEntity.ok().body(respuesta);
@@ -50,3 +51,5 @@ public class JugadorController {
 
     }
 }
+
+

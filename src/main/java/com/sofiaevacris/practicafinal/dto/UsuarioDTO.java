@@ -23,6 +23,10 @@ public class UsuarioDTO {
 
     @NotNull
     @Size(min=1, max=50)
+    private String contra;
+
+    @NotNull
+    @Size(min=1, max=50)
     private String nombre;
 
     @NotNull
@@ -47,6 +51,14 @@ public class UsuarioDTO {
 
     public void setUsuarioId(Long usuarioId) {
         this.usuarioId = usuarioId;
+    }
+
+    public String getContra() {
+        return contra;
+    }
+
+    public void setContra(String contra) {
+        this.contra = contra;
     }
 
     public String getNombre() {

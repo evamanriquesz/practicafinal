@@ -10,18 +10,34 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Objects;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+//@Data
+//@Builder
+//@NoArgsConstructor
+//@AllArgsConstructor
 @Table("USUARIOS")
 public class UsuarioModel {
     private @Column("USUARIO_ID") @Id Long usuarioId;
+    private @Column("CONTRA") String contra;
     private @Column("NOMBRE") String nombre;
     private @Column("APELLIDOS") String apellidos;
     private @Column("EDAD") Long edad;
     private @Column("EMAIL") String email;
     private @Column("TELEFONO") Long telefono;
+
+    public UsuarioModel(Long usuarioId, String contra, String nombre, String apellidos, Long edad, String email, Long telefono) {
+        this.usuarioId = usuarioId;
+        this.contra = contra;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.edad = edad;
+        this.email = email;
+        this.telefono = telefono;
+    }
+
+    public UsuarioModel()
+    {
+
+    }
 
     public Long getUsuarioId() {
         return usuarioId;
@@ -29,6 +45,14 @@ public class UsuarioModel {
 
     public void setUsuarioId(Long usuarioId) {
         this.usuarioId = usuarioId;
+    }
+
+    public String getContra() {
+        return contra;
+    }
+
+    public void setContra(String contra) {
+        this.contra = contra;
     }
 
     public String getNombre() {
