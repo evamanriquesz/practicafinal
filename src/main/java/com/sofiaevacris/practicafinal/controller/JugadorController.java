@@ -7,6 +7,7 @@ import com.sofiaevacris.practicafinal.model.JugadorModel;
 import com.sofiaevacris.practicafinal.model.UsuarioModel;
 import com.sofiaevacris.practicafinal.service.ArtistaService;
 import com.sofiaevacris.practicafinal.service.JugadorService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +18,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1")
 public class JugadorController {
-
 
     @Autowired
     private JugadorService jugadorService;
@@ -30,15 +30,10 @@ public class JugadorController {
     }
 
 
-    @GetMapping("/jugadores/{jugadoresId}")
-    public ResponseEntity<JugadorModel> retrieveJugador(@PathVariable Long jugadorId){
-        JugadorModel respuesta = jugadorService.retrieveJugador(jugadorId);
-        return ResponseEntity.ok().body(respuesta);
-    }
-
     @PostMapping("/jugador")
-    public ResponseEntity<JugadorModel> insertJugador(@RequestBody JugadorModel jugadorModel)
+    public ResponseEntity<String> insertJugador(@RequestBody JugadorModel jugadorModel)
     {
+        /*
         try{
             JugadorModel newJugador = jugadorService.insertJugador(jugadorModel);
             return new ResponseEntity<>(newJugador, HttpStatus.CREATED);
@@ -46,7 +41,10 @@ public class JugadorController {
             System.out.println(e);
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 
-        }
+        }*/
+
+        jugadorService.insertJugador(jugadorModel);
+        return ResponseEntity.ok().body("jugador incluido");
 
     }
 }

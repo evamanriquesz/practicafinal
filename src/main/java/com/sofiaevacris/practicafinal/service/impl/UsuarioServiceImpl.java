@@ -44,4 +44,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         return newUsuarioModel;
     }
+
+
 }

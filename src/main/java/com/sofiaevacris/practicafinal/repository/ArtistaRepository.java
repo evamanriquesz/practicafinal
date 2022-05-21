@@ -11,8 +11,6 @@ import java.util.List;
 
 public interface ArtistaRepository extends CrudRepository<ArtistaModel, Long> {
 
-
-
     @Query("SELECT * FROM VOTOS WHERE VOTOS.ARTISTA_ID = :artistaId")
     public List<ArtistaModel> retrieveArtista(Long artistaId);
 

@@ -1,7 +1,7 @@
 const form = document.getElementById("form");
 const comprobar =document.getElementById("comprobar");
 let contador=0;
-let contadorCorrectas=0;
+export let contadorCorrectas=0;
 document.getElementById('caja').style.display='none';
 
 form.addEventListener("submit", function (event){

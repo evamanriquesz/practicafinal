@@ -39,7 +39,7 @@ function validateEmail(input, requiredMsg, invalidMsg) {
 	return true;
 }
 
-const form = document.querySelector("#signup");
+const form = document.getElementById('submit');
 
 const NAME_REQUIRED = "Por favor introduzca su nombre";
 const APELLIDOS_REQUIRED = "Por favor introduzca su apellido";
@@ -58,9 +58,10 @@ let tipoGenero;
 let selected;
 
 
-form.addEventListener("submit", function (event) {
+form.addEventListener("click", function (event) {
 	// stop form submission
 	event.preventDefault();
+	//obtengo el valor del genero
     GetCheckedVal();
     ShowSelected();
 	// validate the form
@@ -68,7 +69,6 @@ form.addEventListener("submit", function (event) {
 	let apellidoValid = hasValue(form.elements["apellidos"], APELLIDOS_REQUIRED);
 	let emailValid= hasValue(form.elements["email"], EMAIL_REQUIRED);
 	let edadValid = hasValue(form.elements["edad"], EDAD_REQUIRED);
-
 
 
 	// if valid, submit the form.
@@ -81,11 +81,11 @@ form.addEventListener("submit", function (event) {
 	}
 
 	if (selected.contains('Facil')){
-        location.replace("./Facil.html");
+        location.href("Facil.html");
 	}else if (selected.contains('Medio')){
-        location.replace("medio.html");
+        location.href("medio.html");
     }else{
-        location.replace("dificil.html");
+        location.href("dificil.html");
     }
 });
 
@@ -106,29 +106,29 @@ function GetCheckedVal() {
 
 function ShowSelected()
 {
-/* Para obtener el valor */
-var cod = document.getElementById("nivel").value;
+    /* Para obtener el valor */
+    var cod = document.getElementById("nivel").value;
 
 
-/* Para obtener el texto */
-var combo = document.getElementById("nivel");
- selected = combo.options[combo.selectedIndex].text;
-
+    /* Para obtener el texto */
+    var combo = document.getElementById("nivel");
+     selected = combo.options[combo.selectedIndex].text;
 }
-const {contadorCorrectas};
+
+
 function obtenerAciertos(){
     if(selected.contais("Facil")){
-        contadorCorrectas = require("./facil.js");
+        import { contadorCorrectas } from '/facil.js';
     }else if (selected.contains("Medio")){
-        contadorCorrectas = require("./medio.js");
+         import { contadorCorrectas } from '/medio.js';
     }else{
-        contadorCorrectas = require("./dificil.js");
+         import { contadorCorrectas } from '/dificil.js';
     }
 }
 
 
 //AQUI EL POST
-async function guardarJugador(){
+export async function guardarJugador(){
     event.preventDefault();
 
     const dataObj={
@@ -147,13 +147,13 @@ async function guardarJugador(){
             'Content-Type':'application/json',
         },
         body: JSON.stringify(dataObj)
+        datatype: "json",
     });
 
     if (res.status == 201){
         alert("Todo ha ido bien :) Ya puedes iniciar sesión");
-        location.replace("resultados.html");
+        location.href("resultados.html");
     }else{
         alert("¡Vaya! Parece que algo ha ido mal :(");
     }
 }
-export {guardarJugador};
