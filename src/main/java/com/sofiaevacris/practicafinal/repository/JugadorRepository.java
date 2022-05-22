@@ -12,4 +12,5 @@ public interface JugadorRepository extends CrudRepository<JugadorModel, Long> {
     @Query("SELECT * FROM JUGADORES WHERE JUGADORES.JUGADOR_ID = :jugadorId")
     public JugadorModel retrieveJugador(Long jugadorId);
 
+
 }

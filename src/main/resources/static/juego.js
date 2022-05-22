@@ -39,7 +39,7 @@ function validateEmail(input, requiredMsg, invalidMsg) {
 	return true;
 }
 
-const form = document.querySelector("#signup");
+const form = document.getElementById('btnsubmit');
 
 const NAME_REQUIRED = "Por favor introduzca su nombre";
 const APELLIDOS_REQUIRED = "Por favor introduzca su apellido";
@@ -58,73 +58,67 @@ let tipoGenero;
 let selected;
 
 
-form.addEventListener("submit", function (event) {
+form.addEventListener("click", function (event) {
 	// stop form submission
 	event.preventDefault();
+	//obtengo el valor del genero
     GetCheckedVal();
     ShowSelected();
 	// validate the form
-	let nombreValid = hasValue(form.elements["nombre"], NAME_REQUIRED);
-	let apellidoValid = hasValue(form.elements["apellidos"], APELLIDOS_REQUIRED);
-	let emailValid= hasValue(form.elements["email"], EMAIL_REQUIRED);
-	let edadValid = hasValue(form.elements["edad"], EDAD_REQUIRED);
-
+	let nombreValid = hasValue(document.getElementById('nombre'), NAME_REQUIRED);
+	let apellidoValid = hasValue(document.getElementById('apellidos'), APELLIDOS_REQUIRED);
+	let emailValid= hasValue(document.getElementById('email'), EMAIL_REQUIRED);
+	let edadValid = hasValue(document.getElementById('edad'), EDAD_REQUIRED);
 
 
 	// if valid, submit the form.
 	if (nombreValid && apellidoValid && emailValid && edadValid) {
-	nombre=form.elements["nombre"].value;
-        apellidos=form.elements["apellidos"].value;
-        email=form.elements["email"].value;
-        edad=form.elements["edad"].value;
+	    nombre=document.getElementById('nombre').value;
+        apellidos=document.getElementById('apellidos').value;
+        email=document.getElementById('email').value;
+        edad=document.getElementById('edad').value;
 		alert("Se han recogido correctamente sus datos."+"\nLa información recogida es: " +"\nNombre: "+nombre + "\nApellidos: " + apellidos+ "\nEmail: "+ email + "\nEdad: "+ edad+ "\nGenero: "+ tipoGenero+ "\nNivel: "+ selected);
+	    guardarJugador();
+	    if (selected.includes('Facil')){
+            location.href='Facil.html';
+        }else if (selected.includes('Medio')){
+            location.href='medio.html';
+        }else{
+            location.href='dificil.html';
+        }
 	}
 
-	if (selected.contains('Facil')){
-        location.replace("./Facil.html");
-	}else if (selected.contains('Medio')){
-        location.replace("medio.html");
-    }else{
-        location.replace("dificil.html");
-    }
 });
 
 function GetCheckedVal() {
-      let hombre = document.getElementById('hombre').checked;
-      if(hombre){
+    let hombre = document.getElementById('hombre').checked;
+    if(hombre){
         tipoGenero="Hombre"
-      }
-      let mujer = document.getElementById('mujer').checked;
-        if(mujer){
-          tipoGenero="Mujer"
-        }
-     let otro = document.getElementById('otro').checked;
-           if(otro){
-             tipoGenero="Otro"
-           }
+    }
+
+    let mujer = document.getElementById('mujer').checked;
+    if(mujer){
+      tipoGenero="Mujer"
+    }
+
+    let otro = document.getElementById('otro').checked;
+    if(otro){
+        tipoGenero="Otro"
+    }
 }
 
 function ShowSelected()
 {
-/* Para obtener el valor */
-var cod = document.getElementById("nivel").value;
+    /* Para obtener el valor */
+    var cod = document.getElementById("nivel").value;
 
 
-/* Para obtener el texto */
-var combo = document.getElementById("nivel");
- selected = combo.options[combo.selectedIndex].text;
-
+    /* Para obtener el texto */
+    var combo = document.getElementById("nivel");
+     selected = combo.options[combo.selectedIndex].text;
 }
-const {contadorCorrectas};
-function obtenerAciertos(){
-    if(selected.contais("Facil")){
-        contadorCorrectas = require("./facil.js");
-    }else if (selected.contains("Medio")){
-        contadorCorrectas = require("./medio.js");
-    }else{
-        contadorCorrectas = require("./dificil.js");
-    }
-}
+
+
 
 
 //AQUI EL POST
@@ -133,12 +127,11 @@ async function guardarJugador(){
 
     const dataObj={
         "nombre":nombre,
-        "apellidos" : apellidos,
+        "apellidos": apellidos,
         "email": email,
         "edad" : edad,
         "genero" : tipoGenero,
         "nivel" : selected,
-        "aciertos" : contadorCorrectas
     };
 
     let res = await fetch("/api/v1/jugador",{
@@ -151,9 +144,8 @@ async function guardarJugador(){
 
     if (res.status == 200){ //aqui antes pponia 201
         alert("Todo ha ido bien :) Ya puedes iniciar sesión");
-        location.replace("resultados.html");
+        location.href("resultados.html");
     }else{
-        alert("¡Vaya! Parece que algo ha ido mal :(");
+        alert("¡Vaya! Parece que algo ha ido mal en el form:(");
     }
 }
-export {guardarJugador};
