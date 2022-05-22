@@ -23,21 +23,15 @@ public class JugadorController {
     private JugadorService jugadorService;
 
     @GetMapping("/jugadores")
-    public ResponseEntity<List<JugadorDTO>> retrieveArtistas()
+    public ResponseEntity<List<JugadorModel>> retrieveJugadores()
     {
-        List<JugadorDTO> respuesta = jugadorService.retrieveAll();
-        return ResponseEntity.ok().body(respuesta);
-    }
-
-    @GetMapping("/jugador/{id}")
-    public ResponseEntity<List<JugadorDTO>> getJugador(@PathVariable("id") Long id){
-        List<JugadorDTO> respuesta = jugadorService.getJugadores(id);
-
+        List<JugadorModel> respuesta = jugadorService.retrieveAll();
         return ResponseEntity.ok().body(respuesta);
     }
 
 
-    @PostMapping("/jugador/{id}")
+
+    @PostMapping("/jugador")
     public ResponseEntity<String> insertJugador(@RequestBody JugadorModel jugadorModel)
     {
         jugadorService.insertJugador(jugadorModel);

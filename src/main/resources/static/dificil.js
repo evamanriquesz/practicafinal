@@ -142,3 +142,46 @@ function WriteFile()
    fh.WriteLine(miCadenaDeTexto);
    fh.Close();
 }
+
+//AQUI EL POST
+async function modificarJugador(){
+    event.preventDefault();
+
+    calcularID();
+    const dataObj={
+        "jugadorId":id_max,
+        "aciertos":contadorCorrectas
+    };
+
+    let res = await fetch("/api/v1/jugador/update/"+id_max,{
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify(dataObj)
+    });
+
+    if (res.status == 201){
+        alert("Todo ha ido bien :) Ya puedes iniciar sesión");
+        location.href("resultados.html");
+    }else{
+        alert("¡Vaya! Parece que algo ha ido mal :(");
+    }
+}
+
+//funcion de otros compañeros
+let id_max=-1;
+function calcularID() {
+    let url = "/api/v1/jugadores/"+localStorage.getItem('id');
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+
+        id_max = data[0].jugador_id;
+        for(let i=1;i<data.length;i++){
+            if (data[i].jugador_id > id_max){
+                id_max = data[i].jugador_id;
+            }
+        }
+    })
+}

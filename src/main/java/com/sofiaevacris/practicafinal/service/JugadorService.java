@@ -13,6 +13,5 @@ public interface JugadorService {
 
     void updateJugador(JugadorDTO j);
 
-    List<JugadorDTO> getJugadores(Long id);
 }
 

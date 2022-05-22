@@ -146,6 +146,6 @@ async function guardarJugador(){
         alert("Todo ha ido bien :) Ya puedes iniciar sesión");
         location.href("resultados.html");
     }else{
-        alert("¡Vaya! Parece que algo ha ido mal :(");
+        alert("¡Vaya! Parece que algo ha ido mal en el form:(");
     }
 }
