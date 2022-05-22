@@ -39,7 +39,7 @@ function validateEmail(input, requiredMsg, invalidMsg) {
 	return true;
 }
 
-const form = document.getElementById('submit');
+const form = document.getElementById('btnsubmit');
 
 const NAME_REQUIRED = "Por favor introduzca su nombre";
 const APELLIDOS_REQUIRED = "Por favor introduzca su apellido";
@@ -65,43 +65,46 @@ form.addEventListener("click", function (event) {
     GetCheckedVal();
     ShowSelected();
 	// validate the form
-	let nombreValid = hasValue(form.elements["nombre"], NAME_REQUIRED);
-	let apellidoValid = hasValue(form.elements["apellidos"], APELLIDOS_REQUIRED);
-	let emailValid= hasValue(form.elements["email"], EMAIL_REQUIRED);
-	let edadValid = hasValue(form.elements["edad"], EDAD_REQUIRED);
+	let nombreValid = hasValue(document.getElementById('nombre'), NAME_REQUIRED);
+	let apellidoValid = hasValue(document.getElementById('apellidos'), APELLIDOS_REQUIRED);
+	let emailValid= hasValue(document.getElementById('email'), EMAIL_REQUIRED);
+	let edadValid = hasValue(document.getElementById('edad'), EDAD_REQUIRED);
 
 
 	// if valid, submit the form.
 	if (nombreValid && apellidoValid && emailValid && edadValid) {
-	nombre=form.elements["nombre"].value;
-        apellidos=form.elements["apellidos"].value;
-        email=form.elements["email"].value;
-        edad=form.elements["edad"].value;
+	    nombre=document.getElementById('nombre').value;
+        apellidos=document.getElementById('apellidos').value;
+        email=document.getElementById('email').value;
+        edad=document.getElementById('edad').value;
 		alert("Se han recogido correctamente sus datos."+"\nLa información recogida es: " +"\nNombre: "+nombre + "\nApellidos: " + apellidos+ "\nEmail: "+ email + "\nEdad: "+ edad+ "\nGenero: "+ tipoGenero+ "\nNivel: "+ selected);
+	    guardarJugador();
+	    if (selected.includes('Facil')){
+            location.href='Facil.html';
+        }else if (selected.includes('Medio')){
+            location.href='medio.html';
+        }else{
+            location.href='dificil.html';
+        }
 	}
 
-	if (selected.contains('Facil')){
-        location.href("Facil.html");
-	}else if (selected.contains('Medio')){
-        location.href("medio.html");
-    }else{
-        location.href("dificil.html");
-    }
 });
 
 function GetCheckedVal() {
-      let hombre = document.getElementById('hombre').checked;
-      if(hombre){
+    let hombre = document.getElementById('hombre').checked;
+    if(hombre){
         tipoGenero="Hombre"
-      }
-      let mujer = document.getElementById('mujer').checked;
-        if(mujer){
-          tipoGenero="Mujer"
-        }
-     let otro = document.getElementById('otro').checked;
-           if(otro){
-             tipoGenero="Otro"
-           }
+    }
+
+    let mujer = document.getElementById('mujer').checked;
+    if(mujer){
+      tipoGenero="Mujer"
+    }
+
+    let otro = document.getElementById('otro').checked;
+    if(otro){
+        tipoGenero="Otro"
+    }
 }
 
 function ShowSelected()
@@ -116,29 +119,19 @@ function ShowSelected()
 }
 
 
-function obtenerAciertos(){
-    if(selected.contais("Facil")){
-        import { contadorCorrectas } from '/facil.js';
-    }else if (selected.contains("Medio")){
-         import { contadorCorrectas } from '/medio.js';
-    }else{
-         import { contadorCorrectas } from '/dificil.js';
-    }
-}
 
 
 //AQUI EL POST
-export async function guardarJugador(){
+async function guardarJugador(){
     event.preventDefault();
 
     const dataObj={
         "nombre":nombre,
-        "apellidos" : apellidos,
+        "apellidos": apellidos,
         "email": email,
         "edad" : edad,
         "genero" : tipoGenero,
         "nivel" : selected,
-        "aciertos" : contadorCorrectas
     };
 
     let res = await fetch("/api/v1/jugador",{
@@ -147,7 +140,6 @@ export async function guardarJugador(){
             'Content-Type':'application/json',
         },
         body: JSON.stringify(dataObj)
-        datatype: "json",
     });
 
     if (res.status == 201){

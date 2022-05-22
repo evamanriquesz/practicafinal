@@ -121,3 +121,34 @@ function hasValue(input, message) {
 	return showSuccess(input);
 }
 
+
+
+//AQUI EL POST
+async function guardarJugador(){
+    event.preventDefault();
+
+    const dataObj={
+        "jugadorId":id,
+        "aciertos":contadorCorrectas
+    };
+
+    let res = await fetch("/api/v1/jugador",{
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify(dataObj)
+    });
+
+    if (res.status == 201){
+        alert("Todo ha ido bien :) Ya puedes iniciar sesión");
+        location.href("resultados.html");
+    }else{
+        alert("¡Vaya! Parece que algo ha ido mal :(");
+    }
+}
+
+
+function calcularID(){
+    let url = "/api/v1/jugadores/"
+}

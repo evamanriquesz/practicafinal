@@ -29,22 +29,25 @@ public class JugadorController {
         return ResponseEntity.ok().body(respuesta);
     }
 
+    @GetMapping("/jugador/{id}")
+    public ResponseEntity<List<JugadorDTO>> getJugador(@PathVariable("id") Long id){
+        List<JugadorDTO> respuesta = jugadorService.getJugadores(id);
 
-    @PostMapping("/jugador")
+        return ResponseEntity.ok().body(respuesta);
+    }
+
+
+    @PostMapping("/jugador/{id}")
     public ResponseEntity<String> insertJugador(@RequestBody JugadorModel jugadorModel)
     {
-        /*
-        try{
-            JugadorModel newJugador = jugadorService.insertJugador(jugadorModel);
-            return new ResponseEntity<>(newJugador, HttpStatus.CREATED);
-        } catch(Exception e){
-            System.out.println(e);
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-
-        }*/
-
         jugadorService.insertJugador(jugadorModel);
         return ResponseEntity.ok().body("jugador incluido");
+    }
 
+    @PostMapping("/jugador/update/{id}")
+    public ResponseEntity<String> updateJugador (@RequestBody JugadorDTO j){
+        jugadorService.updateJugador(j);
+
+        return ResponseEntity.ok().body("Jugador actualizado");
     }
 }
