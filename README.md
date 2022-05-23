@@ -43,17 +43,23 @@ Antes de dar a Jugar se puede elegir el modo de juego, hay tres. A continuación
 Una vez se han introducido todos los datos correctamente y se ha seleccionado el nivel de juego al dar a "Jugar" se muestra un mensaje de que todo se ha guardado correctamente y otro de que ha ido bien:
 
 ![Captura de pantalla 2022-05-23 a las 22 34 26](https://user-images.githubusercontent.com/98181428/169902001-a1edd166-4511-42f4-b5af-b586362647e8.png)
+
 ![Captura de pantalla 2022-05-23 a las 22 34 33](https://user-images.githubusercontent.com/98181428/169902017-0ee5f749-b986-4d60-8000-7967204086c5.png)
 
 Ya se puede empezar a jugar. A continuación se muestra como se ve el juego en el nivel Fácil:
+
 ![Captura de pantalla 2022-05-23 a las 22 38 40](https://user-images.githubusercontent.com/98181428/169902484-05302b82-d920-45d9-b607-79dfc8e7a0d4.png)
+
 Una vez se etsé listo para jugar hay que pinchar en "Generar" y empiezan a aparecer 5 frases para adivinar las preguntas:
+
 ![Captura de pantalla 2022-05-23 a las 22 38 51](https://user-images.githubusercontent.com/98181428/169902602-be389c3b-38af-4c20-a929-8d3bcb17032f.png)
 
 A medida que vamos introduciendo películas nos salta  un mensaje de si estaba bien o mal y va contabilizando cuántas se han conseguido acertar:
+
 ![Captura de pantalla 2022-05-23 a las 22 39 53](https://user-images.githubusercontent.com/98181428/169902700-2adc1b68-4abc-4e2d-9a39-922ba9fc026a.png)
 
 Cuando se acaban las 5 preguntas vuelve a aparecer un mensaje de que todo ha ido correctamente:
+
 ![Captura de pantalla 2022-05-23 a las 22 40 03](https://user-images.githubusercontent.com/98181428/169902743-d9d90816-33a9-4dbb-9ab9-ba20b2f5c15a.png)
 
 Tras aceptar el mensaje de verificación aparece una nueva ventana en la que se puede ver la clasificación de los diferentes jugadores:
