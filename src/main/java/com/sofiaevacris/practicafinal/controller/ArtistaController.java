@@ -52,12 +52,6 @@ public class ArtistaController {
         return ResponseEntity.noContent().build();
 
     }
-    @GetMapping("/artistas/{favoritos}")
-    public ResponseEntity<List<ArtistaModel>> retrieveArtistaByVotes(@PathVariable Long favoritos)
-    {
-        List<ArtistaModel> respuesta = artistaService.retrieveArtistaByVotos(favoritos);
-        return ResponseEntity.ok().body(respuesta);
-    }
 
 
 

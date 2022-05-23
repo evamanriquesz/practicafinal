@@ -72,20 +72,7 @@ public class ArtistaCancionServiceImpl implements ArtistaCancionService {
         return artistaCancionDTOS;
     }
 
-    @Override
-    public List<ArtistaModel> retrieveArtistaByVotes(String favoritos) {
-        return null;
-    }
 
-    /*
-    @Override
-    public void deleteArtistaCancion(Long artistaId)
-    {
-        artistaCancionRepository.deleteById(artistaId);
-    }
-
-
-     */
 }
 
 
