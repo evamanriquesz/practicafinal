@@ -46,7 +46,11 @@ Primeramente se muestra una lista de los 100 artistas que componen la playlist d
 ![Captura de pantalla 2022-05-23 a las 23 16 40](https://user-images.githubusercontent.com/98181428/169908288-9290e10b-2f93-482e-a1c8-9b951983c3aa.png)
 
 
-Una vez se llega al final de dicha lista de 100 artistas se pued votar a tus artistas favoritos. Además se tiene la posibilidad de ver qué canciones tiene en nuestra playlist y de eliminar nuestro voto de favorito. En la primera imagen se ve cómo al pulsar en ver canciones nos muestra un mensaje con el artista y sus canciones.
+Una vez se llega al final de dicha lista de 100 artistas se pued votar a tus artistas favoritos. Además se tiene la posibilidad de ver qué canciones tiene en nuestra playlist y de eliminar nuestro voto de favorito. 
+
+![Captura de pantalla 2022-05-23 a las 23 16 53](https://user-images.githubusercontent.com/98181428/169909352-988583c2-864c-4b0c-9d6a-b83deaccd2fc.png)
+
+En la primera imagen se ve cómo al pulsar en ver canciones nos muestra un mensaje con el artista y sus canciones.
 
 ![Captura de pantalla 2022-05-23 a las 23 17 06](https://user-images.githubusercontent.com/98181428/169908586-2e1bdc54-3f0d-43b9-a0dc-d8b54b315dd9.png)
 
