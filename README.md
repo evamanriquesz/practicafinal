@@ -18,6 +18,25 @@ Tras esta breve explicación, se muestran cada una de las penstañas más explay
 
 ![Captura de pantalla 2022-05-23 a las 22 30 19](https://user-images.githubusercontent.com/98181428/169900946-b9242062-6184-4f2d-a485-43f7b8ccc63f.png)
 
+![Captura de pantalla 2022-05-23 a las 22 30 36](https://user-images.githubusercontent.com/98181428/169901195-60b92a90-b791-4846-acc2-5986028066fa.png)
 
 Como se puede observar, en la parte de abajo están las novedades. Tanto desde las novedades como desde el CocaCola Music Experience se puede acceder a Música.html. En el apartado de la nueva CocaCola zero te lleva a Productos.html.
 
+**Música:**
+
+**CocaCola Marvel:**
+En esta pestaña colaborativa con Marvel se puede observar que aparece un formulario para poder registrarnos como jugadores:
+
+![Captura de pantalla 2022-05-23 a las 22 33 53](https://user-images.githubusercontent.com/98181428/169901675-3dfccef6-1bc4-4e99-bf6b-a7f81857f273.png)
+
+Antes de dar a Jugar se puede elegir el modo de juego, hay tres. A continuación se muestran las opciones:
+
+![Captura de pantalla 2022-05-23 a las 22 34 18](https://user-images.githubusercontent.com/98181428/169901789-f1d14072-c60e-4034-b7c2-4fc0c2b15406.png)
+
+Una vez se han introducido todos los datos correctamente y se ha seleccionado el nivel de juego al dar a "Jugar" se muestra un mensaje de que todo se ha guardado correctamente y otro de que ha ido bien:
+
+![Captura de pantalla 2022-05-23 a las 22 34 26](https://user-images.githubusercontent.com/98181428/169902001-a1edd166-4511-42f4-b5af-b586362647e8.png)
+![Captura de pantalla 2022-05-23 a las 22 34 33](https://user-images.githubusercontent.com/98181428/169902017-0ee5f749-b986-4d60-8000-7967204086c5.png)
+
+
+![Captura de pantalla 2022-05-23 a las 22 33 53](https://user-images.githubusercontent.com/98181428/169901675-3dfccef6-1bc4-4e99-bf6b-a7f81857f273.png)
