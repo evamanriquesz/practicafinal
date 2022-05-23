@@ -2,6 +2,7 @@ package com.sofiaevacris.practicafinal.service.impl;
 
 import com.sofiaevacris.practicafinal.dto.ArtistaCancionDTO;
 import com.sofiaevacris.practicafinal.dto.UsuarioTarjetaDTO;
+import com.sofiaevacris.practicafinal.dto.UsuarioTarjetaDetalladoDTO;
 import com.sofiaevacris.practicafinal.repository.ArtistaCancionRepository;
 import com.sofiaevacris.practicafinal.repository.UsuarioTarjetaRepository;
 import com.sofiaevacris.practicafinal.service.UsuarioTarjetaService;
@@ -43,5 +44,31 @@ public class UsuarioTarjetaServiceImpl implements UsuarioTarjetaService {
         );
 
         return usuarioTarjetaDTOS;
+    }
+
+    @Override
+    public List<UsuarioTarjetaDetalladoDTO> retrieveAllDetallado() {
+        String query =
+                """
+                        SELECT USUARIOS.USUARIO_ID, USUARIOS.NOMBRE, USUARIOS.APELLIDOS, TARJETAS.NUMERO_TARJETA, TARJETAS.FECHA_CADUCIDAD, TARJETAS.CVV, TARJETAS.GASTO
+                        FROM USUARIOS 
+                        LEFT JOIN TARJETAS
+                        ON USUARIOS.USUARIO_ID = TARJETAS.USUARIO_ID; 
+                        """;
+        List<UsuarioTarjetaDetalladoDTO> usuarioTarjetaDetalladoDTOS = jdbcTemplate.query(
+                query,
+                (data, rowNum) ->
+                        new UsuarioTarjetaDetalladoDTO(
+                                data.getLong("USUARIO_ID"),
+                                data.getString("NOMBRE"),
+                                data.getString("APELLIDOS"),
+                                data.getString("NUMERO_TARJETA"),
+                                data.getString("FECHA_CADUCIDAD"),
+                                data.getLong("CVV"),
+                                data.getLong("GASTO")
+                        )
+        );
+
+        return usuarioTarjetaDetalladoDTOS;
     }
 }

@@ -2,6 +2,7 @@ package com.sofiaevacris.practicafinal.controller;
 
 import com.sofiaevacris.practicafinal.dto.ArtistaCancionDTO;
 import com.sofiaevacris.practicafinal.dto.UsuarioTarjetaDTO;
+import com.sofiaevacris.practicafinal.dto.UsuarioTarjetaDetalladoDTO;
 import com.sofiaevacris.practicafinal.service.ArtistaCancionService;
 import com.sofiaevacris.practicafinal.service.UsuarioTarjetaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,16 @@ public class UsuarioTarjetaController {
     private UsuarioTarjetaService usuarioTarjetaService;
 
     @GetMapping("/clientes")
-    public ResponseEntity<List<UsuarioTarjetaDTO>> retrieveArtistaCancionAll()
+    public ResponseEntity<List<UsuarioTarjetaDTO>> retrieveUsuarioTarjetaAll()
     {
         List<UsuarioTarjetaDTO> respuesta = usuarioTarjetaService.retrieveAll();
+        return ResponseEntity.ok().body(respuesta);
+    }
+
+    @GetMapping("/clientesDetallado")
+    public ResponseEntity<List<UsuarioTarjetaDetalladoDTO>> retrieveUsuarioTarjetaDetallado()
+    {
+        List<UsuarioTarjetaDetalladoDTO> respuesta = usuarioTarjetaService.retrieveAllDetallado();
         return ResponseEntity.ok().body(respuesta);
     }
 }
