@@ -6,8 +6,7 @@ import com.sofiaevacris.practicafinal.repository.ArtistaRepository;
 import com.sofiaevacris.practicafinal.service.ArtistaService;import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+ import java.util.List;
 
 @Service
 public class ArtistaServiceImpl implements ArtistaService {
@@ -72,8 +71,23 @@ public class ArtistaServiceImpl implements ArtistaService {
     {
         artistaRepository.deleteById(artistaId);
     }
-}
 
+    @Override
+    public List<ArtistaModel> retrieveArtistaByVotos(Long favoritos) {
+        String query = " SELECT * FROM VOTOS  WHERE  VOTOS.FAVORITOS = '"+favoritos + "'; ";
+
+        List<ArtistaModel> artistaModel = jdbcTemplate.query(
+                query,
+                (data, rowNum) ->
+                        new ArtistaModel(
+                                data.getLong("ARTISTA_ID"),
+                                data.getString("NOMBRE_ARTISTA"),
+                                data.getLong("FAVORITOS")
+                        )
+        );
+        return artistaModel;
+    }
+}
 
 
 
