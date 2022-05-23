@@ -72,6 +72,16 @@ Como se puede observar se pueden visualizar 4 tablas. La primera muestra las úl
  
 Cabe destacar que se han incluido diferentes formatos de tabla, en la que se resalta el jugador que se está observando.
 
+**Fanstore:**
+Pertenecer a la Fanstore es algo exclusivo, a lo cual solo se puede acceder si uno se registra:
+![Captura de pantalla 2022-05-23 a las 22 52 46](https://user-images.githubusercontent.com/98181428/169904487-8555fe58-92b3-4e59-9eb6-c57519d3896b.png)
 
+Como se puede observar se puede "Entrar" o "Registrarse", si uno quiere registrarse ha de rellenar el siguiente formulario:
+
+![Captura de pantalla 2022-05-23 a las 22 54 56](https://user-images.githubusercontent.com/98181428/169904702-7d7017c3-afa7-44eb-aa6a-72e4548c7b8f.png)
+ 
+Una vez se es miembro de la FanStore ya se pueden comprar los diferentes artículos de la marca. A la derecha de los productos se tiene el "Carrito" donde irán apareciendo los productos que se han añadido (con el +), el número de unidades y su precio. Además muestra el precio total. Se tiene la opción de vaciar la papelera y de Pagar. Está última opción nos lleva a una ventana para introducir la tarjeta.
+
+![Captura de pantalla 2022-05-23 a las 22 53 35](https://user-images.githubusercontent.com/98181428/169905320-d6f9feff-d6aa-4766-8c1b-5c16acb650bc.png)
 
 
