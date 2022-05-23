@@ -170,6 +170,37 @@ Lo curioso que aporta este html es la posibilidad de visualizar la foto del día
 
 De esta manera se puede disfrutar de una CocaCola como si se estuviera en el espacio y aprender cada día algo nuevo del mismo.
 
+Finalmente, a modo de resumen, se quieren recoger las diferentes y vistas y tablas que se han considerado:
+
+**TABLAS**
+
+-Votos
+
+-Canciones
+
+-Jugadores
+
+-Usuarios
+
+-Productos 
+
+-Tarjetas
+
+**VISTAS**
+
+-Jugadores y resultados 
+
+-Jugadores y resultados por niveles 
+
+-Artistas con sus canciones todos juntos
+
+-Artistas con sus canciones por separado
+
+-Artistas por votos
+
+-Artistas con sus canciones por votos
+
+-Tarjetas por usuarios
 
 
 
