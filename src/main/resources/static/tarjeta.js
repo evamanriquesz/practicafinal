@@ -6,14 +6,7 @@ const getTarjeta = async () => {
     }
 };
 
-/*
-function pagado()
-{
-     alert("Pagado :) Ya puedes realizar otra compra!");
 
-    location.href='fanstore.html';
-}
-*/
 
 
 async function guardarTarjeta( tarjetaId, numeroTarjeta, fechaCaducidad, cvv, usuarioId, gasto ){
@@ -93,12 +86,16 @@ form.addEventListener("click", function (event) {
 	   //guardarJugador();
 	       localStorage.setItem('tarjetaId', id_max)
 
-	    guardarTarjeta(tarjetaId,numeroTarjeta, fechaCaducidad, cvv, usuarioId, gasto);
-	    alert("Pagado :) Ya puedes realizar otra compra!");
-	    location.href='fanstore.html';
-
 
 });
 
+
+
+function pagado()
+{
+     alert("Pagado :) Ya puedes realizar otra compra!");
+   guardarTarjeta(tarjetaId,numeroTarjeta, fechaCaducidad, cvv, usuarioId, gasto);
+    location.href='fanstore.html';
+}
 
 
