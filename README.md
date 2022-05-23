@@ -30,6 +30,44 @@ Tras esta breve explicación, se muestran cada una de las penstañas más explay
 Como se puede observar, en la parte de abajo están las novedades. Tanto desde las novedades como desde el CocaCola Music Experience se puede acceder a Música.html. En el apartado de la nueva CocaCola zero te lleva a Productos.html.
 
 **Música:**
+Si algo tiene CocaCola aparte de sus inigualables bebidas es el concierto de CocaCola Music Experience. Por ello, se ha querido sortear 2 entradas para poder asistir.
+
+![Captura de pantalla 2022-05-23 a las 23 15 37](https://user-images.githubusercontent.com/98181428/169907906-ec85d890-b641-4501-95e6-2fa986467ef7.png)
+
+![Captura de pantalla 2022-05-23 a las 23 15 44](https://user-images.githubusercontent.com/98181428/169907919-2634cf61-6457-4575-af79-0beebbfd4fec.png)
+
+Una vez se ha participado se muestra un mensaje con todos los datos recogidos deseando suerte:
+
+![Captura de pantalla 2022-05-23 a las 23 16 23](https://user-images.githubusercontent.com/98181428/169907990-7e0d126c-5ec0-4fc0-b771-f67adae52eb0.png)
+
+Y si esto era poco, se ha querido crear una Playlist del concierto. De esta forma nadie tendrá excusa de no saberse las canciones. Por lo tanto, si se pincha en "Visita la playlist y vota a tus artistas favoritos" se accede a Spoty.html donde se muestra lo siguiente:
+
+Primeramente se muestra una lista de los 100 artistas que componen la playlist de la CCME.
+![Captura de pantalla 2022-05-23 a las 23 16 40](https://user-images.githubusercontent.com/98181428/169908288-9290e10b-2f93-482e-a1c8-9b951983c3aa.png)
+
+
+Una vez se llega al final de dicha lista de 100 artistas se pued votar a tus artistas favoritos. Además se tiene la posibilidad de ver qué canciones tiene en nuestra playlist y de eliminar nuestro voto de favorito. En la primera imagen se ve cómo al pulsar en ver canciones nos muestra un mensaje con el artista y sus canciones.
+
+![Captura de pantalla 2022-05-23 a las 23 17 06](https://user-images.githubusercontent.com/98181428/169908586-2e1bdc54-3f0d-43b9-a0dc-d8b54b315dd9.png)
+
+Además si ahora se presiona a en marcar como favorito, el número de votos ha pasado de 12 a 13.
+
+![Captura de pantalla 2022-05-23 a las 23 17 17](https://user-images.githubusercontent.com/98181428/169908715-5931fafa-e3ff-4170-b396-64787942f3a5.png)
+
+Lo mejor de todo, es que no tienes por qué acordarte de cuales has marcado como favorito ya que tras los votos aparece una seeción con los artistas que has votado con sus respectivas canciones y albúm al que perteneces, además del número de votos que lleva el artista
+
+![Captura de pantalla 2022-05-23 a las 23 17 50](https://user-images.githubusercontent.com/98181428/169908877-6b666baa-c7b0-4356-89b7-49357039ecb3.png)
+
+Para finalizar con el apartado de Música, se tiene una serie de botones que van a facilitar la búsqueda,primeramente para saber qué canta cada artista, seguido de 4 secciones en las cuales se muestran los artistas con más de 5, 10, 15 o 20 votos.
+
+![Captura de pantalla 2022-05-23 a las 23 18 00](https://user-images.githubusercontent.com/98181428/169909150-ea74fa3a-0fed-4e2f-ad9b-7d8b22bf4ec2.png)
+
+![Captura de pantalla 2022-05-23 a las 23 18 08](https://user-images.githubusercontent.com/98181428/169909173-621b997d-e05b-45a5-9a5a-a55aa1ed8021.png)
+
+![Captura de pantalla 2022-05-23 a las 23 18 17](https://user-images.githubusercontent.com/98181428/169909186-725d2cb8-d303-47d0-b95b-ffab2bcefff2.png)
+
+![Captura de pantalla 2022-05-23 a las 23 18 27](https://user-images.githubusercontent.com/98181428/169909196-b7b153b8-6758-485a-8beb-436f32a3a967.png)
+
 
 **CocaCola Marvel:**** (incluye jugadores.html, fácil.html, medio.html, dificil.html, finJuego.html)**
 En esta pestaña colaborativa con Marvel se puede observar que aparece un formulario para poder registrarnos como jugadores:
