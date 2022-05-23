@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.Objects;
 
 @Data
@@ -22,15 +23,20 @@ public class TarjetaDTO {
 
     @NotNull
     @Size(min=1, max=50)
-    String numero_tarjeta;
+    String numeroTarjeta;
 
     @NotNull
     @Size(min=1, max=50)
-    Long ccv;
+    Date fechaCaducidad;
+
+
+    @NotNull
+    @Size(min=1, max=4)
+    Long cvv;
 
     @NotNull
     @Size(min=1, max=50)
-    Long usuario_id;
+    Long usuarioId;
 
     @NotNull
     @Size(min=1, max=50)
@@ -47,27 +53,35 @@ public class TarjetaDTO {
     }
 
     public String getNumeroTarjeta() {
-        return numero_tarjeta;
+        return numeroTarjeta;
     }
 
     public void setNumeroTarjeta(String numero_tarjeta) {
-        this.numero_tarjeta = numero_tarjeta;
+        this.numeroTarjeta = numeroTarjeta;
     }
 
-    public Long getCcv() {
-        return ccv;
+    public Date getFechaCaducidad() {
+        return fechaCaducidad;
     }
 
-    public void setCcv(Long ccv) {
-        this.ccv = ccv;
+    public void setFechaCaducidad(Date fechaCaducidad) {
+        this.fechaCaducidad = fechaCaducidad;
+    }
+
+    public Long getCvv() {
+        return cvv;
+    }
+
+    public void setCcv(Long cvv) {
+        this.cvv = cvv;
     }
 
     public Long getUsuarioId() {
-        return usuario_id;
+        return usuarioId;
     }
 
-    public void setUsuarioId(Long usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public Long getGasto() {

@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.util.Date;
 import java.util.Objects;
 
 @Data
@@ -21,11 +22,13 @@ public class TarjetaModel {
     private @Column("TARJETA_ID")
     Long tarjetaId;
     private @Column("NUMERO_TARJETA")
-    String numero_tarjeta;
-    private @Column("CCV")
-    Long ccv;
+    String numeroTarjeta;
+    private @Column("FECHA_CADUCIDAD")
+    Date fechaCaducidad;
+    private @Column("CVV")
+    Long cvv;
     private @Column("USUARIO_ID")
-    Long usuario_id;
+    Long usuarioId;
     private @Column("GASTO")
     Long gasto;
 
@@ -40,27 +43,35 @@ public class TarjetaModel {
     }
 
     public String getNumeroTarjeta() {
-        return numero_tarjeta;
+        return numeroTarjeta;
     }
 
-    public void setNumeroTarjeta(String numero_tarjeta) {
-        this.numero_tarjeta = numero_tarjeta;
+    public void setNumeroTarjeta(String numeroTarjeta) {
+        this.numeroTarjeta = numeroTarjeta;
     }
 
-    public Long getCcv() {
-        return ccv;
+    public Date getFechaCaducidad() {
+        return fechaCaducidad;
     }
 
-    public void setCcv(Long ccv) {
-        this.ccv = ccv;
+    public void setFechaCaducidad(Date fechaCaducidad) {
+        this.fechaCaducidad = fechaCaducidad;
+    }
+
+    public Long getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(Long cvv) {
+        this.cvv = cvv;
     }
 
     public Long getUsuarioId() {
-        return usuario_id;
+        return usuarioId;
     }
 
-    public void setUsuarioId(Long usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public Long getGasto() {
@@ -83,6 +94,7 @@ public class TarjetaModel {
     public int hashCode() {
         return Objects.hash(tarjetaId);
     }
+
 
 
 }
