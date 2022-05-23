@@ -31,7 +31,7 @@ Como se puede observar, en la parte de abajo están las novedades. Tanto desde l
 
 **Música:**
 
-**CocaCola Marvel:**
+**CocaCola Marvel:**** (incluye jugadores.html, fácil.html, medio.html, dificil.html, finJuego.html)**
 En esta pestaña colaborativa con Marvel se puede observar que aparece un formulario para poder registrarnos como jugadores:
 
 ![Captura de pantalla 2022-05-23 a las 22 33 53](https://user-images.githubusercontent.com/98181428/169901675-3dfccef6-1bc4-4e99-bf6b-a7f81857f273.png)
