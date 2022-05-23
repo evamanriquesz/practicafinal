@@ -19,7 +19,7 @@ Como proyecto final se ha escogido la compañía de CocaCola para poner en prác
 
 **- CocaCola Marvel:** Esta pestaña muestra una colaboración con Marvel en la cual se incorpora un juego.
 
-Tras esta breve explicación, se muestran cada una de las penstañas más explayadas. 
+Tras esta breve explicación, se muestran cada una de las penstañas más detalladamente. 
 
 **index.html**
 
@@ -114,7 +114,7 @@ Como se puede observar se pueden visualizar 4 tablas. La primera muestra las úl
  
 Cabe destacar que se han incluido diferentes formatos de tabla, en la que se resalta el jugador que se está observando.
 
-**Fanstore:**
+**Fanstore:**** (incluye fanstore.html, tarjeta.html, registro.html, inicioSesion.html)**
 Pertenecer a la Fanstore es algo exclusivo, a lo cual solo se puede acceder si uno se registra:
 ![Captura de pantalla 2022-05-23 a las 22 52 46](https://user-images.githubusercontent.com/98181428/169904487-8555fe58-92b3-4e59-9eb6-c57519d3896b.png)
 
@@ -125,5 +125,20 @@ Como se puede observar se puede "Entrar" o "Registrarse", si uno quiere registra
 Una vez se es miembro de la FanStore ya se pueden comprar los diferentes artículos de la marca. A la derecha de los productos se tiene el "Carrito" donde irán apareciendo los productos que se han añadido (con el +), el número de unidades y su precio. Además muestra el precio total. Se tiene la opción de vaciar la papelera y de Pagar. Está última opción nos lleva a una ventana para introducir la tarjeta.
 
 ![Captura de pantalla 2022-05-23 a las 22 53 35](https://user-images.githubusercontent.com/98181428/169905320-d6f9feff-d6aa-4766-8c1b-5c16acb650bc.png)
+
+**CocaCola StartLight:**** (incluye fotodia.html, nasa.html)**
+Como se ha explicado anteriormente, esta pestaña muestra una colaboración con la NASA ya que han sacado un abebida intergaláctica. La ventana se ve de la siguiente manera:
+
+![Captura de pantalla 2022-05-23 a las 23 41 29](https://user-images.githubusercontent.com/98181428/169910381-29500973-b7b5-441e-bd01-61e3813df7cf.png)
+![Captura de pantalla 2022-05-23 a las 23 41 36](https://user-images.githubusercontent.com/98181428/169910424-85611d3f-bc90-43f9-8507-349b6f2379fb.png)
+
+Lo curioso que aporta este html es la posibilidad de visualizar la foto del día que postea la NASA. Para ello se accede a su api adquiriendo dicha imagen, la fecha y una breve descripción de la misma. Para ello, hay que pulsar el botón de "Despegar" y se podrán ver imagenes tan maravillosas como la que se muestra en el ejemplo:
+
+![Captura de pantalla 2022-05-23 a las 23 44 29](https://user-images.githubusercontent.com/98181428/169910729-6b61da37-5809-477e-9878-332db0bf2edb.png)
+![Captura de pantalla 2022-05-23 a las 23 44 43](https://user-images.githubusercontent.com/98181428/169910768-f14b1f1e-1a66-4226-a1a9-e73d944051da.png)
+
+De esta manera se puede disfrutar de una CocaCola como si se estuviera en el espacio y aprender cada día algo nuevo del mismo.
+
+
 
 
