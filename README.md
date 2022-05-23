@@ -49,5 +49,16 @@ A medida que vamos introduciendo películas nos salta  un mensaje de si estaba b
 Cuando se acaban las 5 preguntas vuelve a aparecer un mensaje de que todo ha ido correctamente:
 ![Captura de pantalla 2022-05-23 a las 22 40 03](https://user-images.githubusercontent.com/98181428/169902743-d9d90816-33a9-4dbb-9ab9-ba20b2f5c15a.png)
 
+Tras aceptar el mensaje de verificación aparece una nueva ventana en la que se puede ver la clasificación de los diferentes jugadores:
+
+![Captura de pantalla 2022-05-23 a las 22 44 36](https://user-images.githubusercontent.com/98181428/169903036-30a76bfc-3db0-4b21-9239-2906fa86d840.png)
+ 
+Como se puede observar se pueden visualizar 4 tablas. La primera muestra las últimas partidas y las siguientes muestra una tabla por cada nivel, fácil, medio o difícil. 
+
+![Captura de pantalla 2022-05-23 a las 22 46 49](https://user-images.githubusercontent.com/98181428/169903406-72dc7253-3220-47a0-bc71-5f4854349bf9.png)
+ 
+Cabe destacar que se han incluido diferentes formatos de tabla, en la que se resalta el jugador que se está observando.
+
+
 
 
