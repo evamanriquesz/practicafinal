@@ -41,7 +41,6 @@ function validateEmail(input, requiredMsg, invalidMsg) {
 
 const form = document.getElementById('btnsubmit');
 
-const JUGADOR_ID_REQUIRED = "Por favor introduzca su ID de jugador";
 const NAME_REQUIRED = "Por favor introduzca su nombre";
 const APELLIDOS_REQUIRED = "Por favor introduzca su apellido";
 const EMAIL_REQUIRED = "Por favor introduzca su email";
@@ -50,7 +49,6 @@ const GENERO_REQUIRED = "Por favor introduzca su genero"
 const NIVEL_REQUIRED = "Por favor introduzca el nivel";
 
 
-let jugadorId;
 let nombre;
 let apellidos;
 let edad;
@@ -69,7 +67,6 @@ form.addEventListener("click", function (event) {
     console.log(tipoGenero);
     console.log(selected);
 	// validate the form
-	let jugadorIdValid = hasValue(document.getElementById('jugadorId'), JUGADOR_ID_REQUIRED);
 	let nombreValid = hasValue(document.getElementById('nombre'), NAME_REQUIRED);
 	let apellidosValid = hasValue(document.getElementById('apellidos'), APELLIDOS_REQUIRED);
 	let emailValid= hasValue(document.getElementById('email'), EMAIL_REQUIRED);
@@ -77,8 +74,7 @@ form.addEventListener("click", function (event) {
 
 
 	// if valid, submit the form.
-	if (jugadorIdValid && nombreValid && apellidosValid && emailValid && edadValid) {
-	    jugadorId = document.getElementById('jugadorId').value;
+	if (nombreValid && apellidosValid && emailValid && edadValid) {
 	    nombre=document.getElementById('nombre').value;
         apellidos=document.getElementById('apellidos').value;
         edad=document.getElementById('edad').value;
@@ -86,17 +82,16 @@ form.addEventListener("click", function (event) {
         aciertos = 1 ;
 
             console.log("los valid");
-            console.log(jugadorIdValid);
             console.log(nombreValid);
             console.log(apellidosValid);
             console.log(emailValid);
             console.log(edadValid);
 
 
-		alert("Se han recogido correctamente sus datos."+"\nLa información recogida es: " +"\nID jugador: "+jugadorId +"\nNombre: "+nombre + "\nApellidos: " + apellidos+ "\nEmail: "+ email + "\nEdad: "+ edad+ "\nGenero: "+ tipoGenero+ "\nNivel: "+ selected);
+		alert("Se han recogido correctamente sus datos."+"\nLa información recogida es: " +"\nNombre: "+nombre + "\nApellidos: " + apellidos+ "\nEmail: "+ email + "\nEdad: "+ edad+ "\nGenero: "+ tipoGenero+ "\nNivel: "+ selected);
 	   //guardarJugador();
 	     console.log(aciertos);
-	    guardarJugador(jugadorId, nombre, apellidos, edad, tipoGenero, email, selected, aciertos);
+	    guardarJugador( nombre, apellidos, edad, tipoGenero, email, selected, aciertos);
 
 	    if (selected.includes('Facil')){
             location.href='Facil.html';
@@ -141,18 +136,18 @@ function ShowSelected()
 
 
 //AQUI EL POST
-async function guardarJugador(jugadorId, nombre, apellidos, edad, tipoGenero, email, selected, aciertos){
+async function guardarJugador( nombre, apellidos, edad, tipoGenero, email, selected, aciertos){
     event.preventDefault();
-
+    calcularID();
     const dataObj={
-        "jugadorId" : jugadorId,
+        "jugadorId" : id_max,
         "nombre":nombre,
         "apellidos": apellidos,
         "edad" : edad,
         "genero" : tipoGenero,
         "email": email,
         "nivel" : selected,
-        "aciertos" : 1,
+        "aciertos" : 0,
     };
 
     let res = await fetch("/api/v1/jugadores",{
@@ -169,4 +164,22 @@ async function guardarJugador(jugadorId, nombre, apellidos, edad, tipoGenero, em
     }else{
         alert("¡Vaya! Parece que algo ha ido mal en el form:(");
     }
+}
+
+let id_max=-1;
+function calcularID() {
+    let url = "/api/v1/jugadores/"+localStorage.getItem('id');
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+
+        id_max = data[0].jugador_id;
+        for(let i=1;i<data.length;i++){
+            if (data[i].jugador_id > id_max){
+                id_max = data[i].jugador_id;
+            }
+        }
+
+        id_max=id_max+1;
+    })
 }

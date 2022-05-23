@@ -58,22 +58,12 @@ public class JugadorController {
         return ResponseEntity.ok().body("Jugador actualizado");
     }
 
-    /*
-    @PostMapping("/jugadores")
-    public ResponseEntity<JugadorModel> insertJugador(@RequestBody JugadorModel jugadorModel)
-    {
-        JugadorModel j = jugadorService.insertJugador(jugadorModel);
-
-        return new ResponseEntity<>(j, HttpStatus.CREATED);
-    }
-
-     */
 
     @PostMapping("/jugadores")
-    public ResponseEntity<JugadorModel> createJugador(@RequestBody JugadorModel jugadorModel)
+    public ResponseEntity<String> createJugador(@RequestBody JugadorModel jugadorModel)
     {
-        JugadorModel respuesta = jugadorService.insertJugador(jugadorModel);
-        return ResponseEntity.ok().body(respuesta);
+        jugadorService.insertJugador(jugadorModel);
+        return ResponseEntity.ok().body("Jugador añadido");
     }
 
 

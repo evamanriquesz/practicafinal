@@ -58,7 +58,7 @@ public class JugadorServiceImpl implements JugadorService {
     }
 
     @Override
-    public JugadorModel insertJugador(JugadorModel jugador) {
+    public void insertJugador(JugadorModel jugador) {
         /*
         JugadorModel j = new JugadorModel();
         j.setJugadorId(jugador.getJugadorId());
@@ -75,7 +75,17 @@ public class JugadorServiceImpl implements JugadorService {
         //jdbcTemplate.execute("INSERT INTO JUGADORES(JUGADOR_ID, NOMBRE, APELLIDOS, EDAD, GENERO, EMAIL, NIVEL, ACIERTOS) VALUES (" +jugador.getJugadorId()+ ", "+jugador.getNombre() +", " + jugador.getApellidos() + ", "+ jugador.getEdad() + ", " + jugador.getGenero() + ", " + jugador.getEmail() + ", " + jugador.getNivel() + ", "+ jugador.getAciertos() +");");
 
         //JugadorModel respuesta = jugadorRepository.save(j);
-        return jugadorRepository.save(jugador);
+        Long id= jugador.getJugadorId();
+        String nombre= jugador.getNombre();
+        String apellidos = jugador.getApellidos();
+        Long edad = jugador.getEdad();
+        String email = jugador.getEmail();
+        String genero = jugador.getGenero();
+        String nivel = jugador.getNivel();
+        Long aciertos = jugador.getAciertos();
+
+        jdbcTemplate.execute("INSERT INTO JUGADORES (JUGADOR_ID, NOMBRE, APELLIDOS, EDAD, EMAIL, GENERO, NIVEL, ACIERTOS) VALUES ("+id+",'"+nombre+"','"+apellidos+"', "+ edad+",'"+email+"','"+genero+"','"+nivel+"', "+aciertos+");");
+
     }
 
     @Override

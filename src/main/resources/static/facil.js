@@ -162,5 +162,6 @@ function calcularID() {
                 id_max = data[i].jugador_id;
             }
         }
+
     })
 }

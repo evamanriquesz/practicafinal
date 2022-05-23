@@ -9,7 +9,7 @@ public interface JugadorService {
 
     public List<JugadorModel> retrieveAll(); //esta clase va a ser para devolver todo lo q haya en la bbdd
     public JugadorModel retrieveJugador(Long jugadorId);
-    public JugadorModel insertJugador (JugadorModel jugador);
+    public void insertJugador (JugadorModel jugador);
 
     void updateJugador(JugadorDTO j);
 

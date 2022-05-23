@@ -51,7 +51,8 @@ event.preventDefault();
 
 if(contador==4)
 {
-    location.href='Nivel.html';
+    location.href='finJuego.html';
+    modificarJugador();
 }
 
 let fraseAMostrar =document.getElementById("Frase");
