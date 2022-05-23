@@ -59,22 +59,7 @@ public class JugadorServiceImpl implements JugadorService {
 
     @Override
     public void insertJugador(JugadorModel jugador) {
-        /*
-        JugadorModel j = new JugadorModel();
-        j.setJugadorId(jugador.getJugadorId());
-        j.setNombre(jugador.getNombre());
-        j.setApellidos(jugador.getApellidos());
-        j.setEdad(jugador.getEdad());
-        j.setGenero(jugador.getGenero());
-        j.setNivel(jugador.getNivel());
-        j.setEmail(jugador.getEmail());
-        j.setAciertos(jugador.getAciertos());
 
-
-         */
-        //jdbcTemplate.execute("INSERT INTO JUGADORES(JUGADOR_ID, NOMBRE, APELLIDOS, EDAD, GENERO, EMAIL, NIVEL, ACIERTOS) VALUES (" +jugador.getJugadorId()+ ", "+jugador.getNombre() +", " + jugador.getApellidos() + ", "+ jugador.getEdad() + ", " + jugador.getGenero() + ", " + jugador.getEmail() + ", " + jugador.getNivel() + ", "+ jugador.getAciertos() +");");
-
-        //JugadorModel respuesta = jugadorRepository.save(j);
         Long id= jugador.getJugadorId();
         String nombre= jugador.getNombre();
         String apellidos = jugador.getApellidos();
@@ -86,6 +71,28 @@ public class JugadorServiceImpl implements JugadorService {
 
         jdbcTemplate.execute("INSERT INTO JUGADORES (JUGADOR_ID, NOMBRE, APELLIDOS, EDAD, EMAIL, GENERO, NIVEL, ACIERTOS) VALUES ("+id+",'"+nombre+"','"+apellidos+"', "+ edad+",'"+email+"','"+genero+"','"+nivel+"', "+aciertos+");");
 
+    }
+
+    @Override
+    public List<JugadorModel> retrieveJugadoresByNivel(String nivel) {
+        String query = " SELECT * FROM JUGADORES  WHERE  JUGADORES.NIVEL = '"+nivel + "'; ";
+
+
+        List<JugadorModel> jugadorModel = jdbcTemplate.query(
+                query,
+                (data, rowNum) ->
+                        new JugadorModel(
+                                data.getLong("JUGADOR_ID"),
+                                data.getString("NOMBRE"),
+                                data.getString("APELLIDOS"),
+                                data.getLong("EDAD"),
+                                data.getString("GENERO"),
+                                data.getString("EMAIL"),
+                                data.getString("NIVEL"),
+                                data.getLong("ACIERTOS")
+                        )
+        );
+        return jugadorModel;
     }
 
     @Override

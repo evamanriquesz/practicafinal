@@ -30,4 +30,6 @@ public class UsuarioController {
        usuarioService.insertUsuario(usuarioModel);
        return ResponseEntity.ok().body("usuario registrado");
     }
+
+
 }

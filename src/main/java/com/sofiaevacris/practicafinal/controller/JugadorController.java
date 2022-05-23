@@ -36,19 +36,7 @@ public class JugadorController {
         JugadorModel respuesta = jugadorService.retrieveJugador(jugadorId);
         return ResponseEntity.ok().body(respuesta);
     }
-/*
-    @PostMapping("/jugador")
-    public ResponseEntity<JugadorModel> insertJugador(@RequestBody JugadorModel jugadorModel) {
-        try {
-            JugadorModel newJugador = jugadorService.insertJugador(jugadorModel);
-            return new ResponseEntity<>(newJugador, HttpStatus.CREATED);
-        } catch (Exception e) {
-            System.out.println(e);
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 
-        }
-    }
-*/
 
     @PostMapping("/jugador/update/{id}")
     public ResponseEntity<String> updateJugador (@RequestBody JugadorDTO j)
@@ -65,6 +53,14 @@ public class JugadorController {
         jugadorService.insertJugador(jugadorModel);
         return ResponseEntity.ok().body("Jugador añadido");
     }
+
+    @GetMapping("/jugadores/nivel/{nivel}")
+    public ResponseEntity<List<JugadorModel>> retrieveJugadoresByNivel(@PathVariable String nivel)
+    {
+        List<JugadorModel> respuesta = jugadorService.retrieveJugadoresByNivel(nivel);
+        return ResponseEntity.ok().body(respuesta);
+    }
+
 
 
 }
