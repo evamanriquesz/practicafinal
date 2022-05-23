@@ -24,7 +24,7 @@ public class TarjetaModel {
     private @Column("NUMERO_TARJETA")
     String numeroTarjeta;
     private @Column("FECHA_CADUCIDAD")
-    Date fechaCaducidad;
+    String fechaCaducidad;
     private @Column("CVV")
     Long cvv;
     private @Column("USUARIO_ID")
@@ -50,11 +50,11 @@ public class TarjetaModel {
         this.numeroTarjeta = numeroTarjeta;
     }
 
-    public Date getFechaCaducidad() {
+    public String getFechaCaducidad() {
         return fechaCaducidad;
     }
 
-    public void setFechaCaducidad(Date fechaCaducidad) {
+    public void setFechaCaducidad(String fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
 

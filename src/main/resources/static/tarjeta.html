@@ -91,7 +91,7 @@
             </div>
         </div>
         <div class="panel-body">
-            <form role="form" id="payment-form" method="post" action="" onSubmit="return false;">
+            <form role="form" id="payment-form" method="post">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">
@@ -174,7 +174,7 @@
                     </div>
                     <div class="col-xs-5 col-md-5 pull-right">
                         <div class="form-group">
-                            <label for="gasto">CVV</label>
+                            <label for="gasto">GASTO</label>
                             <input
                                     type="tel"
                                     class="form-control"
@@ -190,8 +190,15 @@
                 <div class="row">
                     <div class="col-xs-12">
 
+                        <!--
+                       let numeroTarjeta=document.getElementById('cardNumber').value;
+                       let fechaCaducidad=document.getElementById('cardExpiry').value;
+                       let cvv=document.getElementById('cardCvv').value;
+                       let usuarioId=document.getElementById('usuarioId').value;
+                       let gasto = document.getElementById('gasto').value;
 
-                        <button id="btnsubmit" onclick="pagado()">Pagar</button>
+-->
+                        <button type = "submit" id="btnsubmit" onclick="pagado(document.getElementById('cardNumber').value, document.getElementById('cardExpiry').value, document.getElementById('cardCvv').value, document.getElementById('usuarioId').value, document.getElementById('gasto').value)">Pagar</button>
 
                         <div id="result"></div>
                     </div>
@@ -206,6 +213,7 @@
     </div>
     <!-- CREDIT CARD FORM ENDS HERE -->
 </div>
+    </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

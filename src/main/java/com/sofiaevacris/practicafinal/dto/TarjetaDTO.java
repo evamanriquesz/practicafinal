@@ -27,7 +27,7 @@ public class TarjetaDTO {
 
     @NotNull
     @Size(min=1, max=50)
-    Date fechaCaducidad;
+    String fechaCaducidad;
 
 
     @NotNull
@@ -60,11 +60,11 @@ public class TarjetaDTO {
         this.numeroTarjeta = numeroTarjeta;
     }
 
-    public Date getFechaCaducidad() {
+    public String getFechaCaducidad() {
         return fechaCaducidad;
     }
 
-    public void setFechaCaducidad(Date fechaCaducidad) {
+    public void setFechaCaducidad(String fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
 
