@@ -36,7 +36,7 @@ public class ArtistaCancionE2EControllerTest {
     @LocalServerPort
     private int port;
 
-    //test del enpoint @GetMapping("/artistaCancionAll")
+    //test del endpoint @GetMapping("/artistaCancionAll")
 
     @Test
     public void artistaCancionEndpointTest()

@@ -26,7 +26,7 @@ public class UsuarioTarjetaController {
         return ResponseEntity.ok().body(respuesta);
     }
 
-    @GetMapping("/clientesDetallado")
+    @GetMapping("/clientes/detallado")
     public ResponseEntity<List<UsuarioTarjetaDetalladoDTO>> retrieveUsuarioTarjetaDetallado()
     {
         List<UsuarioTarjetaDetalladoDTO> respuesta = usuarioTarjetaService.retrieveAllDetallado();

@@ -31,7 +31,7 @@ async function guardarTarjeta(  numeroTarjeta, fechaCaducidad, cvv, usuarioId, g
     if (res.ok){
     console.log(dataObj);
         alert("Todo ha ido bien :)");
-        location.href='infoClientes.html';
+        location.href='infoCliente.html';
 
     }else{
         alert("¡Vaya! Parece que algo ha ido mal en el form:(");
