@@ -1,5 +1,5 @@
 # Practica Final: Coca Cola ®
-#Cristina Álvarez, Sofía Barquero y Eva Manrique
+**Cristina Álvarez, Sofía Barquero y Eva Manrique**
 
 Como proyecto final se ha escogido la compañía de CocaCola para poner en práctica todas las funcionalidades aprendidas. Nuestra web va a contar con una barra de navegación la cual está compuesta por: 
 
@@ -139,12 +139,23 @@ Pertenecer a la Fanstore es algo exclusivo, a lo cual solo se puede acceder si u
 
 Como se puede observar se puede "Entrar" o "Registrarse", si uno quiere registrarse ha de rellenar el siguiente formulario:
 
+**ES MUY IMPORTANTE QUE A LA HORA DE INICIAR SESION SE HAGA CON EL ID DE USUARIO: 111  Y LA CONTRASEÑA aaa111**
+
 ![Captura de pantalla 2022-05-23 a las 22 54 56](https://user-images.githubusercontent.com/98181428/169904702-7d7017c3-afa7-44eb-aa6a-72e4548c7b8f.png)
  
 Una vez se es miembro de la FanStore ya se pueden comprar los diferentes artículos de la marca. A la derecha de los productos se tiene el "Carrito" donde irán apareciendo los productos que se han añadido (con el +), el número de unidades y su precio. Además muestra el precio total. Se tiene la opción de vaciar la papelera y de Pagar. Está última opción nos lleva a una ventana para introducir la tarjeta.
 
 ![Captura de pantalla 2022-05-23 a las 22 53 35](https://user-images.githubusercontent.com/98181428/169905320-d6f9feff-d6aa-4766-8c1b-5c16acb650bc.png)
 
+Una vez se quiera hacer pedido y se de a pagar, automáticamente nos redirige a la siguiente ventana:
+
+![Captura de pantalla 2022-05-24 a las 0 35 41](https://user-images.githubusercontent.com/98181428/169915734-ccecc55d-f5e5-408b-a997-b05e719566c2.png)
+
+Una vez se paga aparece la informacion del cliente con la tarjeta y una seccion con la información del cliente más detallada.
+
+![WhatsApp Image 2022-05-24 at 12 31 28 AM](https://user-images.githubusercontent.com/98181428/169915852-60270a50-952f-4c48-a764-c102891d797b.jpeg)
+
+**RECORDAD QUE EL USUARIO HA DE SER 111 QUE ES EL QUE ESTÁ EN LA BBDD**
 
 **Preguntas:** 
 En este apartado se muestran algunas de las preguntas más comunes a las cuales se puede acceder a la respuesta si se pincha en ella. Además cabe la posibilidad de formular preguntas rellenando el formulario de abajo.
