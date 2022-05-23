@@ -32,7 +32,7 @@ public class TarjetaServiceImpl implements TarjetaService {
                 (data, rowNum) -> new TarjetaModel(
                         data.getLong("TARJETA_ID"),
                         data.getString("NUMERO_TARJETA"),
-                        data.getDate("FECHA_CADUCIDAD"),
+                        data.getString("FECHA_CADUCIDAD"),
                         data.getLong("CVV"),
                         data.getLong("USUARIO_ID"),
                         data.getLong("GASTO")
@@ -45,27 +45,16 @@ public class TarjetaServiceImpl implements TarjetaService {
 
     @Override
     public void insertTarjeta(TarjetaModel tarjetaModel) {
-        Long tarjetaId= tarjetaModel.getTarjetaId();
         String numeroTarjeta= tarjetaModel.getNumeroTarjeta();
-        Date fechaCaducidad = tarjetaModel.getFechaCaducidad();
+        String fechaCaducidad = tarjetaModel.getFechaCaducidad();
         Long cvv = tarjetaModel.getCvv();
         Long usuarioId = tarjetaModel.getUsuarioId();
         Long gasto = tarjetaModel.getGasto();
 
 
-        jdbcTemplate.execute("INSERT INTO TARJETAS (TARJETA_ID, NUMERO_TARJETA, FECHA_CADUCIDAD, CVV, USUARIO_ID, GASTO) VALUES ("+tarjetaId+",'"+numeroTarjeta+"',"+fechaCaducidad+"', "+ cvv+","+usuarioId+","+gasto+");");
+        jdbcTemplate.execute("INSERT INTO TARJETAS ( NUMERO_TARJETA, FECHA_CADUCIDAD, CVV, USUARIO_ID, GASTO) VALUES ('"+numeroTarjeta+"','"+fechaCaducidad+"', "+ cvv+","+usuarioId+","+gasto+");");
 
 
     }
-/*
-    @Override
-    public Iterable<TarjetaModel> retrieveAll() {
-        return TarjetaRepository.findAll();
-    }
 
-    @Override
-    public TarjetaModel insertTarjeta(TarjetaModel tarjetaModel) {
-        return null;
-    }
-*/
 }

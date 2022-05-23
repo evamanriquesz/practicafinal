@@ -9,11 +9,10 @@ const getTarjeta = async () => {
 
 
 
-async function guardarTarjeta( tarjetaId, numeroTarjeta, fechaCaducidad, cvv, usuarioId, gasto ){
+async function guardarTarjeta(  numeroTarjeta, fechaCaducidad, cvv, usuarioId, gasto ){
     event.preventDefault();
 
     const dataObj={
-        "tarjetaId" : id_max,
         "numeroTarjeta":numeroTarjeta,
         "fechaCaducidad": fechaCaducidad,
         "cvv" : cvv,
@@ -37,25 +36,7 @@ async function guardarTarjeta( tarjetaId, numeroTarjeta, fechaCaducidad, cvv, us
 }
 
 
-function calcularID() {
-    let url = "/api/v1/tarjetas/";
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        id_max = data[0].tarjetaId;
-        for(let i=1;i<data.length;i++){
-            if (data[i].tarjetaId > id_max){
-                id_max = data[i].tarjetaId;
-            }
-        }
-
-        id_max=id_max+1;
-    })
-}
-
-document.addEventListener('DOMContentLoaded',calcularID());
-
+/*
 const form = document.getElementById('btnsubmit');
 
 let tarjetaId;
@@ -79,22 +60,24 @@ form.addEventListener("click", function (event) {
         usuarioId=document.getElementById('usuarioId').value;
         gasto = document.getElementById('gasto').value;
 
-
+        console.log(numeroTarjeta);
+        console.log(gasto);
 
 
 		alert("Se han recogido correctamente sus datos.");
 	   //guardarJugador();
-	       localStorage.setItem('tarjetaId', id_max)
+
 
 
 });
 
+*/
 
 
-function pagado()
+function pagado(numeroTarjeta, fechaCaducidad, cvv, usuarioId, gasto)
 {
      alert("Pagado :) Ya puedes realizar otra compra!");
-   guardarTarjeta(tarjetaId,numeroTarjeta, fechaCaducidad, cvv, usuarioId, gasto);
+   guardarTarjeta(numeroTarjeta, fechaCaducidad, cvv, usuarioId, gasto);
     location.href='fanstore.html';
 }
 
