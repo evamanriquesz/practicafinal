@@ -56,5 +56,15 @@ public class TarjetaServiceImpl implements TarjetaService {
 
 
     }
+/*
+    @Override
+    public Iterable<TarjetaModel> retrieveAll() {
+        return TarjetaRepository.findAll();
+    }
 
+    @Override
+    public TarjetaModel insertTarjeta(TarjetaModel tarjetaModel) {
+        return null;
+    }
+*/
 }
