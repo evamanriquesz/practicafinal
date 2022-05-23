@@ -140,7 +140,7 @@ async function modificarJugador(){
     });
 
     if (res.ok){
-        alert("Todo ha ido bien :) Ya puedes iniciar sesión");
+        alert("Todo ha ido bien :)");
         location.href= 'finJuego.html';
     }else{
         alert("¡Vaya! Parece que algo ha ido mal :(");
