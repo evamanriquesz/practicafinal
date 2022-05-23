@@ -31,6 +31,7 @@ async function guardarTarjeta(  numeroTarjeta, fechaCaducidad, cvv, usuarioId, g
     if (res.ok){
     console.log(dataObj);
         alert("Todo ha ido bien :)");
+        location.href='infoClientes.html';
 
     }else{
         alert("¡Vaya! Parece que algo ha ido mal en el form:(");
@@ -80,7 +81,6 @@ function pagado(numeroTarjeta, fechaCaducidad, cvv, usuarioId, gasto)
 {
      alert("Pagado :) Ya puedes realizar otra compra!");
    guardarTarjeta(numeroTarjeta, fechaCaducidad, cvv, usuarioId, gasto);
-    location.href='fanstore.html';
 }
 
 
