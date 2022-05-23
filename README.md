@@ -139,7 +139,7 @@ Pertenecer a la Fanstore es algo exclusivo, a lo cual solo se puede acceder si u
 
 Como se puede observar se puede "Entrar" o "Registrarse", si uno quiere registrarse ha de rellenar el siguiente formulario:
 
-**ES MUY IMPORTANTE QUE A LA HORA DE INICIAR SESION SE HAGA CON EL ID DE USUARIO: 111  Y LA CONTRASEÑA aaa**
+**ES MUY IMPORTANTE QUE A LA HORA DE INICIAR SESION SE HAGA CON EL ID DE USUARIO: 111  Y LA CONTRASEÑA aaa111**
 
 ![Captura de pantalla 2022-05-23 a las 22 54 56](https://user-images.githubusercontent.com/98181428/169904702-7d7017c3-afa7-44eb-aa6a-72e4548c7b8f.png)
  
@@ -150,6 +150,8 @@ Una vez se es miembro de la FanStore ya se pueden comprar los diferentes artícu
 Una vez se quiera hacer pedido y se de a pagar, automáticamente nos redirige a la siguiente ventana:
 
 ![Captura de pantalla 2022-05-24 a las 0 35 41](https://user-images.githubusercontent.com/98181428/169915734-ccecc55d-f5e5-408b-a997-b05e719566c2.png)
+
+Una vez se paga aparece la informacion del cliente con la tarjeta y una seccion con la información del cliente más detallada.
 
 ![WhatsApp Image 2022-05-24 at 12 31 28 AM](https://user-images.githubusercontent.com/98181428/169915852-60270a50-952f-4c48-a764-c102891d797b.jpeg)
 
