@@ -10,7 +10,7 @@ public interface ArtistaCancionService {
     public List<ArtistaCancionDTO> retrieveAll();
     public List<ArtistaCancionDTO> retrieveArtistaCancionAll();
     //public void deleteArtistaCancion(Long artistaId);
-    public List<ArtistaModel> retrieveArtistaByVotes(String favoritos);
+    public List<ArtistaCancionDTO> retrieveArtistaCancionByFavoritos(Long favoritos);
 
 
 }
