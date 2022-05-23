@@ -51,7 +51,7 @@ event.preventDefault();
 
 if(contador==4)
 {
-    location.href='Nivel.html';
+    modificarJugador();
 }
 
 let fraseAMostrar =document.getElementById("Frase");
@@ -141,4 +141,30 @@ function WriteFile()
    var fh = fso.CreateTextFile("/Resources/Fichero/Jugadores.txt", true);
    fh.WriteLine(miCadenaDeTexto);
    fh.Close();
+}
+
+//AQUI EL POST
+async function modificarJugador(){
+    event.preventDefault();
+
+    let id_max=localStorage.getItem('id');
+    const dataObj={
+        "jugadorId":id_max,
+        "aciertos":contadorCorrectas
+    };
+
+    let res = await fetch("/api/v1/jugador/update/"+id_max,{
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify(dataObj)
+    });
+
+    if (res.ok){
+        alert("Todo ha ido bien :) ");
+        location.href='finJuego.html';
+    }else{
+        alert("¡Vaya! Parece que algo ha ido mal :(");
+    }
 }

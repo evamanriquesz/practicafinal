@@ -19,35 +19,52 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class JugadorController {
 
+
     @Autowired
     private JugadorService jugadorService;
 
     @GetMapping("/jugadores")
-    public ResponseEntity<List<JugadorDTO>> retrieveArtistas()
+    public ResponseEntity<List<JugadorModel>> retrieveArtistas()
     {
-        List<JugadorDTO> respuesta = jugadorService.retrieveAll();
-        return ResponseEntity.ok().body(respuesta);
-    }
-
-    @GetMapping("/jugador/{id}")
-    public ResponseEntity<List<JugadorDTO>> getJugador(@PathVariable("id") Long id){
-        List<JugadorDTO> respuesta = jugadorService.getJugadores(id);
-
+        List<JugadorModel> respuesta = jugadorService.retrieveAll();
         return ResponseEntity.ok().body(respuesta);
     }
 
 
-    @PostMapping("/jugador/{id}")
-    public ResponseEntity<String> insertJugador(@RequestBody JugadorModel jugadorModel)
-    {
-        jugadorService.insertJugador(jugadorModel);
-        return ResponseEntity.ok().body("jugador incluido");
+    @GetMapping("/jugadores/{jugadorId}")
+    public ResponseEntity<JugadorModel> retrieveJugador(@PathVariable Long jugadorId){
+        JugadorModel respuesta = jugadorService.retrieveJugador(jugadorId);
+        return ResponseEntity.ok().body(respuesta);
     }
+/*
+    @PostMapping("/jugador")
+    public ResponseEntity<JugadorModel> insertJugador(@RequestBody JugadorModel jugadorModel) {
+        try {
+            JugadorModel newJugador = jugadorService.insertJugador(jugadorModel);
+            return new ResponseEntity<>(newJugador, HttpStatus.CREATED);
+        } catch (Exception e) {
+            System.out.println(e);
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+
+        }
+    }
+*/
 
     @PostMapping("/jugador/update/{id}")
-    public ResponseEntity<String> updateJugador (@RequestBody JugadorDTO j){
+    public ResponseEntity<String> updateJugador (@RequestBody JugadorDTO j)
+    {
         jugadorService.updateJugador(j);
 
         return ResponseEntity.ok().body("Jugador actualizado");
     }
+
+
+    @PostMapping("/jugadores")
+    public ResponseEntity<String> createJugador(@RequestBody JugadorModel jugadorModel)
+    {
+        jugadorService.insertJugador(jugadorModel);
+        return ResponseEntity.ok().body("Jugador añadido");
+    }
+
+
 }

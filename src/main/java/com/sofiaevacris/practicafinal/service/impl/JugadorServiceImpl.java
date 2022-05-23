@@ -19,6 +19,7 @@ public class JugadorServiceImpl implements JugadorService {
     @Autowired
     private JugadorRepository jugadorRepository;
 
+    //para mostrarlo alfinal de las partidas
     @Override
     public List<JugadorModel> retrieveAll() {
         String query =
@@ -43,22 +44,6 @@ public class JugadorServiceImpl implements JugadorService {
         return jugadorModel;
     }
 
-    @Override
-    public List<JugadorDTO> getJugadores(Long id){
-        String query =
-                """
-                SELECT REST_PLATO.RESTAURANTE_ID, PLATOS.PLATO_ID, PLATOS.NOMBRE, PLATOS.PRECIO, PLATOS.FOTO, PLATOS.DESCRIPCION, PLATOS.SECCION
-                FROM REST_PLATO
-                RIGHT JOIN PLATOS ON (REST_PLATO.PLATO_ID = PLATOS.PLATO_ID)
-                WHERE REST_PLATO.RESTAURANTE_ID = """ +id_rest;
-
-        List<JugadorDTO> jugadores = jdbcTemplate.query(
-                query,
-                (rs,rowNum) ->
-                        new JugadorDTO(rs.getLong("jugadorId"), rs.getLong("PLATO_ID"), rs.getString("NOMBRE"), rs.getBigDecimal("PRECIO"), rs.getString("FOTO"),rs.getString("DESCRIPCION"),rs.getString("SECCION")));
-        return jugadores;
-    }
-    }
 
 
     @Override
@@ -73,7 +58,8 @@ public class JugadorServiceImpl implements JugadorService {
     }
 
     @Override
-    public JugadorModel insertJugador(JugadorModel jugador) {
+    public void insertJugador(JugadorModel jugador) {
+        /*
         JugadorModel j = new JugadorModel();
         j.setJugadorId(jugador.getJugadorId());
         j.setNombre(jugador.getNombre());
@@ -82,16 +68,31 @@ public class JugadorServiceImpl implements JugadorService {
         j.setGenero(jugador.getGenero());
         j.setNivel(jugador.getNivel());
         j.setEmail(jugador.getEmail());
+        j.setAciertos(jugador.getAciertos());
 
-        JugadorModel respuesta = jugadorRepository.save(j);
-        return respuesta;
+
+         */
+        //jdbcTemplate.execute("INSERT INTO JUGADORES(JUGADOR_ID, NOMBRE, APELLIDOS, EDAD, GENERO, EMAIL, NIVEL, ACIERTOS) VALUES (" +jugador.getJugadorId()+ ", "+jugador.getNombre() +", " + jugador.getApellidos() + ", "+ jugador.getEdad() + ", " + jugador.getGenero() + ", " + jugador.getEmail() + ", " + jugador.getNivel() + ", "+ jugador.getAciertos() +");");
+
+        //JugadorModel respuesta = jugadorRepository.save(j);
+        Long id= jugador.getJugadorId();
+        String nombre= jugador.getNombre();
+        String apellidos = jugador.getApellidos();
+        Long edad = jugador.getEdad();
+        String email = jugador.getEmail();
+        String genero = jugador.getGenero();
+        String nivel = jugador.getNivel();
+        Long aciertos = jugador.getAciertos();
+
+        jdbcTemplate.execute("INSERT INTO JUGADORES (JUGADOR_ID, NOMBRE, APELLIDOS, EDAD, EMAIL, GENERO, NIVEL, ACIERTOS) VALUES ("+id+",'"+nombre+"','"+apellidos+"', "+ edad+",'"+email+"','"+genero+"','"+nivel+"', "+aciertos+");");
+
     }
 
     @Override
     public void updateJugador(JugadorDTO j){
         Long aciertos = j.getAciertos();
         Long id= j.getJugadorId();
-        jdbcTemplate.execute("UPDATE JUGADORES SET ACEIRTOS = '"+ aciertos + "'WHERE JUGADOR_ID=" + id);
+        jdbcTemplate.execute("UPDATE JUGADORES SET ACIERTOS = "+ aciertos + "WHERE JUGADOR_ID=" + id);
     }
 
 }

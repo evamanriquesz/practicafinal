@@ -25,16 +25,9 @@ public class UsuarioController {
     }
 
     @PostMapping("/usuarios")
-    public ResponseEntity<UsuarioModel> insertUsuario(@RequestBody UsuarioModel usuarioModel)
+    public ResponseEntity<String> insertUsuario(@RequestBody UsuarioModel usuarioModel)
     {
-        try{
-            UsuarioModel newUsuarioModel = usuarioService.insertUsuario(usuarioModel);
-            return new ResponseEntity<>(newUsuarioModel, HttpStatus.CREATED);
-        } catch(Exception e){
-            System.out.println(e);
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-
-    }
-
+       usuarioService.insertUsuario(usuarioModel);
+       return ResponseEntity.ok().body("usuario registrado");
     }
 }

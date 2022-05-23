@@ -20,7 +20,6 @@ public class JugadorDTO {
     @Id
     private Long jugadorId;
 
-    @NotNull
     @Size(min=1, max=50)
     private Long aciertos;
 

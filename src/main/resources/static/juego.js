@@ -49,7 +49,6 @@ const GENERO_REQUIRED = "Por favor introduzca su genero"
 const NIVEL_REQUIRED = "Por favor introduzca el nivel";
 
 
-
 let nombre;
 let apellidos;
 let edad;
@@ -64,28 +63,35 @@ form.addEventListener("click", function (event) {
 	//obtengo el valor del genero
     GetCheckedVal();
     ShowSelected();
+
+    console.log(tipoGenero);
+    console.log(selected);
 	// validate the form
 	let nombreValid = hasValue(document.getElementById('nombre'), NAME_REQUIRED);
-	let apellidoValid = hasValue(document.getElementById('apellidos'), APELLIDOS_REQUIRED);
+	let apellidosValid = hasValue(document.getElementById('apellidos'), APELLIDOS_REQUIRED);
 	let emailValid= hasValue(document.getElementById('email'), EMAIL_REQUIRED);
 	let edadValid = hasValue(document.getElementById('edad'), EDAD_REQUIRED);
 
 
 	// if valid, submit the form.
-	if (nombreValid && apellidoValid && emailValid && edadValid) {
+	if (nombreValid && apellidosValid && emailValid && edadValid) {
 	    nombre=document.getElementById('nombre').value;
         apellidos=document.getElementById('apellidos').value;
-        email=document.getElementById('email').value;
         edad=document.getElementById('edad').value;
+        email=document.getElementById('email').value;
+
+            console.log("los valid");
+            console.log(nombreValid);
+            console.log(apellidosValid);
+            console.log(emailValid);
+            console.log(edadValid);
+
+
 		alert("Se han recogido correctamente sus datos."+"\nLa información recogida es: " +"\nNombre: "+nombre + "\nApellidos: " + apellidos+ "\nEmail: "+ email + "\nEdad: "+ edad+ "\nGenero: "+ tipoGenero+ "\nNivel: "+ selected);
-	    guardarJugador();
-	    if (selected.includes('Facil')){
-            location.href='Facil.html';
-        }else if (selected.includes('Medio')){
-            location.href='medio.html';
-        }else{
-            location.href='dificil.html';
-        }
+	   //guardarJugador();
+	       localStorage.setItem('id', id_max)
+
+	    guardarJugador(nombre, apellidos, edad, tipoGenero, email, selected);
 	}
 
 });
@@ -116,25 +122,38 @@ function ShowSelected()
     /* Para obtener el texto */
     var combo = document.getElementById("nivel");
      selected = combo.options[combo.selectedIndex].text;
+
+
+    if (selected.includes('Facil')){
+         selected='Facil';
+     }else if (selected.includes('Medio')){
+         selected='Medio';
+     }else{
+         selected='Dificil';
+     }
+
 }
 
 
+let id_max=-1;
 
 
 //AQUI EL POST
-async function guardarJugador(){
+async function guardarJugador( nombre, apellidos, edad, tipoGenero, email, selected){
     event.preventDefault();
 
     const dataObj={
+        "jugadorId" : id_max,
         "nombre":nombre,
         "apellidos": apellidos,
-        "email": email,
         "edad" : edad,
         "genero" : tipoGenero,
+        "email": email,
         "nivel" : selected,
+        "aciertos" : 0,
     };
 
-    let res = await fetch("/api/v1/jugador",{
+    let res = await fetch("/api/v1/jugadores",{
         method: 'POST',
         headers:{
             'Content-Type':'application/json',
@@ -142,10 +161,35 @@ async function guardarJugador(){
         body: JSON.stringify(dataObj)
     });
 
-    if (res.status == 201){
-        alert("Todo ha ido bien :) Ya puedes iniciar sesión");
-        location.href("resultados.html");
+    if (res.ok){
+        alert("Todo ha ido bien :) Ya puedes jugar!");
+	    if (selected.includes('Facil')){
+            location.href='Facil.html';
+        }else if (selected.includes('Medio')){
+            location.href='medio.html';
+        }else{
+            location.href='dificil.html';
+        }
     }else{
-        alert("¡Vaya! Parece que algo ha ido mal :(");
+        alert("¡Vaya! Parece que algo ha ido mal en el form:(");
     }
 }
+
+function calcularID() {
+    let url = "/api/v1/jugadores/";
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        id_max = data[0].jugadorId;
+        for(let i=1;i<data.length;i++){
+            if (data[i].jugadorId > id_max){
+                id_max = data[i].jugadorId;
+            }
+        }
+
+        id_max=id_max+1;
+    })
+}
+
+document.addEventListener('DOMContentLoaded',calcularID());

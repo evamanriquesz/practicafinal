@@ -1,7 +1,7 @@
 const form = document.getElementById("form");
 const comprobar =document.getElementById("comprobar");
 let contador=0;
-export let contadorCorrectas=0;
+let contadorCorrectas=0;
 document.getElementById('caja').style.display='none';
 
 form.addEventListener("submit", function (event){
@@ -45,7 +45,6 @@ fetch("https://marvel-quote-api.p.rapidapi.com/", {
 
 });
 
-import{guardarJugador};
 
 comprobar.addEventListener("submit", function (event){
 event.preventDefault();
@@ -54,8 +53,7 @@ let fraseAMostrar =document.getElementById("Frase");
 
 if(contador==4)
 {
-    location.href='finJuego.html';
-    guardarJugador();
+    modificarJugador();
 }
 fetch("https://marvel-quote-api.p.rapidapi.com/", {
         "method": "GET",
@@ -96,10 +94,10 @@ fetch("https://marvel-quote-api.p.rapidapi.com/", {
     if (frase.Title.toLowerCase().includes(intento_pelicula.toLowerCase()))
     {
         contadorCorrectas++;
-        alert("respuesta correcta"+ contadorCorrectas+"/5");
+        alert("respuesta correcta "+ contadorCorrectas+"/5");
         document.getElementById("Pelicula").value = "";
     }else{
-        alert("respuesta incorrecta"+ contadorCorrectas+"/5")
+        alert("respuesta incorrecta "+ contadorCorrectas+"/5")
         document.getElementById("Pelicula").value = "";
     }
         contador++;
@@ -124,15 +122,16 @@ function hasValue(input, message) {
 
 
 //AQUI EL POST
-async function guardarJugador(){
+async function modificarJugador(){
     event.preventDefault();
 
+    let id_max=localStorage.getItem('id');
     const dataObj={
-        "jugadorId":id,
+        "jugadorId":localStorage.getItem('id'),
         "aciertos":contadorCorrectas
     };
 
-    let res = await fetch("/api/v1/jugador",{
+    let res = await fetch("/api/v1/jugador/update/"+id_max,{
         method: 'POST',
         headers:{
             'Content-Type':'application/json',
@@ -140,15 +139,10 @@ async function guardarJugador(){
         body: JSON.stringify(dataObj)
     });
 
-    if (res.status == 201){
-        alert("Todo ha ido bien :) Ya puedes iniciar sesión");
-        location.href("resultados.html");
+    if (res.ok){
+        alert("Todo ha ido bien :)");
+        location.href= 'finJuego.html';
     }else{
         alert("¡Vaya! Parece que algo ha ido mal :(");
     }
-}
-
-
-function calcularID(){
-    let url = "/api/v1/jugadores/"
 }

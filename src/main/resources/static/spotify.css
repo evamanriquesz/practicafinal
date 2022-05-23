@@ -1,6 +1,5 @@
 main{
      background-color:black;
-
      font:Segoe UI, sans-serif;
      color: white;
 }
@@ -8,10 +7,12 @@ main{
 th
 {
    font-size:20px;
+   padding: 10px;
 }
 td
 {
     font-size:17px;
+    padding: 20px;
 }
 
 h4
