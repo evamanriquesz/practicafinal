@@ -912,3 +912,360 @@ async function showMDVV()
             }
 }
 
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA MOSTRAR ARTISTAS Y SUS CANCIONES CON MAS DE 5 VOTOS
+//////////////////////////////////////////////////////////////////////////////////
+
+function showArtistaCancionMasDeCincoVotos()
+{
+    console.log("se esta ejecutando show artista cancion mas de cinco votos");
+    showACMDCV();
+}
+
+async function showACMDCV()
+{
+
+     let res = await fetch("/api/v1/artistaCancionAll/favoritos/5",{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+            }});
+
+            //console.log(res);
+
+            if (res.status == 200){
+                const data = await res.json();
+                //console.log(data);
+
+                const artistas_box = document.getElementById("mostrarArtistaCancionMasDeCinco");
+                let table = document.createElement('table');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                artistas_box.appendChild(table);
+
+                let row_1 = document.createElement('tr');
+
+                               let heading_1 = document.createElement('th');
+                               heading_1.innerHTML="Canción";
+                               let heading_2 = document.createElement('th');
+                               heading_2.insertAdjacentText("beforeend","Artista");
+                               let heading_3 = document.createElement('th');
+                               heading_3.insertAdjacentText("beforeend","Álbum");
+                               let heading_4 = document.createElement('th');
+                               heading_4.insertAdjacentText("beforeend","Favoritos del artista");
+
+                                row_1.appendChild(heading_1);
+                                row_1.appendChild(heading_2);
+                                row_1.appendChild(heading_3);
+                                row_1.appendChild(heading_4);
+
+                                thead.appendChild(row_1);
+
+                           //let max_tracks = data.tracks.limit;
+                              // console.log(data.tracks.limit);
+                               //console.log(data.tracks.items[99].track.name);
+
+                           for (let i = 0; i<data.length; i++)
+                           {
+
+                               let rows_data = document.createElement('tr');
+
+                               let heading_1 = document.createElement('td');
+                               heading_1.innerHTML=data[i].nombreCancion;
+                               let heading_2 = document.createElement('td');
+                               heading_2.insertAdjacentText("beforeend",data[i].nombreArtista);
+                               let heading_3 = document.createElement('td');
+                               heading_3.insertAdjacentText("beforeend",data[i].album);
+                               let heading_4 = document.createElement('td');
+                               heading_4.insertAdjacentText("beforeend", data[i].favoritos)
+
+
+                               rows_data.appendChild(heading_1);
+                               rows_data.appendChild(heading_2);
+                               rows_data.appendChild(heading_3);
+                               rows_data.appendChild(heading_4);
+
+                               tbody.appendChild(rows_data);
+
+            }
+
+            }
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA MOSTRAR ARTISTAS Y SUS CANCIONES CON MAS DE 10 VOTOS
+//////////////////////////////////////////////////////////////////////////////////
+
+function showArtistaCancionMasDeDiezVotos()
+{
+    console.log("se esta ejecutando show artista cancion mas de diez votos");
+    showACMDDV();
+}
+
+async function showACMDDV()
+{
+
+     let res = await fetch("/api/v1/artistaCancionAll/favoritos/10",{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+            }});
+
+            //console.log(res);
+
+            if (res.status == 200){
+                const data = await res.json();
+                //console.log(data);
+
+                const artistas_box = document.getElementById("mostrarArtistaCancionMasDeDiez");
+                let table = document.createElement('table');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                artistas_box.appendChild(table);
+
+                let row_1 = document.createElement('tr');
+
+                               let heading_1 = document.createElement('th');
+                               heading_1.innerHTML="Canción";
+                               let heading_2 = document.createElement('th');
+                               heading_2.insertAdjacentText("beforeend","Artista");
+                               let heading_3 = document.createElement('th');
+                               heading_3.insertAdjacentText("beforeend","Álbum");
+                               let heading_4 = document.createElement('th');
+                               heading_4.insertAdjacentText("beforeend","Favoritos del artista");
+
+                                row_1.appendChild(heading_1);
+                                row_1.appendChild(heading_2);
+                                row_1.appendChild(heading_3);
+                                row_1.appendChild(heading_4);
+
+                                thead.appendChild(row_1);
+
+                           //let max_tracks = data.tracks.limit;
+                              // console.log(data.tracks.limit);
+                               //console.log(data.tracks.items[99].track.name);
+
+                           for (let i = 0; i<data.length; i++)
+                           {
+
+                               let rows_data = document.createElement('tr');
+
+                               let heading_1 = document.createElement('td');
+                               heading_1.innerHTML=data[i].nombreCancion;
+                               let heading_2 = document.createElement('td');
+                               heading_2.insertAdjacentText("beforeend",data[i].nombreArtista);
+                               let heading_3 = document.createElement('td');
+                               heading_3.insertAdjacentText("beforeend",data[i].album);
+                               let heading_4 = document.createElement('td');
+                               heading_4.insertAdjacentText("beforeend", data[i].favoritos)
+
+
+                               rows_data.appendChild(heading_1);
+                               rows_data.appendChild(heading_2);
+                               rows_data.appendChild(heading_3);
+                               rows_data.appendChild(heading_4);
+
+                               tbody.appendChild(rows_data);
+
+            }
+
+            }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA MOSTRAR ARTISTAS Y SUS CANCIONES CON MAS DE 15 VOTOS
+//////////////////////////////////////////////////////////////////////////////////
+
+function showArtistaCancionMasDeQuinceVotos()
+{
+    console.log("se esta ejecutando show artista cancion mas de quince votos");
+    showACMDQV();
+}
+
+async function showACMDQV()
+{
+
+     let res = await fetch("/api/v1/artistaCancionAll/favoritos/15",{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+            }});
+
+            //console.log(res);
+
+            if (res.status == 200){
+                const data = await res.json();
+                //console.log(data);
+
+                const artistas_box = document.getElementById("mostrarArtistaCancionMasDeQuince");
+                let table = document.createElement('table');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                artistas_box.appendChild(table);
+
+                let row_1 = document.createElement('tr');
+
+                               let heading_1 = document.createElement('th');
+                               heading_1.innerHTML="Canción";
+                               let heading_2 = document.createElement('th');
+                               heading_2.insertAdjacentText("beforeend","Artista");
+                               let heading_3 = document.createElement('th');
+                               heading_3.insertAdjacentText("beforeend","Álbum");
+                               let heading_4 = document.createElement('th');
+                               heading_4.insertAdjacentText("beforeend","Favoritos del artista");
+
+                                row_1.appendChild(heading_1);
+                                row_1.appendChild(heading_2);
+                                row_1.appendChild(heading_3);
+                                row_1.appendChild(heading_4);
+
+                                thead.appendChild(row_1);
+
+                           //let max_tracks = data.tracks.limit;
+                              // console.log(data.tracks.limit);
+                               //console.log(data.tracks.items[99].track.name);
+
+                           for (let i = 0; i<data.length; i++)
+                           {
+
+                               let rows_data = document.createElement('tr');
+
+                               let heading_1 = document.createElement('td');
+                               heading_1.innerHTML=data[i].nombreCancion;
+                               let heading_2 = document.createElement('td');
+                               heading_2.insertAdjacentText("beforeend",data[i].nombreArtista);
+                               let heading_3 = document.createElement('td');
+                               heading_3.insertAdjacentText("beforeend",data[i].album);
+                               let heading_4 = document.createElement('td');
+                               heading_4.insertAdjacentText("beforeend", data[i].favoritos)
+
+
+                               rows_data.appendChild(heading_1);
+                               rows_data.appendChild(heading_2);
+                               rows_data.appendChild(heading_3);
+                               rows_data.appendChild(heading_4);
+
+                               tbody.appendChild(rows_data);
+
+            }
+
+            }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA MOSTRAR ARTISTAS Y SUS CANCIONES CON MAS DE 20 VOTOS
+//////////////////////////////////////////////////////////////////////////////////
+
+function showArtistaCancionMasDeVeinteVotos()
+{
+    console.log("se esta ejecutando show artista cancion mas de veinte votos");
+    showACMDVV();
+}
+
+async function showACMDVV()
+{
+
+     let res = await fetch("/api/v1/artistaCancionAll/favoritos/20",{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+            }});
+
+            //console.log(res);
+
+            if (res.status == 200){
+                const data = await res.json();
+                //console.log(data);
+
+                const artistas_box = document.getElementById("mostrarArtistaCancionMasDeVeinte");
+                let table = document.createElement('table');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                artistas_box.appendChild(table);
+
+                let row_1 = document.createElement('tr');
+
+                               let heading_1 = document.createElement('th');
+                               heading_1.innerHTML="Canción";
+                               let heading_2 = document.createElement('th');
+                               heading_2.insertAdjacentText("beforeend","Artista");
+                               let heading_3 = document.createElement('th');
+                               heading_3.insertAdjacentText("beforeend","Álbum");
+                               let heading_4 = document.createElement('th');
+                               heading_4.insertAdjacentText("beforeend","Favoritos del artista");
+
+                                row_1.appendChild(heading_1);
+                                row_1.appendChild(heading_2);
+                                row_1.appendChild(heading_3);
+                                row_1.appendChild(heading_4);
+
+                                thead.appendChild(row_1);
+
+                           //let max_tracks = data.tracks.limit;
+                              // console.log(data.tracks.limit);
+                               //console.log(data.tracks.items[99].track.name);
+
+                           for (let i = 0; i<data.length; i++)
+                           {
+
+                               let rows_data = document.createElement('tr');
+
+                               let heading_1 = document.createElement('td');
+                               heading_1.innerHTML=data[i].nombreCancion;
+                               let heading_2 = document.createElement('td');
+                               heading_2.insertAdjacentText("beforeend",data[i].nombreArtista);
+                               let heading_3 = document.createElement('td');
+                               heading_3.insertAdjacentText("beforeend",data[i].album);
+                               let heading_4 = document.createElement('td');
+                               heading_4.insertAdjacentText("beforeend", data[i].favoritos)
+
+
+                               rows_data.appendChild(heading_1);
+                               rows_data.appendChild(heading_2);
+                               rows_data.appendChild(heading_3);
+                               rows_data.appendChild(heading_4);
+
+                               tbody.appendChild(rows_data);
+
+            }
+
+            }
+}
+
+
+
+
+
+
+
+

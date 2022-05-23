@@ -73,9 +73,10 @@ public class ArtistaCancionServiceImpl implements ArtistaCancionService {
         return artistaCancionDTOS;
     }
 
+
     @Override
     public List<ArtistaCancionDTO> retrieveArtistaCancionByFavoritos(Long favoritos) {
-        String query =" SELECT CANCIONES.CANCION_ID, CANCIONES.NOMBRE_CANCION, VOTOS.ARTISTA_ID, VOTOS.NOMBRE_ARTISTA, CANCIONES.ALBUM, VOTOS.FAVORITOS FROM VOTOS INNER JOIN CANCIONES WHERE VOTOS.FAVORITOS >= "+favoritos ;
+        String query =" SELECT CANCIONES.CANCION_ID, CANCIONES.NOMBRE_CANCION, VOTOS.ARTISTA_ID, VOTOS.NOMBRE_ARTISTA, CANCIONES.ALBUM, VOTOS.FAVORITOS FROM CANCIONES LEFT JOIN VOTOS  ON VOTOS.ARTISTA_ID = CANCIONES.ARTISTA_ID WHERE VOTOS.FAVORITOS >= "+favoritos ;
 
 
         List<ArtistaCancionDTO> artistaCancionDTO = jdbcTemplate.query(
@@ -92,6 +93,8 @@ public class ArtistaCancionServiceImpl implements ArtistaCancionService {
         );
         return artistaCancionDTO;
     }
+
+
 
 
 }
