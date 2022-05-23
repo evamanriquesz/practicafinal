@@ -2,6 +2,7 @@ package com.sofiaevacris.practicafinal.controller;
 
 import com.sofiaevacris.practicafinal.dto.ArtistaDTO;
 import com.sofiaevacris.practicafinal.model.ArtistaModel;
+import com.sofiaevacris.practicafinal.model.JugadorModel;
 import com.sofiaevacris.practicafinal.service.ArtistaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +51,12 @@ public class ArtistaController {
         artistaService.deleteArtistaModel(artistaId);
         return ResponseEntity.noContent().build();
 
+    }
+    @GetMapping("/artistas/{favoritos}")
+    public ResponseEntity<List<ArtistaModel>> retrieveArtistaByVotes(@PathVariable Long favoritos)
+    {
+        List<ArtistaModel> respuesta = artistaService.retrieveArtistaByVotos(favoritos);
+        return ResponseEntity.ok().body(respuesta);
     }
 
 

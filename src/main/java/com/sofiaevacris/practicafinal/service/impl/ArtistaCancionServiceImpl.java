@@ -1,6 +1,7 @@
 package com.sofiaevacris.practicafinal.service.impl;
 
 import com.sofiaevacris.practicafinal.dto.ArtistaCancionDTO;
+import com.sofiaevacris.practicafinal.model.ArtistaModel;
 import com.sofiaevacris.practicafinal.repository.ArtistaCancionRepository;
 import com.sofiaevacris.practicafinal.service.ArtistaCancionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,11 @@ public class ArtistaCancionServiceImpl implements ArtistaCancionService {
         );
 
         return artistaCancionDTOS;
+    }
+
+    @Override
+    public List<ArtistaModel> retrieveArtistaByVotes(String favoritos) {
+        return null;
     }
 
     /*
