@@ -8,124 +8,272 @@
     <link href="comun.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' rel='stylesheet' type='text/css'>
-    <script src="fanstore.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <style>
 
+         .main{
+    background-image: url('https://album.mediaset.es/eimg/2018/10/02/5r988wxOL5q8lXKyRsXDT6.jpg?w=1200&h=900');
+   background-color:black;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    margin-top:0px;
+    padding:350px;
+    color:black;
+    }
+
+	</style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // Variables
+          const baseDeDatos = [
+              {
+                  id: 1,
+                  nombre: 'Sudadera Roja CocaCola',
+                  precio: 40,
+                  imagen: src="assets/sudaderaCocaColaRoja.jpg"
+              },
+              {
+                  id: 2,
+                  nombre: 'Sudadera Blanca CocaCola',
+                  precio: 40,
+                  imagen: src="assets/sudaderaCocaColaBlanca.jpg"
+              },
+              {
+                  id: 3,
+                  nombre: 'Libreta CocaCola',
+                  precio: 15,
+                  imagen: src="assets/libretaCocaCola.jpg"
+              },
+              {
+                  id: 4,
+                  nombre: 'Tote Bag CocaCola',
+                  precio: 20,
+                  imagen: src="assets/toteBagCocaCola.jpg"
+              },
+              {
+                  id: 5,
+                  nombre: 'Pijama CocaCola',
+                  precio: 35,
+                  imagen: src="assets/pijamaCocaCola.jpg"
+              },
+              {
+                  id: 6,
+                  nombre: 'Calcetines CocaCola',
+                  precio: 35,
+                  imagen: src="assets/calcetinesCocaColaNegros.jpg"
+              },
+
+          ];
+
+          let carrito = [];
+          const divisa = '€';
+          const DOMitems = document.querySelector('#items');
+          const DOMcarrito = document.querySelector('#carrito');
+          const DOMtotal = document.querySelector('#total');
+          const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+
+          // Funciones
+
+          /**
+          * Dibuja todos los productos a partir de la base de datos. No confundir con el carrito
+          */
+          function renderizarProductos() {
+              baseDeDatos.forEach((info) => {
+                  // Estructura
+                  const miNodo = document.createElement('div');
+                  miNodo.classList.add('card', 'col-md-4');
+                  // Body
+                  const miNodoCardBody = document.createElement('div');
+                  miNodoCardBody.classList.add('card-body');
+                  // Titulo
+                  const miNodoTitle = document.createElement('h5');
+                  miNodoTitle.classList.add('card-title');
+                  miNodoTitle.textContent = info.nombre;
+                  // Imagen
+                  const miNodoImagen = document.createElement('img');
+                  miNodoImagen.classList.add('img-fluid');
+                  miNodoImagen.setAttribute('src', info.imagen);
+                  // Precio
+                  const miNodoPrecio = document.createElement('p');
+                  miNodoPrecio.classList.add('card-text');
+                  miNodoPrecio.textContent = `${info.precio}${divisa}`;
+                  // Boton
+                  const miNodoBoton = document.createElement('button');
+                  miNodoBoton.classList.add('btn', 'btn-dark');
+                  miNodoBoton.textContent = '+';
+                  miNodoBoton.setAttribute('marcador', info.id);
+                  miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+                  // Insertamos
+                  miNodoCardBody.appendChild(miNodoImagen);
+                  miNodoCardBody.appendChild(miNodoTitle);
+                  miNodoCardBody.appendChild(miNodoPrecio);
+                  miNodoCardBody.appendChild(miNodoBoton);
+                  miNodo.appendChild(miNodoCardBody);
+                  DOMitems.appendChild(miNodo);
+              });
+          }
+
+          /**
+          * Evento para añadir un producto al carrito de la compra
+          */
+          function anyadirProductoAlCarrito(evento) {
+              // Anyadimos el Nodo a nuestro carrito
+              carrito.push(evento.target.getAttribute('marcador'))
+              // Actualizamos el carrito
+              renderizarCarrito();
+
+          }
+
+          /**
+          * Dibuja todos los productos guardados en el carrito
+          */
+          function renderizarCarrito() {
+              // Vaciamos todo el html
+              DOMcarrito.textContent = '';
+              // Quitamos los duplicados
+              const carritoSinDuplicados = [...new Set(carrito)];
+              // Generamos los Nodos a partir de carrito
+              carritoSinDuplicados.forEach((item) => {
+                  // Obtenemos el item que necesitamos de la variable base de datos
+                  const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                      // ¿Coincide las id? Solo puede existir un caso
+                      return itemBaseDatos.id === parseInt(item);
+                  });
+                  // Cuenta el número de veces que se repite el producto
+                  const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+                      // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
+                      return itemId === item ? total += 1 : total;
+                  }, 0);
+                  // Creamos el nodo del item del carrito
+                  const miNodo = document.createElement('li');
+                  miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+                  miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+                  // Boton de borrar
+                  const miBoton = document.createElement('button');
+                  miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+                  miBoton.textContent = 'X';
+                  miBoton.style.marginLeft = '1rem';
+                  miBoton.dataset.item = item;
+                  miBoton.addEventListener('click', borrarItemCarrito);
+                  // Mezclamos nodos
+                  miNodo.appendChild(miBoton);
+                  DOMcarrito.appendChild(miNodo);
+              });
+             // Renderizamos el precio total en el HTML
+             DOMtotal.textContent = calcularTotal();
+          }
+
+          /**
+          * Evento para borrar un elemento del carrito
+          */
+          function borrarItemCarrito(evento) {
+              // Obtenemos el producto ID que hay en el boton pulsado
+              const id = evento.target.dataset.item;
+              // Borramos todos los productos
+              carrito = carrito.filter((carritoId) => {
+                  return carritoId !== id;
+              });
+              // volvemos a renderizar
+              renderizarCarrito();
+          }
+
+          /**
+           * Calcula el precio total teniendo en cuenta los productos repetidos
+           */
+          function calcularTotal() {
+              // Recorremos el array del carrito
+              return carrito.reduce((total, item) => {
+                  // De cada elemento obtenemos su precio
+                  const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                      return itemBaseDatos.id === parseInt(item);
+                  });
+                  // Los sumamos al total
+                  return total + miItem[0].precio;
+              }, 0).toFixed(2);
+          }
+
+          /**
+          * Varia el carrito y vuelve a dibujarlo
+          */
+          function vaciarCarrito() {
+              // Limpiamos los productos guardados
+              carrito = [];
+              // Renderizamos los cambios
+              renderizarCarrito();
+          }
+
+          // Eventos
+          DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+          // Inicio
+          renderizarProductos();
+          renderizarCarrito();
+        });
+    </script>
 </head>
-<body>
+<body STYLE="background-color:black">
 <header class="p-3 bg-black text-white">
-    <div class="container"><!-- id="navbar">-->
-        <div class="d-flex  align-items-center justify-content-center justify-content-lg-start" >
+    <div class="container">
+        <div class="d-flex  align-items-center justify-content-center justify-content-lg-start">
 
             <img src="./assets/CocaColaLogo.png" alt="LogoCocaCola"  width="10%" height="5%">
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="index.html" class="nav-link px-3 text-secondary">Home</a></li>
+                <li><a href="index.html" class="nav-link px-3 text-white">Home</a></li>
                 <li><a href="Company.html" class="nav-link px-3 text-white">The CocaCola Company</a></li>
                 <li><a href="Musica.html" class="nav-link px-3 text-white">Música</a></li>
                 <li><a href="Productos.html" class="nav-link px-3 text-white">Productos</a></li>
                 <li><a href="Fanstore.html" class="nav-link px-3 text-white">Fanstore</a></li>
                 <li><a href="Preguntas.html" class="nav-link px-3 text-white">Preguntas</a></li>
-                <li><a href="NASA.html" class="nav-link px-3 text-white">CocaCola Starlight</a></li>
+                <li><a href="NASA.html" class="nav-link px-3 text-secondary">CocaCola Starlight</a></li>
                 <li><a href="Juego.html" class="nav-link px-3 text-white">CocaCola-Marvel</a></li>
+
             </ul>
         </div>
+        <div class="main" style="background-color:black;" >
+            <div class="bg"></div>
+            <h1 style="font-size:40px;"></h1>
+            <div class="flex-container">
+            </div>
+        </div>
+        <br><br><br><br>
+        <h4 style="color:white;" align="center">¿Pensabas que ser FAN nivel experto no iba a tener su recompensa?<br>
+            Bienvenido a Coca-Cola Fan Store, el único lugar donde conseguirás artículos exclusivos<br> y las experiencias más alucinantes con tus artistas.
+            <br><br>Canjea los pincodes que encontrarás bajo los tapones de las botellas de Coca-Cola Sabor Original,<br>
+            Coca-Cola ZERO Azúcar, Coca-Cola ZERO Azúcar Zero Cafeína y Coca-Cola Light de PET 500ml y ¡a disfrutar!<br>
+            1 pincode = 10 puntos<br>
+            <br>
+            Alerta, spoiler: dentro de poco podrás hacerte con los productos más top de #CocaColaFanStore desde la nueva app de Coca-Cola.<br>
+            <br><br></h4>
+        <h2 style="color:red;" align="center" >MUESTRA AL MUNDO TODO LO FAN QUE ERES CON NUESTROS ARTÍCULOS MÁS EXCLUSIVOS</h2>
+        <br><br>
     </div>
 </header>
 
-<main>
-
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" id="cabecera-productos">
-        <div class="row">
-
-
-            <div class="md-5 p-lg-5 mx-auto my-5">
-                <h1 class="display-4 font-weight-normal">Fanstore Coca Cola</h1>
-                <p class="lead font-weight-normal">Si te gusta Coca Cola tanto como a nosotros, házte con todos estso artículos y serás la envidia de todos.</p>
-            </div>
-            <div>
-                <img src ="assets/fanstoreCocaCola.jpg" class="mitad" alt="Fanstore Coca Cola">
-            </div>
-
-            <div class="product-device box-shadow d-none d-md-block"></div>
-            <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-            <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-                <div class="my-3 py-3">
-                    <h2 class="display-5">Sudadera CocaCola Roja</h2>
-                    <p class="lead">Talla: U - Precio: 40€</p>
-                </div>
-                <div>
-                    <img class="producto" src="assets/sudaderaCocaColaRoja.jpg" alt="Sudadera Coca Cola Roja">
-                </div>
-
-
-                <!--<div class="bg-light box-shadow mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>-->
-            </div>
-            <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                <div class="my-3 p-3">
-                    <h2 class="display-5">Sudadera CocaCola Blanca</h2>
-                    <p class="lead">Talla: U - Precio: 40€</p>
-                </div>
-                <div>
-                    <img class="producto" src="assets/sudaderaCocaColaBlanca.jpg" alt="Sudadera Coca Cola Blanca">
-                </div>
-            </div>
-        </div>
-    </div>
-
+<div class="container">
     <div class="row">
-        <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-            <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                <div class="my-3 p-3">
-                    <h2 class="display-5">Libreta Coca Cola</h2>
-                    <p class="lead">Precio: 15€</p>
-                </div>
-
-                <div>
-                    <img class="producto" src="assets/libretaCocaCola.jpg" alt="Libreta Coca Cola">
-                </div>
-            </div>
-            <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-                <div class="my-3 py-3">
-                    <h2 class="display-5">Tote Bag Coca Cola</h2>
-                    <p class="lead">Precio: 20€</p>
-                </div>
-                <div>
-                    <img class="producto" src="assets/toteBagCocaCola.jpg" alt="Tote Bag Coca Cola">
-                </div>
-            </div>
-        </div>
+        <!-- Elementos generados a partir del JSON -->
+        <main id="items" class="col-sm-8 row"></main>
+        <!-- Carrito -->
+        <aside class="col-md-4" style="color:white;">
+            <h2 style="color:white;" >Carrito</h2>
+            <!-- Elementos del carrito -->
+            <ul id="carrito" class="list-group"></ul>
+            <hr>
+            <!-- Precio total -->
+            <p class="text-right">Total: <span id="total"></span>&euro;</p>
+            <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+            <a href="tarjeta.html">
+                <button id="boton-pagar" class="btn btn-danger">Pagar</button>
+            </a>
+        </aside>
     </div>
-
-    <div class="row">
-        <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-            <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-                <div class="my-3 p-3">
-                    <h2 class="display-5">Pijama Coca Cola</h2>
-                    <p class="lead">Talla: U - Precio: 35€</p>
-                </div>
-                <div>
-                    <img class="producto" src="assets/pijamaCocaCola.jpg" alt="Pijama Coca Cola">
-                </div>
-            </div>
-            <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                <div class="my-3 py-3">
-                    <h2 class="display-5">Calcetines Coca Cola</h2>
-                    <p class="lead">Talla: U - Precio: 10€ </p>
-                </div>
-                <div>
-                    <img class="producto" src="assets/calcetinesCocaColaNegros.jpg" alt="Calcetines Coca Cola Negros">
-                </div>
-            </div>
-        </div>
-
-    </div>
-
+</div>
+</body>
+</html>
 
 </main>
 
