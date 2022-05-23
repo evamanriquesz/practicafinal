@@ -52,13 +52,13 @@ Una vez se ha participado se muestra un mensaje con todos los datos recogidos de
 
 ![Captura de pantalla 2022-05-23 a las 23 16 23](https://user-images.githubusercontent.com/98181428/169907990-7e0d126c-5ec0-4fc0-b771-f67adae52eb0.png)
 
-Y si esto era poco, se ha querido crear una Playlist del concierto. De esta forma nadie tendrá excusa de no saberse las canciones. Por lo tanto, si se pincha en "Visita la playlist y vota a tus artistas favoritos" se accede a Spotify.html donde se muestra lo siguiente:
+Y si esto era poco, se ha querido crear una Playlist del concierto. De esta forma nadie tendrá excusa de no saberse las canciones. Por lo tanto, si se pincha en "Visita la playlist y vota a tus artistas favoritos" se accede a Spoty.html donde se muestra lo siguiente:
 
 Primeramente se muestra una lista de los 100 artistas que componen la playlist de la CCME.
 ![Captura de pantalla 2022-05-23 a las 23 16 40](https://user-images.githubusercontent.com/98181428/169908288-9290e10b-2f93-482e-a1c8-9b951983c3aa.png)
 
 
-Una vez se llega al final de dicha lista de 100 artistas se puede votar a tus artistas favoritos. Además se tiene la posibilidad de ver qué canciones tiene en nuestra playlist y de eliminar nuestro voto de favorito. 
+Una vez se llega al final de dicha lista de 100 artistas se pued votar a tus artistas favoritos. Además se tiene la posibilidad de ver qué canciones tiene en nuestra playlist y de eliminar nuestro voto de favorito. 
 
 ![Captura de pantalla 2022-05-23 a las 23 16 53](https://user-images.githubusercontent.com/98181428/169909352-988583c2-864c-4b0c-9d6a-b83deaccd2fc.png)
 
@@ -78,11 +78,16 @@ Para finalizar con el apartado de Música, se tiene una serie de botones que van
 
 ![Captura de pantalla 2022-05-23 a las 23 18 00](https://user-images.githubusercontent.com/98181428/169909150-ea74fa3a-0fed-4e2f-ad9b-7d8b22bf4ec2.png)
 
+![WhatsApp Image 2022-05-24 at 12 47 38 AM](https://user-images.githubusercontent.com/98181428/169916910-9329638d-48bb-4243-a9a5-36f8f930642b.jpeg)
+
 ![Captura de pantalla 2022-05-23 a las 23 18 08](https://user-images.githubusercontent.com/98181428/169909173-621b997d-e05b-45a5-9a5a-a55aa1ed8021.png)
 
 ![Captura de pantalla 2022-05-23 a las 23 18 17](https://user-images.githubusercontent.com/98181428/169909186-725d2cb8-d303-47d0-b95b-ffab2bcefff2.png)
 
 ![Captura de pantalla 2022-05-23 a las 23 18 27](https://user-images.githubusercontent.com/98181428/169909196-b7b153b8-6758-485a-8beb-436f32a3a967.png)
+
+![WhatsApp Image 2022-05-24 at 12 48 00 AM](https://user-images.githubusercontent.com/98181428/169916984-2fc4ade6-2cb1-4d09-928a-e6b2b2f76330.jpeg)
+
 
 
 **Productos: (incluye productos.html)**
@@ -212,9 +217,6 @@ Finalmente, a modo de resumen, se quieren recoger las diferentes y vistas y tabl
 -Artistas con sus canciones por votos
 
 -Tarjetas por usuarios
-
--Tarjetas por usuarios con un nivel de detalle mayor
-
 
 
 
