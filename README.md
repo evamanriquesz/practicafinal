@@ -29,6 +29,18 @@ Tras esta breve explicación, se muestran cada una de las penstañas más detall
 
 Como se puede observar, en la parte de abajo están las novedades. Tanto desde las novedades como desde el CocaCola Music Experience se puede acceder a Música.html. En el apartado de la nueva CocaCola zero te lleva a Productos.html.
 
+**The CocaCola Company**
+Esta ventana quiere recoger algunos de los proyectos sostenibles que se trae entre manos la empresa, como puede ser un compromiso con los mares o con el reciclaje. Todo ello se muestra en diferentes slides y en alguna de ellas se puede pinchar en saber más y obtener una información más detallada.
+
+![Captura de pantalla 2022-05-23 a las 23 50 08](https://user-images.githubusercontent.com/98181428/169911478-a3c0ac16-ed4e-473e-a035-3276ab2b33ef.png)
+
+No solo está comprometido con el medio ambiente, sino también con la salud. Por ello, se muestra una tabla con las calorías de cada producto y otra con imagenes de las diferentes marcas que posee:
+
+![Captura de pantalla 2022-05-23 a las 23 50 16](https://user-images.githubusercontent.com/98181428/169911594-64ce9ea8-f953-44a1-83ee-37f798bc13c7.png)
+
+![Captura de pantalla 2022-05-23 a las 23 50 21](https://user-images.githubusercontent.com/98181428/169911601-fa7ed698-0bc6-4550-be8a-134c38a4869a.png)
+ 
+
 **Música:**
 Si algo tiene CocaCola aparte de sus inigualables bebidas es el concierto de CocaCola Music Experience. Por ello, se ha querido sortear 2 entradas para poder asistir.
 
@@ -73,7 +85,14 @@ Para finalizar con el apartado de Música, se tiene una serie de botones que van
 ![Captura de pantalla 2022-05-23 a las 23 18 27](https://user-images.githubusercontent.com/98181428/169909196-b7b153b8-6758-485a-8beb-436f32a3a967.png)
 
 
-**CocaCola Marvel:**** (incluye jugadores.html, fácil.html, medio.html, dificil.html, finJuego.html)**
+**Productos:** ** (incluye productos.html)**
+
+En esta ventana se pueden ver todos los productos que posee la compañía con unas breves palabras que transmitan la esencia del producto:
+
+![Captura de pantalla 2022-05-23 a las 23 46 56](https://user-images.githubusercontent.com/98181428/169911178-249712e9-cfdf-40bc-9c17-d8f0654abe28.png)
+![Captura de pantalla 2022-05-23 a las 23 47 04](https://user-images.githubusercontent.com/98181428/169911188-0f719264-4b3a-41b9-99ad-823511db6ebd.png)
+
+**CocaCola Marvel:** ** (incluye jugadores.html, fácil.html, medio.html, dificil.html, finJuego.html)**
 En esta pestaña colaborativa con Marvel se puede observar que aparece un formulario para poder registrarnos como jugadores:
 
 ![Captura de pantalla 2022-05-23 a las 22 33 53](https://user-images.githubusercontent.com/98181428/169901675-3dfccef6-1bc4-4e99-bf6b-a7f81857f273.png)
@@ -114,7 +133,7 @@ Como se puede observar se pueden visualizar 4 tablas. La primera muestra las úl
  
 Cabe destacar que se han incluido diferentes formatos de tabla, en la que se resalta el jugador que se está observando.
 
-**Fanstore:**** (incluye fanstore.html, tarjeta.html, registro.html, inicioSesion.html)**
+**Fanstore:** ** (incluye fanstore.html, tarjeta.html, registro.html, inicioSesion.html)**
 Pertenecer a la Fanstore es algo exclusivo, a lo cual solo se puede acceder si uno se registra:
 ![Captura de pantalla 2022-05-23 a las 22 52 46](https://user-images.githubusercontent.com/98181428/169904487-8555fe58-92b3-4e59-9eb6-c57519d3896b.png)
 
@@ -126,7 +145,19 @@ Una vez se es miembro de la FanStore ya se pueden comprar los diferentes artícu
 
 ![Captura de pantalla 2022-05-23 a las 22 53 35](https://user-images.githubusercontent.com/98181428/169905320-d6f9feff-d6aa-4766-8c1b-5c16acb650bc.png)
 
-**CocaCola StartLight:**** (incluye fotodia.html, nasa.html)**
+
+**Preguntas:** 
+En este apartado se muestran algunas de las preguntas más comunes a las cuales se puede acceder a la respuesta si se pincha en ella. Además cabe la posibilidad de formular preguntas rellenando el formulario de abajo.
+
+![Captura de pantalla 2022-05-23 a las 23 54 38](https://user-images.githubusercontent.com/98181428/169911827-7834ccc1-e43a-447f-9fb5-fe4f4b5ccf4f.png)
+![Captura de pantalla 2022-05-23 a las 23 54 45](https://user-images.githubusercontent.com/98181428/169911835-52d177f7-3aa4-4565-ab39-b9a796d561c6.png)
+
+Una vez se ha formulado la pregunta salta un mensaje de que se ha recogido correctamente y que se responderá a la mayor brevedad posible:
+
+![Captura de pantalla 2022-05-23 a las 23 55 03](https://user-images.githubusercontent.com/98181428/169911903-bf14faed-a43e-40e2-ba13-aa0e8d2521ce.png)
+
+
+**CocaCola StartLight:** ** (incluye fotodia.html, nasa.html)**
 Como se ha explicado anteriormente, esta pestaña muestra una colaboración con la NASA ya que han sacado un abebida intergaláctica. La ventana se ve de la siguiente manera:
 
 ![Captura de pantalla 2022-05-23 a las 23 41 29](https://user-images.githubusercontent.com/98181428/169910381-29500973-b7b5-441e-bd01-61e3813df7cf.png)
