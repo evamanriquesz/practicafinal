@@ -1,0 +1,48 @@
+
+body{
+     background-color:black;
+}
+main{
+     background-color:black;
+     font:Segoe UI, sans-serif;
+     color: white;
+}
+
+th
+{
+   font-size:20px;
+   padding: 10px;
+}
+td
+{
+    font-size:17px;
+    padding: 20px;
+}
+
+h4
+{
+    color:black;
+}
+
+p.card-text
+{
+    font-size: 17px;
+     color:grey;
+}
+
+footer
+{
+    background-color:black;
+}
+
+table {
+  align:center;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
