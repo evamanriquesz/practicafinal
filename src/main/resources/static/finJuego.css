@@ -5,9 +5,24 @@ height:65px;
 th, td
 {
     width: 40px;
+    border-bottom: 1px solid #ddd;
 }
 
 table
 {
-width = "50%";
+    width = "50%";
+   background-color: #F5DAD8;
+  color: black;
+
+}
+
+th, td {
+          border-bottom: 1px solid #ddd;
+        }
+
+tr:hover {background-color: coral;}
+
+th {
+  background-color: #555150;
+  color: white;
 }
