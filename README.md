@@ -74,7 +74,7 @@ Lo mejor de todo, es que no tienes por qué acordarte de cuales has marcado como
 
 ![Captura de pantalla 2022-05-23 a las 23 17 50](https://user-images.githubusercontent.com/98181428/169908877-6b666baa-c7b0-4356-89b7-49357039ecb3.png)
 
-Para finalizar con el apartado de Música, se tiene una serie de botones que van a facilitar la búsqueda,primeramente para saber qué canta cada artista, seguido de 4 secciones en las cuales se muestran los artistas con más de 5, 10, 15 o 20 votos.
+Para finalizar con el apartado de Música, se tiene una serie de botones que van a facilitar la búsqueda,primeramente para saber qué canta cada artista, seguido de 8 secciones en las cuales se muestran los artistas con más de 5, 10, 15 o 20 votos, con o sin sus canciones.
 
 ![Captura de pantalla 2022-05-23 a las 23 18 00](https://user-images.githubusercontent.com/98181428/169909150-ea74fa3a-0fed-4e2f-ad9b-7d8b22bf4ec2.png)
 
