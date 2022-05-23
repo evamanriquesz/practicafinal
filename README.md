@@ -85,14 +85,14 @@ Para finalizar con el apartado de Música, se tiene una serie de botones que van
 ![Captura de pantalla 2022-05-23 a las 23 18 27](https://user-images.githubusercontent.com/98181428/169909196-b7b153b8-6758-485a-8beb-436f32a3a967.png)
 
 
-**Productos:** ** (incluye productos.html)**
+**Productos: (incluye productos.html)**
 
 En esta ventana se pueden ver todos los productos que posee la compañía con unas breves palabras que transmitan la esencia del producto:
 
 ![Captura de pantalla 2022-05-23 a las 23 46 56](https://user-images.githubusercontent.com/98181428/169911178-249712e9-cfdf-40bc-9c17-d8f0654abe28.png)
 ![Captura de pantalla 2022-05-23 a las 23 47 04](https://user-images.githubusercontent.com/98181428/169911188-0f719264-4b3a-41b9-99ad-823511db6ebd.png)
 
-**CocaCola Marvel:** ** (incluye jugadores.html, fácil.html, medio.html, dificil.html, finJuego.html)**
+**CocaCola Marvel: (incluye jugadores.html, fácil.html, medio.html, dificil.html, finJuego.html)**
 En esta pestaña colaborativa con Marvel se puede observar que aparece un formulario para poder registrarnos como jugadores:
 
 ![Captura de pantalla 2022-05-23 a las 22 33 53](https://user-images.githubusercontent.com/98181428/169901675-3dfccef6-1bc4-4e99-bf6b-a7f81857f273.png)
@@ -133,7 +133,7 @@ Como se puede observar se pueden visualizar 4 tablas. La primera muestra las úl
  
 Cabe destacar que se han incluido diferentes formatos de tabla, en la que se resalta el jugador que se está observando.
 
-**Fanstore:** ** (incluye fanstore.html, tarjeta.html, registro.html, inicioSesion.html)**
+**Fanstore: (incluye fanstore.html, tarjeta.html, registro.html, inicioSesion.html)**
 Pertenecer a la Fanstore es algo exclusivo, a lo cual solo se puede acceder si uno se registra:
 ![Captura de pantalla 2022-05-23 a las 22 52 46](https://user-images.githubusercontent.com/98181428/169904487-8555fe58-92b3-4e59-9eb6-c57519d3896b.png)
 
@@ -157,7 +157,7 @@ Una vez se ha formulado la pregunta salta un mensaje de que se ha recogido corre
 ![Captura de pantalla 2022-05-23 a las 23 55 03](https://user-images.githubusercontent.com/98181428/169911903-bf14faed-a43e-40e2-ba13-aa0e8d2521ce.png)
 
 
-**CocaCola StartLight:** ** (incluye fotodia.html, nasa.html)**
+**CocaCola StartLight:(incluye fotodia.html, nasa.html)**
 Como se ha explicado anteriormente, esta pestaña muestra una colaboración con la NASA ya que han sacado un abebida intergaláctica. La ventana se ve de la siguiente manera:
 
 ![Captura de pantalla 2022-05-23 a las 23 41 29](https://user-images.githubusercontent.com/98181428/169910381-29500973-b7b5-441e-bd01-61e3813df7cf.png)
