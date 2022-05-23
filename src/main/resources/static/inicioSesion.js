@@ -37,7 +37,7 @@ async function comprobarU(usuarioId,contra,inicioSes){
                 //SET del parámetro user ID
                 //sessionStorage.setItem("usuarioId", usuarioId); //creo q no hace falta
                 console.log(dentro);
-                if (usuarioId1 === usuarioId && contra1 === contra ){
+                if (usuarioId1 == usuarioId && contra1 == contra ){
                     dentro = true;
                       console.log("Ahora si" + dentro);
                     break;

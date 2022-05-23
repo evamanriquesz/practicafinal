@@ -14,8 +14,7 @@ import org.springframework.data.relational.core.mapping.Table;
 @AllArgsConstructor
 @Table("JUGADORES")
 public class JugadorModel {
-    private @Column("JUGADOR_ID") @Id
-    Long jugadorId;
+    private @Column("JUGADOR_ID") @Id Long jugadorId;
     private @Column("NOMBRE") String nombre;
     private @Column("APELLIDOS") String apellidos;
     private @Column("EDAD") Long edad;

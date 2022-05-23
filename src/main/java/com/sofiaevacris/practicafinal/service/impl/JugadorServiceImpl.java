@@ -59,6 +59,7 @@ public class JugadorServiceImpl implements JugadorService {
 
     @Override
     public JugadorModel insertJugador(JugadorModel jugador) {
+        /*
         JugadorModel j = new JugadorModel();
         j.setJugadorId(jugador.getJugadorId());
         j.setNombre(jugador.getNombre());
@@ -67,9 +68,14 @@ public class JugadorServiceImpl implements JugadorService {
         j.setGenero(jugador.getGenero());
         j.setNivel(jugador.getNivel());
         j.setEmail(jugador.getEmail());
+        j.setAciertos(jugador.getAciertos());
 
-        JugadorModel respuesta = jugadorRepository.save(j);
-        return respuesta;
+
+         */
+        //jdbcTemplate.execute("INSERT INTO JUGADORES(JUGADOR_ID, NOMBRE, APELLIDOS, EDAD, GENERO, EMAIL, NIVEL, ACIERTOS) VALUES (" +jugador.getJugadorId()+ ", "+jugador.getNombre() +", " + jugador.getApellidos() + ", "+ jugador.getEdad() + ", " + jugador.getGenero() + ", " + jugador.getEmail() + ", " + jugador.getNivel() + ", "+ jugador.getAciertos() +");");
+
+        //JugadorModel respuesta = jugadorRepository.save(j);
+        return jugadorRepository.save(jugador);
     }
 
     @Override

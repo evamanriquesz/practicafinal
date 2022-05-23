@@ -1,29 +1,29 @@
-
-
 async function mostrarResultados(){
 
     event.preventDefault();
 
-     let res = await fetch("/api/v1/jugadores",{
+     let resp = await fetch("/api/v1/jugadores",{
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-        }});
+        }})
 
-               }).then(function (resp) {
+                .then(function (resp) {
 
                            // Return the response as JSON
                            return resp.json();
 
-                       }).then(function (data) {
+                       })
+
+               .then(function (data) {
 
                            // Log the API data
                            console.log('data', data);
 
                            //todo lo de mostrar habria que hacerlo aquí o al menos llamar a una función
 
-                               const info_playlists_box = document.getElementById("mostrarResultados"); //zona para la tabla
+                               const info_jugadores_box = document.getElementById("mostrarResultados"); //zona para la tabla
                                let table = document.createElement('table');
                                let thead = document.createElement('thead');
                                let tbody = document.createElement('tbody');
@@ -31,7 +31,7 @@ async function mostrarResultados(){
                                table.appendChild(thead);
                                table.appendChild(tbody);
 
-                               info_playlists_box.appendChild(table);
+                               info_jugadores_box.appendChild(table);
 
                                let row_1 = document.createElement('tr');
 
@@ -64,18 +64,18 @@ async function mostrarResultados(){
 
                                 thead.appendChild(row_1);
 
-                           let max_tracks = data.tracks.limit;
+
                               // console.log(data.tracks.limit);
                                //console.log(data.tracks.items[99].track.name);
 
-                           for (let i = 0; i<max_tracks; i++)
+                           for (let i = 0; i<data.length; i++)
                            {
-                               console.log(data.tracks.items[i].track.name);
+
 
                                let rows_data = document.createElement('tr');
 
                                let heading_1 = document.createElement('td');
-                               heading_1.innerHTML=i+1;
+                               heading_1.insertAdjacentText("beforeend",data[i].jugadorId);
                                let heading_2 = document.createElement('td');
                                heading_2.insertAdjacentText("beforeend",data[i].nombre);
                                let heading_3 = document.createElement('td');
@@ -105,14 +105,10 @@ async function mostrarResultados(){
 
                            }
 
-                       }).catch(function (err) {
+                       })
 
-                           // Log any errors
-                           console.log('something went wrong', err);
 
-                       });
-
-               }).catch(function (err) {
+               .catch(function (err) {
 
                	// Log any errors
                	console.log('something went wrong', err);

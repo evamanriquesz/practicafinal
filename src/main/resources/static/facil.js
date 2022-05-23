@@ -95,10 +95,10 @@ fetch("https://marvel-quote-api.p.rapidapi.com/", {
     if (frase.Title.toLowerCase().includes(intento_pelicula.toLowerCase()))
     {
         contadorCorrectas++;
-        alert("respuesta correcta"+ contadorCorrectas+"/5");
+        alert("respuesta correcta "+ contadorCorrectas+"/5");
         document.getElementById("Pelicula").value = "";
     }else{
-        alert("respuesta incorrecta"+ contadorCorrectas+"/5")
+        alert("respuesta incorrecta "+ contadorCorrectas+"/5")
         document.getElementById("Pelicula").value = "";
     }
         contador++;
