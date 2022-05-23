@@ -9,5 +9,5 @@ import java.util.List;
 public interface UsuarioService {
 
     public List<UsuarioDTO> retrieveAll();
-    public UsuarioModel insertUsuario(UsuarioModel usuarioModel);
+    public void insertUsuario(UsuarioModel usuarioModel);
 }

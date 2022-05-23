@@ -36,8 +36,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public UsuarioModel insertUsuario(UsuarioModel usuarioModel) {
+    public void insertUsuario(UsuarioModel usuarioModel) {
 
+        /*
         UsuarioModel usuarioModel2 = new UsuarioModel();
 
         usuarioModel2.setUsuarioId(usuarioModel.getUsuarioId());
@@ -50,9 +51,19 @@ public class UsuarioServiceImpl implements UsuarioService {
 
         UsuarioModel newUsuarioModel = usuarioRepository.save(usuarioModel2);
 
-
-
         return usuarioModel;
+         */
+
+        Long usuarioId = usuarioModel.getUsuarioId();
+        String contra = usuarioModel.getContra();
+        String nombre = usuarioModel.getNombre();
+        String apellidos = usuarioModel.getApellidos();
+        Long edad = usuarioModel.getEdad();
+        String email = usuarioModel.getEmail();
+        Long telefono = usuarioModel.getTelefono();
+
+        jdbcTemplate.execute("INSERT INTO USUARIOS (USUARIO_ID, CONTRA, NOMBRE, APELLIDOS, EDAD, EMAIL, TELEFONO) VALUES ("+usuarioId+",'"+contra+"','"+nombre+"', '"+ apellidos+"',"+edad+",'"+email+"',"+telefono+");");
+
     }
 
 

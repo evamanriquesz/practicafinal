@@ -7,10 +7,12 @@ main{
 th
 {
    font-size:20px;
+   padding: 10px;
 }
 td
 {
     font-size:17px;
+    padding: 20px;
 }
 
 h4

@@ -43,7 +43,7 @@ async function registrarU(usuarioId, contra, nombre, apellidos, edad, email, tel
 
             regis.innerHTML = "";
 
-            if (res.status == 201){
+            if (res.ok){
                 alert("¡Bienvenido!");
                 location.replace("fanstore.html");
             }else{
@@ -82,7 +82,7 @@ async function usuarioIdNoExiste(usuarioIdNoExiste){
         }});
 
         let noExiste = true;
-        if (res.status == 200){
+        if (res.ok){
             const data = await res.json();
 
             for (let i = 0; i<data.length; i++){
