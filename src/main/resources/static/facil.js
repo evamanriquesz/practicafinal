@@ -53,7 +53,6 @@ let fraseAMostrar =document.getElementById("Frase");
 
 if(contador==4)
 {
-    location.href='finJuego.html';
     modificarJugador();
 }
 fetch("https://marvel-quote-api.p.rapidapi.com/", {
@@ -126,9 +125,9 @@ function hasValue(input, message) {
 async function modificarJugador(){
     event.preventDefault();
 
-    calcularID();
+    let id_max=localStorage.getItem('id');
     const dataObj={
-        "jugadorId":id_max,
+        "jugadorId":localStorage.getItem('id'),
         "aciertos":contadorCorrectas
     };
 
@@ -140,28 +139,10 @@ async function modificarJugador(){
         body: JSON.stringify(dataObj)
     });
 
-    if (res.status == 201){
+    if (res.ok){
         alert("Todo ha ido bien :) Ya puedes iniciar sesión");
-        location.href("resultados.html");
+        location.href= 'finJuego.html';
     }else{
         alert("¡Vaya! Parece que algo ha ido mal :(");
     }
-}
-
-//funcion de otros compañeros
-let id_max=-1;
-function calcularID() {
-    let url = "/api/v1/jugadores/"+localStorage.getItem('id');
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-
-        id_max = data[0].jugador_id;
-        for(let i=1;i<data.length;i++){
-            if (data[i].jugador_id > id_max){
-                id_max = data[i].jugador_id;
-            }
-        }
-
-    })
 }

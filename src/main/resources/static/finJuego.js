@@ -81,15 +81,15 @@ async function mostrarResultados(){
                                let heading_3 = document.createElement('td');
                                heading_3.insertAdjacentText("beforeend",data[i].apellidos);
                                let heading_4 = document.createElement('td');
--                               heading_4.insertAdjacentText("beforeend", data[i].edad);
+                               heading_4.insertAdjacentText("beforeend", data[i].edad);
                                let heading_5 = document.createElement('td');
--                               heading_5.insertAdjacentText("beforeend", data[i].email);
+                               heading_5.insertAdjacentText("beforeend", data[i].email);
                                let heading_6 = document.createElement('td');
--                               heading_6.insertAdjacentText("beforeend", data[i].genero);
+                               heading_6.insertAdjacentText("beforeend", data[i].genero);
                                let heading_7 = document.createElement('td');
--                               heading_7.insertAdjacentText("beforeend", data[i].nivel)
+                               heading_7.insertAdjacentText("beforeend", data[i].nivel)
                                let heading_8 = document.createElement('td');
--                               heading_8.insertAdjacentText("beforeend", data[i].aciertos)
+                               heading_8.insertAdjacentText("beforeend", data[i].aciertos)
 
 
                                rows_data.appendChild(heading_1);

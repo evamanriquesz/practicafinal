@@ -79,7 +79,6 @@ form.addEventListener("click", function (event) {
         apellidos=document.getElementById('apellidos').value;
         edad=document.getElementById('edad').value;
         email=document.getElementById('email').value;
-        aciertos = 1 ;
 
             console.log("los valid");
             console.log(nombreValid);
@@ -90,16 +89,9 @@ form.addEventListener("click", function (event) {
 
 		alert("Se han recogido correctamente sus datos."+"\nLa información recogida es: " +"\nNombre: "+nombre + "\nApellidos: " + apellidos+ "\nEmail: "+ email + "\nEdad: "+ edad+ "\nGenero: "+ tipoGenero+ "\nNivel: "+ selected);
 	   //guardarJugador();
-	     console.log(aciertos);
-	    guardarJugador( nombre, apellidos, edad, tipoGenero, email, selected, aciertos);
+	       localStorage.setItem('id', id_max)
 
-	    if (selected.includes('Facil')){
-            location.href='Facil.html';
-        }else if (selected.includes('Medio')){
-            location.href='medio.html';
-        }else{
-            location.href='dificil.html';
-        }
+	    guardarJugador(nombre, apellidos, edad, tipoGenero, email, selected);
 	}
 
 });
@@ -130,15 +122,26 @@ function ShowSelected()
     /* Para obtener el texto */
     var combo = document.getElementById("nivel");
      selected = combo.options[combo.selectedIndex].text;
+
+
+    if (selected.includes('Facil')){
+         selected='Facil';
+     }else if (selected.includes('Medio')){
+         selected='Medio';
+     }else{
+         selected='Dificil';
+     }
+
 }
 
 
+let id_max=-1;
 
 
 //AQUI EL POST
-async function guardarJugador( nombre, apellidos, edad, tipoGenero, email, selected, aciertos){
+async function guardarJugador( nombre, apellidos, edad, tipoGenero, email, selected){
     event.preventDefault();
-    calcularID();
+
     const dataObj={
         "jugadorId" : id_max,
         "nombre":nombre,
@@ -158,28 +161,35 @@ async function guardarJugador( nombre, apellidos, edad, tipoGenero, email, selec
         body: JSON.stringify(dataObj)
     });
 
-    if (res.status == 201){ //aqui antes pponia 201
+    if (res.ok){
         alert("Todo ha ido bien :) Ya puedes jugar!");
-        //location.href("resultados.html");
+	    if (selected.includes('Facil')){
+            location.href='Facil.html';
+        }else if (selected.includes('Medio')){
+            location.href='medio.html';
+        }else{
+            location.href='dificil.html';
+        }
     }else{
         alert("¡Vaya! Parece que algo ha ido mal en el form:(");
     }
 }
 
-let id_max=-1;
 function calcularID() {
-    let url = "/api/v1/jugadores/"+localStorage.getItem('id');
+    let url = "/api/v1/jugadores/";
     fetch(url)
     .then(response => response.json())
     .then(data => {
-
-        id_max = data[0].jugador_id;
+        console.log(data);
+        id_max = data[0].jugadorId;
         for(let i=1;i<data.length;i++){
-            if (data[i].jugador_id > id_max){
-                id_max = data[i].jugador_id;
+            if (data[i].jugadorId > id_max){
+                id_max = data[i].jugadorId;
             }
         }
 
         id_max=id_max+1;
     })
 }
+
+document.addEventListener('DOMContentLoaded',calcularID());
