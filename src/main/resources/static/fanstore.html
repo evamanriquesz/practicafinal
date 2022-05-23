@@ -12,21 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <style>
+    <script src="fanstore.js"></script>
+    <script src="comun.js"></script>
+   <script>
 
-         .main{
-    background-image: url('https://album.mediaset.es/eimg/2018/10/02/5r988wxOL5q8lXKyRsXDT6.jpg?w=1200&h=900');
-   background-color:black;
-    background-repeat:no-repeat;
-    background-size:100% 100%;
-    margin-top:0px;
-    padding:350px;
-    color:black;
-    }
-
-	</style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
           // Variables
           const baseDeDatos = [
               {
@@ -209,10 +199,19 @@
           DOMbotonVaciar.addEventListener('click', vaciarCarrito);
 
           // Inicio
+
+
           renderizarProductos();
           renderizarCarrito();
+
         });
-    </script>
+
+
+
+
+   </script>
+
+
 </head>
 <body STYLE="background-color:black">
 <header class="p-3 bg-black text-white">
@@ -226,9 +225,9 @@
                 <li><a href="Company.html" class="nav-link px-3 text-white">The CocaCola Company</a></li>
                 <li><a href="Musica.html" class="nav-link px-3 text-white">Música</a></li>
                 <li><a href="Productos.html" class="nav-link px-3 text-white">Productos</a></li>
-                <li><a href="Fanstore.html" class="nav-link px-3 text-white">Fanstore</a></li>
+                <li><a href="inicioSesion.html" class="nav-link px-3 text-secondary">Fanstore</a></li>
                 <li><a href="Preguntas.html" class="nav-link px-3 text-white">Preguntas</a></li>
-                <li><a href="NASA.html" class="nav-link px-3 text-secondary">CocaCola Starlight</a></li>
+                <li><a href="NASA.html" class="nav-link px-3 text-white">CocaCola Starlight</a></li>
                 <li><a href="Juego.html" class="nav-link px-3 text-white">CocaCola-Marvel</a></li>
 
             </ul>
@@ -242,9 +241,7 @@
         <br><br><br><br>
         <h4 style="color:white;" align="center">¿Pensabas que ser FAN nivel experto no iba a tener su recompensa?<br>
             Bienvenido a Coca-Cola Fan Store, el único lugar donde conseguirás artículos exclusivos<br> y las experiencias más alucinantes con tus artistas.
-            <br><br>Canjea los pincodes que encontrarás bajo los tapones de las botellas de Coca-Cola Sabor Original,<br>
-            Coca-Cola ZERO Azúcar, Coca-Cola ZERO Azúcar Zero Cafeína y Coca-Cola Light de PET 500ml y ¡a disfrutar!<br>
-            1 pincode = 10 puntos<br>
+
             <br>
             Alerta, spoiler: dentro de poco podrás hacerte con los productos más top de #CocaColaFanStore desde la nueva app de Coca-Cola.<br>
             <br><br></h4>
@@ -273,7 +270,7 @@
     </div>
 </div>
 </body>
-</html>
+
 
 </main>
 
@@ -299,6 +296,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+<script src="fanstore.js"></script>
+<script src="comun.js"></script>
 </body>
 </html>

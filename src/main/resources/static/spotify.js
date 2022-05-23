@@ -238,7 +238,7 @@ function showArtistas(){
              let nombreArtista1 = artista1["nombreArtista"];
              let favoritos1 = artista1["favoritos"];
 
-             contenidoHTML = contenidoHTML + '<div class ="col-3"> <div class="card" id="ident' + i+1 + ' style="width:18 rem;" ><div class="card-body"><h4 class="card-title"> ' + nombreArtista1 + '</h4><p class="card-text">Favoritos: ' + favoritos1 + '</p><button type="button" class="btn btn-outline-danger" onclick ="anadirFavorito('+artistaId1+')">Añadir Favorito</button> <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal" onclick ="borrarArtista('+artistaId1+')">Eliminar</button> </div></div></div>';
+             contenidoHTML = contenidoHTML + '<div class ="col-3"> <div class="card" id="ident' + i+1 + ' style="width:18 rem;" ><div class="card-body"><h4 class="card-title"> ' + nombreArtista1 + '</h4><p class="card-text">Favoritos: ' + favoritos1 + '</p><button type="button" class="btn btn-outline-danger" onclick ="anadirFavorito('+artistaId1+')">Añadir Favorito</button> <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal" onclick ="borrarArtista('+artistaId1+')">Eliminar</button> <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal" onclick ="verCancionesDelArtista('+artistaId1+')" >Ver Canciones</button> </div></div></div>';
 
 
              console.log("artista " + artistaId1); //ok
@@ -355,11 +355,12 @@ async function hideAC()
 //ESTO ES PARA VER CANCIONES DE CADA ARTISTA
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
+
 function verCancionesDelArtista(artistaId)
 {
-       console.log("se esta ejecutando show canciones by artista");
-        verCDA(artistaId);
+    location.href="#CancionesArtista";
+    console.log("se esta ejecutando show canciones by artista");
+    verCDA(artistaId);
 }
 
 async function verCDA(artistaId)
@@ -410,7 +411,6 @@ async function verCDA(artistaId)
 }
 
 
-*/
 
 
 

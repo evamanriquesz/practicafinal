@@ -6,8 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="tarjeta.js"></script>
+    <link href="tarjeta.css" rel="stylesheet">
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Quiz de JavaScript</title>
+    <title>Pasarela de pago</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -15,10 +18,11 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]-->
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <!-- <script>
+
+     <script>
         var cc_number_saved = "";
         function validar(input){
           var elemento = document.getElementById("cardNumber").value;
@@ -57,57 +61,9 @@
           }
           return (sum % 10) == 0;
         }
-    </script>-->
-    <![endif]-->
-    <style>
-                /* Padding - just for asthetics on Bootsnipp.com */
-        body { margin-top:20px; }
+    </script>
+    <!--[endif]-->
 
-        /* CSS for Credit Card Payment form */
-        .credit-card-box .panel-title {
-            display: inline;
-            font-weight: bold;
-        }
-        .credit-card-box .form-control.error {
-            border-color: red;
-            outline: 0;
-            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
-        }
-        .credit-card-box label.error {
-          font-weight: bold;
-          color: red;
-          padding: 2px 8px;
-          margin-top: 2px;
-        }
-        .credit-card-box .payment-errors {
-          font-weight: bold;
-          color: red;
-          padding: 2px 8px;
-          margin-top: 2px;
-        }
-        .credit-card-box label {
-            display: block;
-        }
-        /* The old "center div vertically" hack */
-        .credit-card-box .display-table {
-            display: table;
-        }
-        .credit-card-box .display-tr {
-            display: table-row;
-        }
-        .credit-card-box .display-td {
-            display: table-cell;
-            vertical-align: middle;
-            width: 50%;
-        }
-        /* Just looks nicer */
-        .credit-card-box .panel-heading img {
-            min-width: 180px;
-        }
-        .customwidth{
-            max-width: 480px
-        }
-    </style>
 </head>
 <body STYLE="background-color:black">
 <header class="p-3 bg-black text-white">
@@ -127,23 +83,19 @@
     <div class="panel panel-default credit-card-box customwidth center-block">
         <div class="panel-heading display-table" >
             <div class="row display-tr" >
-                <h3 class="panel-title display-td" >Payment Details</h3>
+                <h3 class="panel-title display-td" >Detalles del Pago</h3>
                 <div class="display-td" id="cardLogoTop">
                     <img class="img-responsive pull-right" src="https://i.imgur.com/gIMFDbp.png">
-                    <!-- <img class="img-responsive pull-right" src="https://i.imgur.com/WluzPvZ.png">
-                    <img class="img-responsive pull-right" src="https://i.imgur.com/H5lJRwk.png">
-                    <img class="img-responsive pull-right" src="https://i.imgur.com/1U8OBnM.png">
-                    <img class="img-responsive pull-right" src="https://i.imgur.com/iqIDYfz.png">
-                    -->
+
                 </div>
             </div>
         </div>
         <div class="panel-body">
-            <form role="form" id="payment-form" method="post" action="" onSubmit="return false;">
+            <form role="form" id="payment-form" method="post">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="form-group">
-                            <label for="cardNumber">CARD NUMBER</label>
+                            <label for="cardNumber">NUMERO DE TARJETA</label>
                             <div class="input-group">
                                 <input
                                         type="tel"
@@ -160,7 +112,7 @@
   cc_number_saved = this.value;
   this.value = this.value.replace(/[^\d]/g, '');
   if(!validar(this.value)) {
-    alert('Disculpe, este número de atrjeta no es válido');
+    alert('Disculpe, este número de tarjeta no es válido');
     this.value = '';
   }
 " onfocus="
@@ -181,6 +133,7 @@
                                     type="tel"
                                     class="form-control"
                                     name="cardExpiry"
+                                    id = "cardExpiry"
                                     placeholder="MM / YY"
                                     autocomplete="cc-exp"
                                     required
@@ -189,12 +142,13 @@
                     </div>
                     <div class="col-xs-5 col-md-5 pull-right">
                         <div class="form-group">
-                            <label for="cardCVC">CV CODE</label>
+                            <label for="cardCvv">CVV</label>
                             <input
-                                    type="tel"
+                                    type="password"
                                     class="form-control"
-                                    name="cardCVC"
-                                    placeholder="CVC"
+                                    name="cardCvv"
+                                    id="cardCvv"
+                                    placeholder="CVV"
                                     autocomplete="cc-csc"
                                     required
                                     pattern="^[0-9]{4}"
@@ -203,17 +157,48 @@
                         </div>
                     </div>
                 </div>
-                <!--<div class="row">
-                    <div class="col-xs-12">
+
+                <div class="row">
+                    <div class="col-xs-7 col-md-7">
                         <div class="form-group">
-                            <label for="couponCode">COUPON CODE</label>
-                            <input type="text" class="form-control" name="couponCode" />
+                            <label for="usuarioId"><span class="hidden-xs">ID DE USUARIO</span><span class="visible-xs-inline"></span> </label>
+                            <input
+                                    type="tel"
+                                    class="form-control"
+                                    name="usuarioId"
+                                    id="usuarioId"
+                                    placeholder="ID DE USUARIO"
+                                    required
+                            />
                         </div>
                     </div>
-                </div>-->
+                    <div class="col-xs-5 col-md-5 pull-right">
+                        <div class="form-group">
+                            <label for="gasto">GASTO</label>
+                            <input
+                                    type="tel"
+                                    class="form-control"
+                                    name="gasto"
+                                    id="gasto"
+                                    placeholder="GASTO"
+                                    required
+                            />
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-xs-12">
-                        <button onclick="getTarjeta()">Pagar</button>
+
+                        <!--
+                       let numeroTarjeta=document.getElementById('cardNumber').value;
+                       let fechaCaducidad=document.getElementById('cardExpiry').value;
+                       let cvv=document.getElementById('cardCvv').value;
+                       let usuarioId=document.getElementById('usuarioId').value;
+                       let gasto = document.getElementById('gasto').value;
+
+-->
+                        <button type = "submit" id="btnsubmit" onclick="pagado(document.getElementById('cardNumber').value, document.getElementById('cardExpiry').value, document.getElementById('cardCvv').value, document.getElementById('usuarioId').value, document.getElementById('gasto').value)">Pagar</button>
 
                         <div id="result"></div>
                     </div>
@@ -228,11 +213,12 @@
     </div>
     <!-- CREDIT CARD FORM ENDS HERE -->
 </div>
+    </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="fanstore.js" type="text/javascript"></script>
+<script src="tarjeta.js" type="text/javascript"></script>
 
 </html>

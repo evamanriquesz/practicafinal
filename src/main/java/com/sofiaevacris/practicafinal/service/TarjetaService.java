@@ -7,11 +7,11 @@ import com.sofiaevacris.practicafinal.model.UsuarioModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+
 public interface TarjetaService {
     // public List<TarjetaDTO> retrieveAll();
 
-    Iterable<TarjetaModel> retrieveAll();
+    public List<TarjetaModel> retrieveTarjetas();
 
-    public TarjetaModel insertTarjeta(TarjetaModel tarjetaModel);
+    public void insertTarjeta(TarjetaModel tarjetaModel);
 }
