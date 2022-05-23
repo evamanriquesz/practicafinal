@@ -1,5 +1,6 @@
 package com.sofiaevacris.practicafinal.controller;
 
+import com.sofiaevacris.practicafinal.dto.ArtistaCancionDTO;
 import com.sofiaevacris.practicafinal.dto.ArtistaDTO;
 import com.sofiaevacris.practicafinal.model.ArtistaModel;
 import com.sofiaevacris.practicafinal.model.JugadorModel;
@@ -53,6 +54,12 @@ public class ArtistaController {
 
     }
 
+    @GetMapping("/artistas/favoritos/{favoritos}")
+    public ResponseEntity<List<ArtistaModel>> retrieveArtistasByFavoritos(@PathVariable("favoritos") Long favoritos)
+    {
+        List<ArtistaModel> respuesta = artistaService.retrieveArtistaByFavoritos(favoritos);
+        return ResponseEntity.ok().body(respuesta);
+    }
 
 
 }

@@ -3,6 +3,7 @@ package com.sofiaevacris.practicafinal.controller;
 
 import com.sofiaevacris.practicafinal.dto.ArtistaCancionDTO;
 import com.sofiaevacris.practicafinal.dto.CancionDTO;
+import com.sofiaevacris.practicafinal.model.JugadorModel;
 import com.sofiaevacris.practicafinal.service.ArtistaCancionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -84,6 +85,13 @@ public class ArtistaCancionController {
 
     }
     */
+
+    @GetMapping("/artistaCancionAll/favoritos/{favoritos}")
+    public ResponseEntity<List<ArtistaCancionDTO>> retrieveCancionesByFavoritos(@PathVariable("favoritos") Long favoritos)
+    {
+        List<ArtistaCancionDTO> respuesta = artistaCancionService.retrieveArtistaCancionByFavoritos(favoritos);
+        return ResponseEntity.ok().body(respuesta);
+    }
 }
 
 

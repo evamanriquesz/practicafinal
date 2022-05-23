@@ -580,7 +580,335 @@ async function borrar(artistaId)
 }
 
 
+///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA MOSTRAR ARTISTAS CON MAS DE 5 VOTOS
+//////////////////////////////////////////////////////////////////////////////////
+
+function showMasDeCincoVotos()
+{
+    console.log("se esta ejecutando show mas de cinco votos");
+    showMDCV();
+}
+
+async function showMDCV()
+{
+
+     let res = await fetch("/api/v1/artistas/favoritos/5",{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+            }});
+
+            //console.log(res);
+
+            if (res.status == 200){
+                const data = await res.json();
+                //console.log(data);
+
+                const artistas_box = document.getElementById("mostrarArtistaMasDeCinco");
+                let table = document.createElement('table');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                artistas_box.appendChild(table);
+
+                let row_1 = document.createElement('tr');
+
+                let heading_1 = document.createElement('th');
+                heading_1.innerHTML="ID del Artista";
+                let heading_2 = document.createElement('th');
+                heading_2.insertAdjacentText("beforeend","Nombre del Artista");
+                let heading_3 = document.createElement('th');
+                heading_3.insertAdjacentText("beforeend","Favoritos");
+
+
+                 row_1.appendChild(heading_1);
+                 row_1.appendChild(heading_2);
+                 row_1.appendChild(heading_3);
+
+
+                 thead.appendChild(row_1);
+
+            //let max_tracks = data.tracks.limit;
+               // console.log(data.tracks.limit);
+                //console.log(data.tracks.items[99].track.name);
+
+            for (let i = 0; i<data.length; i++)
+            {
+
+                let rows_data = document.createElement('tr');
+
+                let heading_1 = document.createElement('td');
+                heading_1.innerHTML=data[i].artistaId;
+                let heading_2 = document.createElement('td');
+                heading_2.insertAdjacentText("beforeend",data[i].nombreArtista);
+                let heading_3 = document.createElement('td');
+                heading_3.insertAdjacentText("beforeend",data[i].favoritos);
+
+
+                rows_data.appendChild(heading_1);
+                rows_data.appendChild(heading_2);
+                rows_data.appendChild(heading_3);
+
+
+                tbody.appendChild(rows_data);
+
+            }
+
+            }
+}
 
 
 
+///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA MOSTRAR ARTISTAS CON MAS DE 10 VOTOS
+//////////////////////////////////////////////////////////////////////////////////
+
+function showMasDeDiezVotos()
+{
+    console.log("se esta ejecutando show mas de diez votos");
+    showMDDV();
+}
+
+async function showMDDV()
+{
+
+     let res = await fetch("/api/v1/artistas/favoritos/10",{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+            }});
+
+            //console.log(res);
+
+            if (res.status == 200){
+                const data = await res.json();
+                //console.log(data);
+
+                const artistas_box = document.getElementById("mostrarArtistaMasDeDiez");
+                let table = document.createElement('table');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                artistas_box.appendChild(table);
+
+                let row_1 = document.createElement('tr');
+
+                let heading_1 = document.createElement('th');
+                heading_1.innerHTML="ID del Artista";
+                let heading_2 = document.createElement('th');
+                heading_2.insertAdjacentText("beforeend","Nombre del Artista");
+                let heading_3 = document.createElement('th');
+                heading_3.insertAdjacentText("beforeend","Favoritos");
+
+
+                 row_1.appendChild(heading_1);
+                 row_1.appendChild(heading_2);
+                 row_1.appendChild(heading_3);
+
+
+                 thead.appendChild(row_1);
+
+            //let max_tracks = data.tracks.limit;
+               // console.log(data.tracks.limit);
+                //console.log(data.tracks.items[99].track.name);
+
+            for (let i = 0; i<data.length; i++)
+            {
+
+                let rows_data = document.createElement('tr');
+
+                let heading_1 = document.createElement('td');
+                heading_1.innerHTML=data[i].artistaId;
+                let heading_2 = document.createElement('td');
+                heading_2.insertAdjacentText("beforeend",data[i].nombreArtista);
+                let heading_3 = document.createElement('td');
+                heading_3.insertAdjacentText("beforeend",data[i].favoritos);
+
+
+                rows_data.appendChild(heading_1);
+                rows_data.appendChild(heading_2);
+                rows_data.appendChild(heading_3);
+
+
+                tbody.appendChild(rows_data);
+
+            }
+
+            }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA MOSTRAR ARTISTAS CON MAS DE 15 VOTOS
+//////////////////////////////////////////////////////////////////////////////////
+
+function showMasDeQuinceVotos()
+{
+    console.log("se esta ejecutando show mas de quince votos");
+    showMDQV();
+}
+
+async function showMDQV()
+{
+
+     let res = await fetch("/api/v1/artistas/favoritos/15",{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+            }});
+
+            //console.log(res);
+
+            if (res.status == 200){
+                const data = await res.json();
+                //console.log(data);
+
+                const artistas_box = document.getElementById("mostrarArtistaMasDeQuince");
+                let table = document.createElement('table');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                artistas_box.appendChild(table);
+
+                let row_1 = document.createElement('tr');
+
+                let heading_1 = document.createElement('th');
+                heading_1.innerHTML="ID del Artista";
+                let heading_2 = document.createElement('th');
+                heading_2.insertAdjacentText("beforeend","Nombre del Artista");
+                let heading_3 = document.createElement('th');
+                heading_3.insertAdjacentText("beforeend","Favoritos");
+
+
+                 row_1.appendChild(heading_1);
+                 row_1.appendChild(heading_2);
+                 row_1.appendChild(heading_3);
+
+
+                 thead.appendChild(row_1);
+
+            //let max_tracks = data.tracks.limit;
+               // console.log(data.tracks.limit);
+                //console.log(data.tracks.items[99].track.name);
+
+            for (let i = 0; i<data.length; i++)
+            {
+
+                let rows_data = document.createElement('tr');
+
+                let heading_1 = document.createElement('td');
+                heading_1.innerHTML=data[i].artistaId;
+                let heading_2 = document.createElement('td');
+                heading_2.insertAdjacentText("beforeend",data[i].nombreArtista);
+                let heading_3 = document.createElement('td');
+                heading_3.insertAdjacentText("beforeend",data[i].favoritos);
+
+
+                rows_data.appendChild(heading_1);
+                rows_data.appendChild(heading_2);
+                rows_data.appendChild(heading_3);
+
+
+                tbody.appendChild(rows_data);
+
+            }
+
+            }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//ESTO ES PARA MOSTRAR ARTISTAS CON MAS DE 20 VOTOS
+//////////////////////////////////////////////////////////////////////////////////
+
+function showMasDeVeinteVotos()
+{
+    console.log("se esta ejecutando show mas de veinte votos");
+    showMDVV();
+}
+
+async function showMDVV()
+{
+
+     let res = await fetch("/api/v1/artistas/favoritos/20",{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+            }});
+
+            //console.log(res);
+
+            if (res.status == 200){
+                const data = await res.json();
+                //console.log(data);
+
+                const artistas_box = document.getElementById("mostrarArtistaMasDeVeinte");
+                let table = document.createElement('table');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                artistas_box.appendChild(table);
+
+                let row_1 = document.createElement('tr');
+
+                let heading_1 = document.createElement('th');
+                heading_1.innerHTML="ID del Artista";
+                let heading_2 = document.createElement('th');
+                heading_2.insertAdjacentText("beforeend","Nombre del Artista");
+                let heading_3 = document.createElement('th');
+                heading_3.insertAdjacentText("beforeend","Favoritos");
+
+
+                 row_1.appendChild(heading_1);
+                 row_1.appendChild(heading_2);
+                 row_1.appendChild(heading_3);
+
+
+                 thead.appendChild(row_1);
+
+            //let max_tracks = data.tracks.limit;
+               // console.log(data.tracks.limit);
+                //console.log(data.tracks.items[99].track.name);
+
+            for (let i = 0; i<data.length; i++)
+            {
+
+                let rows_data = document.createElement('tr');
+
+                let heading_1 = document.createElement('td');
+                heading_1.innerHTML=data[i].artistaId;
+                let heading_2 = document.createElement('td');
+                heading_2.insertAdjacentText("beforeend",data[i].nombreArtista);
+                let heading_3 = document.createElement('td');
+                heading_3.insertAdjacentText("beforeend",data[i].favoritos);
+
+
+                rows_data.appendChild(heading_1);
+                rows_data.appendChild(heading_2);
+                rows_data.appendChild(heading_3);
+
+
+                tbody.appendChild(rows_data);
+
+            }
+
+            }
+}
 

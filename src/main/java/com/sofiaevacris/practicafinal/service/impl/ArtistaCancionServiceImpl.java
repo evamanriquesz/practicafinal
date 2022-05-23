@@ -2,6 +2,7 @@ package com.sofiaevacris.practicafinal.service.impl;
 
 import com.sofiaevacris.practicafinal.dto.ArtistaCancionDTO;
 import com.sofiaevacris.practicafinal.model.ArtistaModel;
+import com.sofiaevacris.practicafinal.model.JugadorModel;
 import com.sofiaevacris.practicafinal.repository.ArtistaCancionRepository;
 import com.sofiaevacris.practicafinal.service.ArtistaCancionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,26 @@ public class ArtistaCancionServiceImpl implements ArtistaCancionService {
         );
 
         return artistaCancionDTOS;
+    }
+
+    @Override
+    public List<ArtistaCancionDTO> retrieveArtistaCancionByFavoritos(Long favoritos) {
+        String query =" SELECT CANCIONES.CANCION_ID, CANCIONES.NOMBRE_CANCION, VOTOS.ARTISTA_ID, VOTOS.NOMBRE_ARTISTA, CANCIONES.ALBUM, VOTOS.FAVORITOS FROM VOTOS INNER JOIN CANCIONES WHERE VOTOS.FAVORITOS >= "+favoritos ;
+
+
+        List<ArtistaCancionDTO> artistaCancionDTO = jdbcTemplate.query(
+                query,
+                (data, rowNum) ->
+                        new ArtistaCancionDTO(
+                                data.getLong("CANCION_ID"),
+                                data.getString("NOMBRE_CANCION"),
+                                data.getLong("ARTISTA_ID"),
+                                data.getString("NOMBRE_ARTISTA"),
+                                data.getString("ALBUM"),
+                                data.getLong("FAVORITOS")
+                        )
+        );
+        return artistaCancionDTO;
     }
 
 

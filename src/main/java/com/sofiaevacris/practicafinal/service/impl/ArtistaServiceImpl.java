@@ -1,5 +1,6 @@
 package com.sofiaevacris.practicafinal.service.impl;
 
+import com.sofiaevacris.practicafinal.dto.ArtistaCancionDTO;
 import com.sofiaevacris.practicafinal.dto.ArtistaDTO;
 import com.sofiaevacris.practicafinal.model.ArtistaModel;
 import com.sofiaevacris.practicafinal.repository.ArtistaRepository;
@@ -73,8 +74,9 @@ public class ArtistaServiceImpl implements ArtistaService {
     }
 
     @Override
-    public List<ArtistaModel> retrieveArtistaByVotos(Long favoritos) {
-        String query = " SELECT * FROM VOTOS  WHERE  VOTOS.FAVORITOS = '"+favoritos + "'; ";
+    public List<ArtistaModel> retrieveArtistaByFavoritos(Long favoritos) {
+        String query =" SELECT VOTOS.ARTISTA_ID, VOTOS.NOMBRE_ARTISTA, VOTOS.FAVORITOS FROM VOTOS WHERE VOTOS.FAVORITOS >= "+favoritos ;
+
 
         List<ArtistaModel> artistaModel = jdbcTemplate.query(
                 query,
@@ -87,6 +89,7 @@ public class ArtistaServiceImpl implements ArtistaService {
         );
         return artistaModel;
     }
+
 }
 
 

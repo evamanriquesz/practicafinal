@@ -1,6 +1,7 @@
 
 package com.sofiaevacris.practicafinal.service;
 
+import com.sofiaevacris.practicafinal.dto.ArtistaCancionDTO;
 import com.sofiaevacris.practicafinal.dto.ArtistaDTO;
 import com.sofiaevacris.practicafinal.model.ArtistaModel;
 
@@ -11,6 +12,7 @@ public interface ArtistaService {
     ArtistaModel updateArtista(Long artistaId, ArtistaModel artistaModel);
     public ArtistaModel retrieveArtista(Long artistaId);
     public void deleteArtistaModel(Long artistaId);
+    public List<ArtistaModel> retrieveArtistaByFavoritos(Long favoritos);
 
 
 }
