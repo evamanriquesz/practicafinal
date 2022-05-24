@@ -88,7 +88,7 @@ Para finalizar con el apartado de Música, se tiene una serie de botones que van
 
 ![WhatsApp Image 2022-05-24 at 12 48 00 AM](https://user-images.githubusercontent.com/98181428/169916984-2fc4ade6-2cb1-4d09-928a-e6b2b2f76330.jpeg)
 
-
+Mencionar también que para poder mostrar la playlist es necesario poder acceder a la api de Spotify, la cual tiene seguridad. Dicha seguridad es una autorización de tipo Client Credentials Flow,la cual realiza un post del client_id y del secret_id para obtener un token. Una vez se obtiene el token se puede usar para acceder a las playlists.
 
 **Productos: (incluye productos.html)**
 
@@ -218,5 +218,5 @@ Finalmente, a modo de resumen, se quieren recoger las diferentes y vistas y tabl
 
 -Tarjetas por usuarios
 
-
+Finalizar diciendo también que el programa cuenta con una serie de test para verificar el correcto funcionamiento.
 
